@@ -32,8 +32,14 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                     <li><a href="/StokTakip/Home"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fa fa-edit"></i> Projects</a></li>
-                    <li><a href="#"><i class="fa fa-money"></i> Budget</a></li>
+                    <li><a><i class="fa fa-edit"></i> Stok <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="/StokTakip/StokTakp">Stok Takip</a></li>
+                            <li><a href="/StokTakip/Kategoriler">Kategoriler</a></li>
+                            <li><a href="/StokTakip/UrunEkleme">Ürün Ekleme</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-money"></i> Kasa</a></li>
                     <li><a href="#"><i class="fa fa-desktop"></i> General Status</a></li>
                     <li><a href="#"><i class="fa fa-line-chart"></i> Personnel Performance</a></li>
                     <li><a href="#"><i class="fa fa-users"></i> Staff</a></li>
