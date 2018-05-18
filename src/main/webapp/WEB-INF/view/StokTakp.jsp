@@ -36,86 +36,72 @@
                     <div class="">
                         <div class="clearfix"></div>
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="x_panel">
-                                    <div class="x_title">
-                                        <h2>Stok Kategorileri</h2>
-                                        <ul class="nav navbar-right panel_toolbox">
-                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                            </li>
-                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                            </li>
-                                        </ul>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="x_content">
-                                        <div class="col-md-12 col-sm-6 col-xs-12">
-                                            <div class="x_panel">
-                                                <div class="x_title">
-                                                    <h2>Stok Takip</h2>                                                  
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <div class="x_content">
-                                                    <div class="x_content">                                                        
-                                                        <table id="datatable-buttons" class="table table-striped table-bordered">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Detay</th>
-                                                                    <th>Kategori</th>
-                                                                    <th>Urun Adi</th>
-                                                                    <th>Stok Sayisi</th>
-                                                                    <th>Toplam Stok Fiyati</th>
-                                                                    <th>Birim Fiyati</th>
-                                                                </tr>
-                                                            </thead>
+                            <div class="x_content">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Stok Takip</h2>                                                  
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="x_content">                                                        
+                                                <table id="datatable-buttons" class="table table-striped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Detay</th>
+                                                            <th>Kategori</th>
+                                                            <th>Urun Adi</th>
+                                                            <th>Stok Sayisi</th>
+                                                            <th>Toplam Stok Fiyati</th>
+                                                            <th>Birim Fiyati</th>
+                                                        </tr>
+                                                    </thead>
 
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                                    <td>Turk Kahvesi</td>
-                                                                    <td>Almanci Kahvesi</td>
-                                                                    <td>150</td>
-                                                                    <td>$1100</td>
-                                                                    <td>$320,800</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                                    <td>Turk Kahvesi</td>
-                                                                    <td>Erzincan Kahvesi</td>
-                                                                    <td>15</td>
-                                                                    <td>$500</td>
-                                                                    <td>$320,800</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                                    <td>Pure</td>
-                                                                    <td>Patates Puresi</td>
-                                                                    <td>61</td>
-                                                                    <td>$700</td>
-                                                                    <td>$320,800</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                                    <td>Sos</td>
-                                                                    <td>Muz Sosu</td>
-                                                                    <td>30</td>
-                                                                    <td>$200</td>
-                                                                    <td>$320,800</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                                    <td>Surup</td>
-                                                                    <td>Ananas Surubu</td>
-                                                                    <td>20</td>
-                                                                    <td>$50</td>
-                                                                    <td>$320,800</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                </div>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td>Turk Kahvesi</td>
+                                                            <td>Almanci Kahvesi</td>
+                                                            <td>150</td>
+                                                            <td>$1100</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td>Turk Kahvesi</td>
+                                                            <td>Erzincan Kahvesi</td>
+                                                            <td>15</td>
+                                                            <td>$500</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td>Pure</td>
+                                                            <td>Patates Puresi</td>
+                                                            <td>61</td>
+                                                            <td>$700</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td>Sos</td>
+                                                            <td>Muz Sosu</td>
+                                                            <td>30</td>
+                                                            <td>$200</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td>Surup</td>
+                                                            <td>Ananas Surubu</td>
+                                                            <td>20</td>
+                                                            <td>$50</td>
+                                                            <td>$320,800</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +110,8 @@
                     </div>
                 </div>
                 <!-- footer content -->
-
+                <footer>
+                </footer>
                 <!-- /footer content -->
             </div>
         </div>
