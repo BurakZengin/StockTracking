@@ -40,7 +40,28 @@
                                 <div class="col-md-12 col-sm-6 col-xs-12">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Stok Takip</h2>                                                  
+                                            <h2>Islemler</h2>                                                  
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="x_content">                                                        
+                                                <div class="col-md-12 col-sm-6 col-xs-12" >
+                                                    <a href="/StokTakip/CariTahsilat" class="btn btn-primary">Yeni Satis Faturasi</a>
+                                                    <a href="/StokTakip/CariOdeme" class="btn btn-dark">Yeni Alis Faturasi</a>
+                                                    <a href="/StokTakip/CariAlacaklandir" class="btn btn-warning">Yeni Irsaliye</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="x_content">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Fatura</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -49,59 +70,64 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 5%">Detay</th>
-                                                            <th>Kategori</th>
-                                                            <th>Urun Adi</th>
-                                                            <th style="width: 10%">Stok Sayisi</th>
-                                                            <th style="width: 10%">Toplam Stok Fiyati</th>
-                                                            <th style="width: 10%">Birim Fiyati</th>
+                                                            <th style="width: 20%">Unvan</th>
+                                                            <th style="width: 20%">Yetkili</th>
+                                                            <th style="width: 10%">Tarih</th>
+                                                            <th style="width: 15%">Turu</th>
+                                                            <th style="width: 10%">Genel Toplam</th>
+                                                            <th style="width: 10%">Odeme Sekli</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <tr>
                                                             <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Turk Kahvesi</td>
-                                                            <td>Almanci Kahvesi</td>
-                                                            <td>150</td>
-                                                            <td>$1100</td>
+                                                            <td>Genel Mudur</td>
+                                                            <td>Ceren Kisakol</td>
+                                                            <td>19/09/2017</td>
+                                                            <td>Satis Faturasi</td>
                                                             <td>$320,800</td>
+                                                            <td>Nakit</td>
                                                         </tr>
                                                         <tr>
                                                             <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Turk Kahvesi</td>
-                                                            <td>Erzincan Kahvesi</td>
-                                                            <td>15</td>
-                                                            <td>$500</td>
+                                                            <td>Genel Mudur</td>
+                                                            <td>Ceren Kisakol</td>
+                                                            <td>19/09/2017</td>
+                                                            <td>Satis Faturasi</td>
                                                             <td>$320,800</td>
+                                                            <td>Nakit</td>
                                                         </tr>
                                                         <tr>
                                                             <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Pure</td>
-                                                            <td>Patates Puresi</td>
-                                                            <td>61</td>
-                                                            <td>$700</td>
+                                                            <td>Genel Mudur</td>
+                                                            <td>Ceren Kisakol</td>
+                                                            <td>19/09/2017</td>
+                                                            <td>Satis Faturasi</td>
                                                             <td>$320,800</td>
+                                                            <td>Nakit</td>
                                                         </tr>
                                                         <tr>
                                                             <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Sos</td>
-                                                            <td>Muz Sosu</td>
-                                                            <td>30</td>
-                                                            <td>$200</td>
+                                                            <td>Genel Mudur</td>
+                                                            <td>Ceren Kisakol</td>
+                                                            <td>19/09/2017</td>
+                                                            <td>Satis Faturasi</td>
                                                             <td>$320,800</td>
+                                                            <td>Nakit</td>
                                                         </tr>
                                                         <tr>
                                                             <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Surup</td>
-                                                            <td>Ananas Surubu</td>
-                                                            <td>20</td>
-                                                            <td>$50</td>
+                                                            <td>Genel Mudur</td>
+                                                            <td>Ceren Kisakol</td>
+                                                            <td>19/09/2017</td>
+                                                            <td>Satis Faturasi</td>
                                                             <td>$320,800</td>
+                                                            <td>Nakit</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +168,6 @@
         <script src="static/vendors/jszip/dist/jszip.min.js"></script>
         <script src="static/vendors/pdfmake/build/pdfmake.min.js"></script>
         <script src="static/vendors/pdfmake/build/vfs_fonts.js"></script>
-
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
     </body>

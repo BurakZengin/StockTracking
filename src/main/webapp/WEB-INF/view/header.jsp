@@ -7,7 +7,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="/StokTakip/Home" class="site_title"><i class="fa fa-paw"></i> <span> R&D Software</span></a>
+            <a href="/StokTakip/Home" class="site_title"><i class="fa fa-paw"></i> <span> Stok Takip</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -18,7 +18,7 @@
                 <img src="static/images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
-                <span>Welcome,</span>
+                <span>Hosgeldiniz,</span>
                 <h2 style="text-transform: capitalize;">${name}${surname}</h2>
             </div>
         </div>
@@ -29,26 +29,24 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                <h3>General</h3>
+                <h3>Genel</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/StokTakip/Home"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a><i class="fa fa-edit"></i> Stok <span class="fa fa-chevron-down"></span></a>
+                    <li><a href="/StokTakip/Home"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                    <li><a><i class="fa fa-line-chart"></i> Stok <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/StokTakip/StokTakp">Stok Takip</a></li>
                             <li><a href="/StokTakip/Kategoriler">Kategoriler</a></li>
                             <li><a href="/StokTakip/UrunEkleme">Ürün Ekleme</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-edit"></i> Cari Hesaplar <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-users"></i> Cari Hesaplar <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/StokTakip/CariTakip">Cari Takip</a></li>
                             <li><a href="/StokTakip/CariEkle">Cari Ekle</a></li>
                         </ul>
                     </li>
                     <li><a href="/StokTakip/Kasa"><i class="fa fa-money"></i> Kasa</a></li>
-                    <li><a href="#"><i class="fa fa-line-chart"></i> Personnel Performance</a></li>
-                    <li><a href="#"><i class="fa fa-users"></i> Staff</a></li>
-                    <li><a href="#"><i class="fa fa-question"></i> Issue</a></li>
+                    <li><a href="/StokTakip/Fatura"><i class="fa fa-credit-card"></i> Fatura</a></li>
                 </ul>
             </div>
         </div>
@@ -75,8 +73,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="/StokTakip/Profile"> Profile</a></li>
-                        <li><a href="/StokTakip/Logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                        <li><a href="/StokTakip/Logout"><i class="fa fa-sign-out pull-right"></i> Cikis Yap</a></li>
                     </ul>
                 </li>
             </ul>

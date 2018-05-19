@@ -44,10 +44,10 @@
                                     <table id="datatable-buttons" class="table table-striped table-bordered">
                                         <thead>
                                             <tr>                                                                    
-                                                <th style="width:10%">Islem</th>
+                                                <th style="width:5%">Islem</th>
                                                 <th>Cari Adi</th>
                                                 <th style="width:15%">Cep</th>
-                                                <th>Bakiye</th>  
+                                                <th style="width:15%">Bakiye</th>  
                                             </tr>
                                         </thead>
 

@@ -234,20 +234,19 @@
                                                 <table id="datatable-buttons" class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>
-                                                            <th style="width: 15%;">Detay</th>
-                                                            <th style="width: 15%;">Tarih</th>
+                                                            <th style="width: 10%;">Detay</th>
+                                                            <th style="width: 10%;">Tarih</th>
                                                             <th>Aciklama</th>
-                                                            <th>Borc</th>
-                                                            <th>Alacak</th>
+                                                            <th style="width: 10%;">Borc</th>
+                                                            <th style="width: 10%;">Alacak</th>
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <tr>
                                                             <td>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                                                             </td>
                                                             <td>19/09/2018</td>
                                                             <td>Almanci Kahvesi</td>
@@ -256,9 +255,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                                                             </td>
                                                             <td>19/09/2018</td>
                                                             <td>Erzincan Kahvesi</td>
@@ -267,9 +265,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                                                             </td>
                                                             <td>19/09/2018</td>
                                                             <td>Patates Puresi</td>
@@ -278,9 +275,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                                                             </td>
                                                             <td>19/09/2018</td>
                                                             <td>Muz Sosu</td>
@@ -289,9 +285,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
-                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-pencil"></i></a>
+                                                                <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
                                                             </td>
                                                             <td>19/09/2018</td>
                                                             <td>Ananas Surubu</td>
