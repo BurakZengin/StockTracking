@@ -23,10 +23,10 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/Home")
-    public String Home(Model m, HttpSession session) {
+    @RequestMapping(value = "/Anasayfa")
+    public String Anasayfa(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
-            return "Home";
+            return "Anasayfa";
         } else {
             return "redirect:/";
         }

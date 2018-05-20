@@ -42,7 +42,7 @@ public class LoginController {
         } else {
             //SUCCESS
             addUserInSession(loggedInUser, session);
-            return "redirect:Home";
+            return "redirect:Anasayfa";
         }
     }
 
@@ -50,7 +50,7 @@ public class LoginController {
     public String GetLogin(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
         m.addAttribute("command", new LoginCommand());
         if (HomeController.nameSurname(m, session)) {
-            return "redirect:Home";
+            return "redirect:Anasayfa";
         } else {
             return "Login";
         }

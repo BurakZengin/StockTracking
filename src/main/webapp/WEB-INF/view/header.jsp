@@ -31,7 +31,7 @@
             <div class="menu_section">
                 <h3>Genel</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/StokTakip/Home"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="/StokTakip/Anasayfa"><i class="fa fa-home"></i> Ana Sayfa</a></li>
                     <li><a><i class="fa fa-line-chart"></i> Stok <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/StokTakip/StokTakp">Stok Takip</a></li>
