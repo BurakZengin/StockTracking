@@ -56,7 +56,7 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
-                    <f:form class="login100-form validate-form" id="loginForm" action="/Login" modelAttribute="command" method="post">
+                    <f:form class="login100-form validate-form" id="loginForm" action="Login" modelAttribute="command" method="post">
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>

@@ -59,7 +59,7 @@
 
                                                     <tbody>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Turk Kahvesi</td>
                                                             <td>Almanci Kahvesi</td>
                                                             <td>150</td>
@@ -67,7 +67,7 @@
                                                             <td>$320,800</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Turk Kahvesi</td>
                                                             <td>Erzincan Kahvesi</td>
                                                             <td>15</td>
@@ -75,7 +75,7 @@
                                                             <td>$320,800</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Pure</td>
                                                             <td>Patates Puresi</td>
                                                             <td>61</td>
@@ -83,7 +83,7 @@
                                                             <td>$320,800</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Sos</td>
                                                             <td>Muz Sosu</td>
                                                             <td>30</td>
@@ -91,7 +91,7 @@
                                                             <td>$320,800</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Surup</td>
                                                             <td>Ananas Surubu</td>
                                                             <td>20</td>

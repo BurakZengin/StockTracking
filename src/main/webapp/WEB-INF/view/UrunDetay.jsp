@@ -125,8 +125,8 @@
                                                     </div>                                                                                                                                                                   
                                                     <div class="ln_solid"></div>                                                                  
                                                     <div class="col-md-8">
-                                                        <a href="/StokTakip/UrunDetay" class="btn btn-success btn-md col-md-5"><i class="glyphicon glyphicon-plus"></i> Stok Ekle</a>
-                                                        <a href="/StokTakip/UrunDetay" class="btn btn-danger btn-md col-md-5"><i class="glyphicon glyphicon-minus"></i> Stok Cikar</a>
+                                                        <a href="/UrunDetay" class="btn btn-success btn-md col-md-5"><i class="glyphicon glyphicon-plus"></i> Stok Ekle</a>
+                                                        <a href="/UrunDetay" class="btn btn-danger btn-md col-md-5"><i class="glyphicon glyphicon-minus"></i> Stok Cikar</a>
                                                     </div>  
                                                 </form>
                                             </div>

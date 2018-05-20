@@ -68,8 +68,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <a href="/StokTakip/KasaGiris" class="btn btn-success">Giris Yap (+)</a>
-                                    <a href="/StokTakip/KasaCikis" class="btn btn-danger">Cikis Yap (-)</a>
+                                    <a href="/KasaGiris" class="btn btn-success">Giris Yap (+)</a>
+                                    <a href="/KasaCikis" class="btn btn-danger">Cikis Yap (-)</a>
                                 </div>
                             </div>
                         </div>

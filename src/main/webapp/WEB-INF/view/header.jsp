@@ -7,7 +7,7 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="/StokTakip/Home" class="site_title"><i class="fa fa-paw"></i> <span> Stok Takip</span></a>
+            <a href="/Anasayfa" class="site_title"><i class="fa fa-paw"></i> <span> Stok Takip</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -31,22 +31,22 @@
             <div class="menu_section">
                 <h3>Genel</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/StokTakip/Anasayfa"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i> Ana Sayfa</a></li>
                     <li><a><i class="fa fa-line-chart"></i> Stok <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/StokTakip/StokTakp">Stok Takip</a></li>
-                            <li><a href="/StokTakip/Kategoriler">Kategoriler</a></li>
-                            <li><a href="/StokTakip/UrunEkleme">Ürün Ekleme</a></li>
+                            <li><a href="/StokTakp">Stok Takip</a></li>
+                            <li><a href="/Kategoriler">Kategoriler</a></li>
+                            <li><a href="/UrunEkleme">Ürün Ekleme</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-users"></i> Cari Hesaplar <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="/StokTakip/CariTakip">Cari Takip</a></li>
-                            <li><a href="/StokTakip/CariEkle">Cari Ekle</a></li>
+                            <li><a href="/CariTakip">Cari Takip</a></li>
+                            <li><a href="/CariEkle">Cari Ekle</a></li>
                         </ul>
                     </li>
-                    <li><a href="/StokTakip/Kasa"><i class="fa fa-money"></i> Kasa</a></li>
-                    <li><a href="/StokTakip/Fatura"><i class="fa fa-credit-card"></i> Fatura</a></li>
+                    <li><a href="/Kasa"><i class="fa fa-money"></i> Kasa</a></li>
+                    <li><a href="/Fatura"><i class="fa fa-credit-card"></i> Fatura</a></li>
                 </ul>
             </div>
         </div>
@@ -73,7 +73,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="/StokTakip/Logout"><i class="fa fa-sign-out pull-right"></i> Cikis Yap</a></li>
+                        <li><a href="/Logout"><i class="fa fa-sign-out pull-right"></i> Cikis Yap</a></li>
                     </ul>
                 </li>
             </ul>

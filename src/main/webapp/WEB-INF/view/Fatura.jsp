@@ -46,9 +46,9 @@
                                         <div class="x_content">
                                             <div class="x_content">                                                        
                                                 <div class="col-md-12 col-sm-6 col-xs-12" >
-                                                    <a href="/StokTakip/CariTahsilat" class="btn btn-primary">Yeni Satis Faturasi</a>
-                                                    <a href="/StokTakip/CariOdeme" class="btn btn-dark">Yeni Alis Faturasi</a>
-                                                    <a href="/StokTakip/CariAlacaklandir" class="btn btn-warning">Yeni Irsaliye</a>
+                                                    <a href="/CariTahsilat" class="btn btn-primary">Yeni Satis Faturasi</a>
+                                                    <a href="/CariOdeme" class="btn btn-dark">Yeni Alis Faturasi</a>
+                                                    <a href="/CariAlacaklandir" class="btn btn-warning">Yeni Irsaliye</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@
 
                                                     <tbody>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Genel Mudur</td>
                                                             <td>Ceren Kisakol</td>
                                                             <td>19/09/2017</td>
@@ -90,7 +90,7 @@
                                                             <td>Nakit</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Genel Mudur</td>
                                                             <td>Ceren Kisakol</td>
                                                             <td>19/09/2017</td>
@@ -99,7 +99,7 @@
                                                             <td>Nakit</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Genel Mudur</td>
                                                             <td>Ceren Kisakol</td>
                                                             <td>19/09/2017</td>
@@ -108,7 +108,7 @@
                                                             <td>Nakit</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Genel Mudur</td>
                                                             <td>Ceren Kisakol</td>
                                                             <td>19/09/2017</td>
@@ -117,7 +117,7 @@
                                                             <td>Nakit</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><a href="/StokTakip/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                             <td>Genel Mudur</td>
                                                             <td>Ceren Kisakol</td>
                                                             <td>19/09/2017</td>
