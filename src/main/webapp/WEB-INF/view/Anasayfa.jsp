@@ -52,32 +52,32 @@
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-users"></i> Musteriler</span>
                             <div class="count">200</div>
-                            <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+                            <span class="count_bottom"><i class="green">4% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-dollar"></i> Toplam Satis</span>
                             <div class="count">123.50 $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Toplam Vade</span>
-                            <div class="count dark">Not Bad</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                            <div class="count dark">500 $</div>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-battery-half"></i> Stogu Biten Urunler</span>
-                            <div class="count green">Good</div>
-                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
+                            <div class="count green">3</div>
+                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-line-chart"></i> Toplam Stok Degeri</span>
                             <div class="count">2,315 $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Gunsonu Kar</span>
                             <div class="count">7,325 $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
+                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                     </div>
                     <!-- /top tiles -->
@@ -87,13 +87,12 @@
 
                                 <div class="row x_title">
                                     <div class="col-md-6">
-                                        <h3>Haftalik Ciro</h3>
+                                        <h3>Haftalik Ciro Dagilimi</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div id="chart_plot_01" class="demo-placeholder"></div>
                                 </div>
-
                                 <div class="clearfix"></div>
                             </div>
                         </div>
@@ -103,7 +102,7 @@
                         <div class="col-md-6">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Haftalik Satis</h2>
+                                    <h2>Haftalik Satis Dagilimi</h2>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
@@ -141,7 +140,7 @@
                         <div class="col-md-6 col-sm-8 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Haftalik Gider</h2>
+                                    <h2>Haftalik Gider Dagilimi</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
