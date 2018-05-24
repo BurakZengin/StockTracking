@@ -193,10 +193,10 @@
                             </div>
                             <div class="x_content">
                                 <div class="col-md-12 col-sm-6 col-xs-12" >
+                                    <a href="/CariAlacaklandir" class="btn btn-info">Satis Yap</a>
+                                    <a href="/CariBorclandir" class="btn btn-warning">Mal Al</a>
                                     <a href="/CariTahsilat" class="btn btn-primary">Tahsilat</a>
-                                    <a href="/CariOdeme" class="btn btn-dark">Odeme</a>
-                                    <a href="/CariAlacaklandir" class="btn btn-info">Alacaklandirma</a>
-                                    <a href="/CariBorclandir" class="btn btn-warning">Borclandirma</a>
+                                    <a href="/CariOdeme" class="btn btn-dark">Odeme</a>                                    
                                 </div>
                             </div>
                         </div>
