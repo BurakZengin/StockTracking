@@ -93,12 +93,45 @@
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="stokSayisi">
                                                     </div>
-                                                   
+
                                                 </div>
                                                 <div class="ln_solid"></div>
                                                 <div class="form-group">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                                         <button type="submit" class="btn btn-success">Ekle</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="x_content">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Urun Silme</h2>                                                  
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <br />
+                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='/UrunSilSubmit' method="POST">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Adi</label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <select id="heard" class="form-control" name="urunAdi">
+                                                            <c:forEach var="c" items="${urunList}">                                                               
+                                                                <option value="${c.urunAdi}">${c.urunAdi}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                        <button type="submit" class="btn btn-danger">Sil</button>
                                                     </div>
                                                 </div>
                                             </form>

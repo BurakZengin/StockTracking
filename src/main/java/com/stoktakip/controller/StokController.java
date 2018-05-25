@@ -90,9 +90,25 @@ public class StokController {
     @RequestMapping(value = "/UrunEkleme")
     public String UrunEkleme(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
-            List<Kategoriler> list = kategorilerService.findAll();
-            m.addAttribute("urunKategori", list);
+            List<Kategoriler> listKategori = kategorilerService.findAll();
+            List<Urun> listUrun = urunService.findAll();
+            m.addAttribute("urunList", listUrun);
+            m.addAttribute("urunKategori", listKategori);
             return "UrunEkleme";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/UrunSilSubmit", method = RequestMethod.POST)
+    public String UrunSilSubmit(Model m, HttpSession session,
+            @RequestParam("urunAdi") String urunAdi) {
+        if (nameSurname(m, session)) {
+            List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
+            for (Urun urun : u) {
+                urunService.delete(urun);
+            }
+            return "redirect:UrunEkleme";
         } else {
             return "redirect:/";
         }

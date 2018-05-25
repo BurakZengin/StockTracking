@@ -36,7 +36,7 @@
                         <ul class="nav child_menu">
                             <li><a href="/StokTakp">Stok Takip</a></li>
                             <li><a href="/Kategoriler">Kategoriler</a></li>
-                            <li><a href="/UrunEkleme">Ürün Ekleme</a></li>
+                            <li><a href="/UrunEkleme">Ürün Ekleme / Silme</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-users"></i> Cari Hesaplar <span class="fa fa-chevron-down"></span></a>
