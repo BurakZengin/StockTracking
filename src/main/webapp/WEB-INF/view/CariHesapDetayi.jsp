@@ -1,4 +1,5 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Cari Hesap Detayi | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +62,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-4 col-sm-3 col-xs-3">Unvan :</label>
-                                                        <label class="col-md-8 col-sm-3 col-xs-3">Baskan</label>
+                                                        <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.unvan}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -69,7 +70,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-4 col-sm-3 col-xs-3">Yetkili :</label>
-                                                        <label class="col-md-8 col-sm-3 col-xs-3">Burak Zengin</label>
+                                                        <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.yetkili}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -77,7 +78,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-4 col-sm-3 col-xs-3">Vergi Dairesi :</label>
-                                                        <label class="col-md-8 col-sm-3 col-xs-3">Manisa Vergi Dairesi</label>
+                                                        <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.vergiDairesi}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -85,7 +86,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-4 col-sm-3 col-xs-3">Vergi Dairesi No :</label>
-                                                        <label class="col-md-8 col-sm-3 col-xs-3">02215</label>
+                                                        <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.vergiDairesiNo}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -93,7 +94,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-4 col-sm-3 col-xs-3">Ticaret Sicil No :</label>
-                                                        <label class="col-md-8 col-sm-3 col-xs-3">5674820</label>
+                                                        <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.ticaretSicilNo}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -103,7 +104,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Adres :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">Salah Birsel Sokak Donanmaci Mahallesi Migros Bornova / Izmir</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.adres}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -111,7 +112,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Telefon :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">507 475 77 71</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.telefon}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -119,7 +120,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Fax :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">5602 21231</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.fax}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -127,7 +128,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Mail :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">info.cbumobil@gmail.com</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.mail}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -137,7 +138,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Banka Adi :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">Is Bankasi</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.bankaAdi}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -145,7 +146,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Sube :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">Izmir Karsiyaka Subesi</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.sube}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -153,7 +154,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Sube No :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">5602 21231</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.subeNo}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -161,7 +162,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Hesap No :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">6531264</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.hesapNo}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -169,7 +170,7 @@
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">IBAN :</label>
-                                                        <label class="col-md-9 col-sm-3 col-xs-3">TR65406 45646894921</label>
+                                                        <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.iban}</label>
                                                     </div>   
                                                 </div>
                                             </div>
@@ -215,7 +216,7 @@
                             </div>
                             <div class="x_content">
                                 <div class="col-md-12 col-sm-6 col-xs-12" >
-                                    <a href="/CariDuzenle" class="btn btn-danger">Cari Hesap Duzenle</a>
+                                    <a href="/CariDuzenle=${cariBilgileri.idCari}" class="btn btn-danger">Cari Hesap Duzenle</a>
                                 </div>
                             </div>
                         </div>

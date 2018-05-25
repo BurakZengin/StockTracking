@@ -196,13 +196,7 @@ public class StokController {
     public String UrunDetay(Model m, HttpSession session, @PathVariable("idUrun") int idUrun) {
         if (nameSurname(m, session)) {
             Urun u = urunService.findById(idUrun);
-            m.addAttribute("urunAdi", u.getUrunAdi());
-            m.addAttribute("urunKategori", u.getKategori());
-            m.addAttribute("urunAlisFiyati", u.getAlisFiyati());
-            m.addAttribute("urunSatisFiyati", u.getSatisFiyati());
-            m.addAttribute("urunBirimFiyati", u.getBirim());
-            m.addAttribute("urunStokAdedi", u.getStokAdedi());
-
+            m.addAttribute("urunBilgileri", u);           
             List<Stok> list = stokService.findByProperty("urun", u.getUrunAdi());
             m.addAttribute("urunTablo", list);
             return "UrunDetay";

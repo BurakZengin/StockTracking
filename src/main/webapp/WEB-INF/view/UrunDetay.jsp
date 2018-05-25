@@ -52,23 +52,23 @@
                                                     <form class="form-horizontal form-label-left">                                                 
                                                         <div class="form-group">
                                                             <label class="col-md-3 col-sm-3 col-xs-3">Kategori :</label>
-                                                            <label class="col-md-5 col-sm-3 col-xs-3">${urunKategori}</label>
+                                                            <label class="col-md-5 col-sm-3 col-xs-3">${urunBilgileri.kategori}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Urun Adi :</label>
-                                                        <label class="col-md-5 col-sm-3 col-xs-3">${urunAdi}</label>
+                                                        <label class="col-md-5 col-sm-3 col-xs-3">${urunBilgileri.urunAdi}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Alis Fiyati :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunAlisFiyati}</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunBilgileri.alisFiyati} / ${urunBilgileri.birim}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Satis Fiyati :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunSatisFiyati} / ${urunBirimFiyati}</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunBilgileri.satisFiyati} / ${urunBilgileri.birim}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Stok Adedi :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunStokAdedi}</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunBilgileri.stokAdedi}</label>
                                                     </div>                                                            
                                                     <div class="ln_solid"></div>
                                                 </form>

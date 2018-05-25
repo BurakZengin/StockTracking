@@ -17,5 +17,6 @@
         <mapping class="com.stoktakip.domain.Urun" />
         <mapping class="com.stoktakip.domain.Kategoriler" />
         <mapping class="com.stoktakip.domain.Stok" />
+        <mapping class="com.stoktakip.domain.Cari" />
     </session-factory>
 </hibernate-configuration>

@@ -50,7 +50,7 @@
                                                     <tbody>
                                                     <c:forEach var="c" items="${kategorilerList}">
                                                         <tr>
-                                                            <th scope="row">1</th>
+                                                            <th scope="row">#</th>
                                                             <td>${c.kategori}</td>
                                                         </tr>
                                                     </c:forEach>

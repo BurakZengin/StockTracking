@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Cari Takip | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,40 +31,48 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Cari Takip</h2>                                                  
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <div class="x_content">                                                        
-                                    <table id="datatable-buttons" class="table table-striped table-bordered">
-                                        <thead>
-                                            <tr>                                                                    
-                                                <th style="width:5%">Islem</th>
-                                                <th>Cari Adi</th>
-                                                <th style="width:15%">Cep</th>
-                                                <th style="width:15%">Bakiye</th>  
-                                            </tr>
-                                        </thead>
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Cari Takip</h2>                                                  
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="x_content">                                                        
+                                        <table id="datatable-buttons" class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>                                                                    
+                                                    <th style="width:5%">Islem</th>
+                                                    <th>Cari Adi</th>
+                                                    <th style="width:15%">Cep</th>
+                                                    <th style="width:15%">Bakiye</th>  
+                                                </tr>
+                                            </thead>
 
-                                        <tbody>
-                                            <tr>                                                                    
+                                            <tbody>
+                                            <c:forEach var="c" items="${cariList}">
+                                                <tr>
+                                                    <td><a href="/CariHesapDetayi=${c.idCari}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                    <td>${c.yetkili}</td>
+                                                    <td>${c.telefon}</td>
+                                                    <td>5.000 $</td>
+                                                </tr>
+                                            </c:forEach>
+                                            <!--<tr>
                                                 <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
                                                 <td>Burak Zengin</td>
                                                 <td>507 475 77 70</td>
                                                 <td>5.000 $</td>                                                                    
                                             </tr>
-                                            <tr>                                                                    
+                                            <tr>
                                                 <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
                                                 <td>Omer Faruk Oner</td>
                                                 <td>507 475 77 70</td>
                                                 <td>11.000 $</td>                                                                    
                                             </tr>
-                                            <tr>                                                                    
+                                            <tr>
                                                 <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
                                                 <td>Omer Faruk Oner</td>
                                                 <td>507 475 77 70</td>
@@ -81,7 +89,7 @@
                                                 <td>Burak Zengin</td>
                                                 <td>507 475 77 70</td>
                                                 <td>2.000 $</td>                                                          
-                                            </tr>
+                                            </tr>-->
                                         </tbody>
                                     </table>
                                 </div>

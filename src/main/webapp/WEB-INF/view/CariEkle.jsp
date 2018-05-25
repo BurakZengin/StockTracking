@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Cari Ekleme | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -68,106 +68,111 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <div id="step-1">
-                                        <form class="form-horizontal form-label-left">
+                                    <form class="form-horizontal form-label-left" action='/CariEkle' method="POST">
+                                        <div id="step-1">
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Unvan
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" name="unvan" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Yetkili
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" name="yetkili" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vergi Dairesi</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="vergiDairesi">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vergi Dairesi No</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="vergiDairesiNo">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Ticaret Sicil No</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="ticaretSicilNo">
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div id="step-2">
-                                        <form class="form-horizontal form-label-left">
+
+                                        </div>
+                                        <div id="step-2">
+
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Adres
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <textarea type="text" id="" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                    <textarea type="text" id="" name="adres" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Telefon
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" id="" name="last-name" data-inputmask="'mask' : '(999) 999-9999'" placeholder="(507) 456-7890" class="form-control col-md-7 col-xs-12"/>
+                                                    <input type="text" data-inputmask="'mask' : '(999) 999-9999'" name="telefon" placeholder="(507) 456-7890" class="form-control col-md-7 col-xs-12"/>
                                                 </div>
                                                 <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Fax</label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="fax">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mail</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="mail">
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div id="step-3">
-                                        <form class="form-horizontal form-label-left">
+
+                                        </div>
+                                        <div id="step-3">
+
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Banka Adi
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="first-name" class="form-control col-md-7 col-xs-12" name="bankaAdi">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Sube
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="last-name" name="sube" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sube No</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="subeNo">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Hesap No</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="hesapNo">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">IBAN</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="iban">
                                                 </div>
                                             </div>
-                                        </form>
-                                    </div>
+                                            <div class="actionBar" style="display: flex;
+                                                 align-items: center;
+                                                 justify-content: center;">
+                                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <!-- End SmartWizard Content -->
                             </div>

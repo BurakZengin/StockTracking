@@ -33,15 +33,6 @@
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
     </head>
-    <script>
-        function calcSum() {
-            alert(document.getElementsById("#stokAdet").value);
-            let num1 = document.getElementsById("#stokAdet")[0].value;
-            let num2 = document.getElementsById("#stokSatis")[0].value;
-            let sum = Number(num1) * Number(num2);
-            document.getElementsById("#stokToplam")[0].value = sum;
-        }
-    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
