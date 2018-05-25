@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,82 +26,65 @@
         <link href="static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
+        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- jQuery -->
+        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="static/js/ion.rangeSlider.js"></script>
     </head>
-
+    <script>
+        function calcSum() {
+            alert(document.getElementsById("#stokAdet").value);
+            let num1 = document.getElementsById("#stokAdet")[0].value;
+            let num2 = document.getElementsById("#stokSatis")[0].value;
+            let sum = Number(num1) * Number(num2);
+            document.getElementsById("#stokToplam")[0].value = sum;
+        }
+    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="clearfix"></div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Stok Takip</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <div class="x_content">                                                        
-                                                <table id="datatable-buttons" class="table table-striped table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 5%">Detay</th>
-                                                            <th>Kategori</th>
-                                                            <th>Urun Adi</th>
-                                                            <th style="width: 10%">Stok Sayisi</th>
-                                                            <th style="width: 10%">Toplam Stok Fiyati</th>
-                                                            <th style="width: 10%">Birim Fiyati</th>
-                                                        </tr>
-                                                    </thead>
+                    <div class="right_col" role="main">
+                        <div class="">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-12 col-sm-6 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Stok Takip</h2>                                                  
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <div class="x_content">                                                        
+                                                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 5%">Detay</th>
+                                                                <th>Kategori</th>
+                                                                <th>Urun Adi</th>
+                                                                <th style="width: 10%">Stok Sayisi</th>
+                                                                <th style="width: 10%">Toplam Stok Fiyati</th>
+                                                                <th style="width: 10%">Satis Birim Fiyati</th>
+                                                            </tr>
+                                                        </thead>
 
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Turk Kahvesi</td>
-                                                            <td>Almanci Kahvesi</td>
-                                                            <td>150</td>
-                                                            <td>$1100</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Turk Kahvesi</td>
-                                                            <td>Erzincan Kahvesi</td>
-                                                            <td>15</td>
-                                                            <td>$500</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Pure</td>
-                                                            <td>Patates Puresi</td>
-                                                            <td>61</td>
-                                                            <td>$700</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Sos</td>
-                                                            <td>Muz Sosu</td>
-                                                            <td>30</td>
-                                                            <td>$200</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Surup</td>
-                                                            <td>Ananas Surubu</td>
-                                                            <td>20</td>
-                                                            <td>$50</td>
-                                                            <td>$320,800</td>
-                                                        </tr>
+                                                        <tbody>
+                                                        <c:forEach var="c" items="${urunKategori}">
+                                                            <tr>
+                                                                <td><a href="/UrunDetay=${c.idUrun}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                                <td>${c.kategori}</td>
+                                                                <td>${c.urunAdi}</td>
+                                                                <td>${c.stokAdedi}</td>
+                                                                <td>${c.stokAdedi}</td>
+                                                                <td>${c.satisFiyati}</td>
+                                                            </tr>
+                                                        </c:forEach>
                                                     </tbody>
                                                 </table>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -116,6 +99,7 @@
             </div>
         </div>
 
+        <script src="static/porto/jquery.js"></script>
         <!-- jQuery -->
         <script src="static/vendors/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap -->

@@ -30,19 +30,19 @@ public class UrunServiceImpl implements UrunService {
     }
 
     public void delete(Urun u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        urunDAO.delete(u);
     }
 
-    public Urun findById(Integer userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Urun findById(Integer urunId) {
+        return urunDAO.findById(urunId);
     }
 
     public List<Urun> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return urunDAO.findAll();
     }
 
     public List<Urun> findByProperty(String propName, Object propValue) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return urunDAO.findByProperty(propName, propValue);
     }
 
 }

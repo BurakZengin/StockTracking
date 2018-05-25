@@ -5,7 +5,7 @@
  */
 package com.stoktakip.dao;
 
-import com.stoktakip.domain.Urun;
+import com.stoktakip.domain.Stok;
 import com.stoktakip.util.HibernateUtil;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -23,71 +23,30 @@ import org.springframework.stereotype.Repository;
  *
  * @author Elidor
  */
-@Repository("UrunDAO")
-public class UrunDAOImpl implements UrunDAO {
+@Repository("StokDAO")
+public class StokDAOImpl implements StokDAO {
 
-    @Override
-    public void save(Urun u) {
-
+    public void update(Stok s) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
-            session.save(u);
+            session.update(s);
             tr.commit();
-        } catch (HibernateException e) {
-            session.getTransaction().rollback();
-        } finally {
-            session.close();
-            //sessionFactory.close();
-        }
-    }
-
-    public void update(Urun u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void delete(Urun u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        try {
-            org.hibernate.Transaction tr = session.beginTransaction();
-            session.delete(u);
-            tr.commit();
-        } catch (HibernateException e) {
-            session.getTransaction().rollback();
-        } finally {
-            session.close();
-            //sessionFactory.close();
-        }
-    }
-
-    public Urun findById(Integer userId) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        Urun urun = null;
-        try {
-            session.beginTransaction();
-            urun = (Urun) session.get(Urun.class, userId);
-            session.getTransaction().commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
             session.close();
             sessionFactory.close();
         }
-        return urun;
     }
 
-    public List<Urun> findAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    public void save(Stok s) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
-        List<Urun> urunList = null;
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
-            CriteriaQuery cq = session.getCriteriaBuilder().createQuery(Urun.class);
-            cq.from(Urun.class);
-            urunList = session.createQuery(cq).getResultList();
+            session.save(s);
             tr.commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
@@ -95,22 +54,20 @@ public class UrunDAOImpl implements UrunDAO {
             session.close();
             //sessionFactory.close();
         }
-        return urunList;
     }
 
-    public List<Urun> findByProperty(String propName, Object propValue) {
-        
-        List<Urun> stokList = null;
+    public List<Stok> findByProperty(String propName, Object propValue) {
+        List<Stok> stokList = null;
         Transaction transaction = null;
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             transaction = session.beginTransaction();
             CriteriaBuilder builder = session.getCriteriaBuilder();
-            CriteriaQuery<Urun> query = builder.createQuery(Urun.class);
-            Root<Urun> root = query.from(Urun.class);
+            CriteriaQuery<Stok> query = builder.createQuery(Stok.class);
+            Root<Stok> root = query.from(Stok.class);
             query.select(root).where(builder.equal(root.get(propName), propValue));
-            Query<Urun> q = session.createQuery(query);
+            Query<Stok> q = session.createQuery(query);
             stokList = q.getResultList();
             transaction.commit();
         } catch (Exception e) {
@@ -124,4 +81,18 @@ public class UrunDAOImpl implements UrunDAO {
         return stokList;
     }
 
+    public void delete(Stok s) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            org.hibernate.Transaction tr = session.beginTransaction();
+            session.delete(s);
+            tr.commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+            //sessionFactory.close();
+        }
+    }
 }

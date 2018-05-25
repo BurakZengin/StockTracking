@@ -59,12 +59,12 @@ public class KategorilerDAOImpl implements KategorilerDAO {
     public List<Kategoriler> findAll() {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
-        List<Kategoriler> userList = null;
+        List<Kategoriler> kategoriList = null;
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
             CriteriaQuery cq = session.getCriteriaBuilder().createQuery(Kategoriler.class);
             cq.from(Kategoriler.class);
-            userList = session.createQuery(cq).getResultList();
+            kategoriList = session.createQuery(cq).getResultList();
             tr.commit();
         } catch (HibernateException e) {
             session.getTransaction().rollback();
@@ -72,7 +72,7 @@ public class KategorilerDAOImpl implements KategorilerDAO {
             session.close();
             //sessionFactory.close();
         }
-        return userList;
+        return kategoriList;
     }
 
     public List<Kategoriler> findByProperty(String propName, Object propValue) {

@@ -1,4 +1,5 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,50 +30,45 @@
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
     </head>
-
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="clearfix"></div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Urun Bilgileri</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <br />
-                                            <!-- form input mask -->
-                                            <div class="col-md-12">
-                                                <form class="form-horizontal form-label-left">
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Kategori :</label>
-                                                        <label class="col-md-5 col-sm-3 col-xs-3">Turk Kahvesi</label>
+                    <div class="right_col" role="main">
+                        <div class="">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Urun Bilgileri</h2>                                                  
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <br />
+                                                <!-- form input mask -->
+                                                <div class="col-md-12">
+                                                    <form class="form-horizontal form-label-left">                                                 
+                                                        <div class="form-group">
+                                                            <label class="col-md-3 col-sm-3 col-xs-3">Kategori :</label>
+                                                            <label class="col-md-5 col-sm-3 col-xs-3">${urunKategori}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Urun Adi :</label>
-                                                        <label class="col-md-5 col-sm-3 col-xs-3">Erzincan Kahvesi</label>
+                                                        <label class="col-md-5 col-sm-3 col-xs-3">${urunAdi}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Alis Fiyati :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">$500</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunAlisFiyati}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Satis Fiyati :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">$600</label>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Birim Fiyati :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">$100 / Kg</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunSatisFiyati} / ${urunBirimFiyati}</label>
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="col-md-3 col-sm-3 col-xs-3">Stok Adedi :</label>
-                                                        <label class="col-md-4 col-sm-3 col-xs-3">200</label>
+                                                        <label class="col-md-4 col-sm-3 col-xs-3">${urunStokAdedi}</label>
                                                     </div>                                                            
                                                     <div class="ln_solid"></div>
                                                 </form>
@@ -91,14 +87,15 @@
                                             <br />
                                             <!-- form input mask -->
                                             <div class="col-md-12">
-                                                <form class="form-horizontal form-label-left">                                                          
+                                                <form class="form-horizontal form-label-left" action='/UrunDetay=${idUrun}' method="POST">                                                          
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tarih :
                                                         </label>
+                                                        <input type="hidden" name="urunAdi" value="${urunAdi}">
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                                             <div class="controls">
                                                                 <div class="input-prepend input-group">                                                                            
-                                                                    <input type="text" id="" name="last-name" class="form-control col-md-7 col-xs-12"/>
+                                                                    <input type="text" name="tarih" class="form-control col-md-7 col-xs-12"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -108,8 +105,8 @@
                                                         </label>
                                                         <div class="col-md-2 col-sm-6 col-xs-12">
                                                             <div class="controls">
-                                                                <div class="input-prepend input-group">                                                                            
-                                                                    <input type="text" id="" name="last-name" class="form-control col-md-7 col-xs-12"/>
+                                                                <div class="input-prepend input-group">
+                                                                    <input type="text" name="miktar" class="form-control col-md-7 col-xs-12"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -119,14 +116,14 @@
                                                         </label>
                                                         <div class="col-md-8 col-sm-6 col-xs-12">
                                                             <div class="controls">
-                                                                <textarea type="text" id="" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                                <textarea type="text" id="" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                             </div>
                                                         </div>
                                                     </div>                                                                                                                                                                   
                                                     <div class="ln_solid"></div>                                                                  
                                                     <div class="col-md-8">
-                                                        <a href="/UrunDetay" class="btn btn-success btn-md col-md-5"><i class="glyphicon glyphicon-plus"></i> Stok Ekle</a>
-                                                        <a href="/UrunDetay" class="btn btn-danger btn-md col-md-5"><i class="glyphicon glyphicon-minus"></i> Stok Cikar</a>
+                                                        <button type="submit" name="Button" value="Giris" class="btn btn-success btn-md col-md-5"/><i class="glyphicon glyphicon-plus"></i> Stok Ekle</a>
+                                                        <button type="submit" name="Button" value="Cikis" class="btn btn-danger btn-md col-md-5"/><i class="glyphicon glyphicon-minus"></i> Stok Cikar</a>
                                                     </div>  
                                                 </form>
                                             </div>
@@ -153,7 +150,16 @@
                                                     </thead>
 
                                                     <tbody>
-                                                        <tr>                                                                    
+
+                                                        <c:forEach var="c" items="${urunTablo}">
+                                                            <tr>                                                                
+                                                                <td>${c.tarih}</td>
+                                                                <td>${c.islemTuru}</td>
+                                                                <td>${c.miktar}</td>
+                                                                <td>${c.aciklama}</td>
+                                                            </tr>
+                                                        </c:forEach>
+                                                        <!--<tr>                                                                    
                                                             <td>19/09/2018</td>
                                                             <td>Giris</td>
                                                             <td>500</td>
@@ -182,7 +188,7 @@
                                                             <td>Giris</td>
                                                             <td>500</td>
                                                             <td>Aciklama Girilecek</td>                                                        
-                                                        </tr>
+                                                        </tr>-->
                                                     </tbody>
                                                 </table>
                                             </div>

@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,28 +28,27 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="clearfix"></div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Urun Ekleme</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <br />
-                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='/UrunEkleSubmit' method="POST">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori</label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <select id="heard" class="form-control" name="kategori">
-                                                            <option value="">Sec..</option>
-                                                            <option value="Turk Kahvesi">Turk Kahvesi</option>
-                                                            <option value="Pure">Pure</option>
-                                                            <option value="Sos">Sos</option>
+                    <div class="right_col" role="main">
+                        <div class="">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-12 col-sm-6 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Urun Ekleme</h2>                                                  
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <br />
+                                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='/UrunEkleSubmit' method="POST">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori</label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <select id="heard" class="form-control" name="kategori">
+                                                            <c:forEach var="c" items="${urunKategori}">                                                               
+                                                                <option value="${c.kategori}">${c.kategori}</option>
+                                                            </c:forEach>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -63,7 +62,6 @@
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Birim</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <select id="heard" class="form-control" name="birim">
-                                                            <option value="">Sec..</option>
                                                             <option value="Kilogram">Kilogram</option>
                                                             <option value="Gram">Gram</option>
                                                             <option value="Litre">Litre</option>
@@ -85,15 +83,17 @@
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="satisFiyati">
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group form-group has-feedback">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Kdv Orani</label>
-                                                    <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="kdvOrani" placeholder="%8">
-                                                    </div>
+                                                    <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
+                                                        <input type="text" class="form-control has-feedback-left" name='kdvOrani'>
+                                                        <span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
+                                                    </div>                                                    
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayisi</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="stokSayisi">
                                                     </div>
+                                                   
                                                 </div>
                                                 <div class="ln_solid"></div>
                                                 <div class="form-group">

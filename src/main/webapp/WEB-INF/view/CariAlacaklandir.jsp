@@ -40,7 +40,6 @@
                     $('#birimFiyati' + i).val(document.getElementById("datatable-buttons").rows[index].cells[4].innerHTML);
                     i++;
                 });
-                
             }
 
             function removeUrun(id) {

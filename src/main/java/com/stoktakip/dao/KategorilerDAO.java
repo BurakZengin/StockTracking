@@ -18,7 +18,7 @@ public interface KategorilerDAO {
 
     public void delete(Kategoriler u);
 
-    public Kategoriler findById(Integer userId);
+    public Kategoriler findById(Integer kategoriId);
 
     public List<Kategoriler> findAll();
 
