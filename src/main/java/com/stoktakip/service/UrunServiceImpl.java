@@ -26,7 +26,7 @@ public class UrunServiceImpl implements UrunService {
     }
 
     public void update(Urun u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        urunDAO.update(u);
     }
 
     public void delete(Urun u) {

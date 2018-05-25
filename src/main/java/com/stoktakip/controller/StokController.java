@@ -158,7 +158,7 @@ public class StokController {
     public String StokGirisCikis(Model m, HttpSession session,
             @PathVariable("idUrun") String idUrun,
             @RequestParam("aciklama") String aciklama,
-            @RequestParam("miktar") String miktar,
+            @RequestParam("miktar") int miktar,
             @RequestParam("urunAdi") String urunAdi,
             @RequestParam("Button") String Button,
             @RequestParam("tarih") String tarih) {
@@ -166,12 +166,24 @@ public class StokController {
             Stok s = new Stok();
             if (Button.equals("Giris")) {
                 s.setIslemTuru("Giris");
+                List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
+                for (Urun urun : u) {
+                    int yeniStokAdedi = Integer.parseInt(urun.getStokAdedi()) + miktar;
+                    urun.setStokAdedi("" + yeniStokAdedi);
+                    urunService.update(urun);
+                }
             } else {
                 s.setIslemTuru("Cikis");
+                List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
+                for (Urun urun : u) {
+                    int yeniStokAdedi = Integer.parseInt(urun.getStokAdedi()) - miktar;
+                    urun.setStokAdedi("" + yeniStokAdedi);
+                    urunService.update(urun);
+                }
             }
             s.setUrun(urunAdi);
             s.setAciklama(aciklama);
-            s.setMiktar(miktar);
+            s.setMiktar("" + miktar);
             s.setTarih(tarih);
             stokService.save(s);
             return "redirect:UrunDetay=" + idUrun;

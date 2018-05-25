@@ -44,7 +44,18 @@ public class UrunDAOImpl implements UrunDAO {
     }
 
     public void update(Urun u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            org.hibernate.Transaction tr = session.beginTransaction();
+            session.update(u);
+            tr.commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+            //sessionFactory.close();
+        }
     }
 
     public void delete(Urun u) {
@@ -99,7 +110,7 @@ public class UrunDAOImpl implements UrunDAO {
     }
 
     public List<Urun> findByProperty(String propName, Object propValue) {
-        
+
         List<Urun> stokList = null;
         Transaction transaction = null;
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
