@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Urun Ekleme | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -76,24 +76,23 @@
                                                 <div class="form-group">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Alis Fiyati</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="alisFiyati">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="alisFiyati" required="required">
                                                     </div>
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Satis Fiyati</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="satisFiyati">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="satisFiyati" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group has-feedback">
-                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Kdv Orani</label>
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12" >Kdv Orani</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left" name='kdvOrani'>
+                                                        <input type="text" class="form-control has-feedback-left" name='kdvOrani' required="required">
                                                         <span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
                                                     </div>                                                    
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayisi</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="stokSayisi">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="stokSayisi" required="required">
                                                     </div>
-
                                                 </div>
                                                 <div class="ln_solid"></div>
                                                 <div class="form-group">

@@ -10,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Urun Detay | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -95,7 +95,7 @@
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                                             <div class="controls">
                                                                 <div class="input-prepend input-group">                                                                            
-                                                                    <input type="text" name="tarih" class="form-control col-md-7 col-xs-12"/>
+                                                                    <input type="text" name="tarih" required="required" class="form-control col-md-7 col-xs-12"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -106,7 +106,7 @@
                                                         <div class="col-md-2 col-sm-6 col-xs-12">
                                                             <div class="controls">
                                                                 <div class="input-prepend input-group">
-                                                                    <input type="text" name="miktar" class="form-control col-md-7 col-xs-12"/>
+                                                                    <input type="text" name="miktar" class="form-control col-md-7 col-xs-12" required="required"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -116,7 +116,7 @@
                                                         </label>
                                                         <div class="col-md-8 col-sm-6 col-xs-12">
                                                             <div class="controls">
-                                                                <textarea type="text" id="" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                                <textarea type="text" id="" name="aciklama" rows="3" style="resize: vertical;" required="required" class="form-control col-md-7 col-xs-12" ></textarea>
                                                             </div>
                                                         </div>
                                                     </div>                                                                                                                                                                   

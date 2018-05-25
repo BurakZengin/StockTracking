@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Kategoriler | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -69,7 +69,7 @@
                                         <div class="x_content">
                                             <form action='/KategoriEkle' method="POST">
                                                 <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <input type="text" class="form-control has-feedback-left" name='kategori' id="inputSuccess2" placeholder="Kategori Adi">
+                                                    <input type="text" class="form-control has-feedback-left" name='kategori' id="inputSuccess2" placeholder="Kategori Adi" required="required">
                                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
