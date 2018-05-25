@@ -10,6 +10,7 @@ import com.stoktakip.domain.Urun;
 import com.stoktakip.domain.User;
 import com.stoktakip.service.KategorilerService;
 import com.stoktakip.service.UrunService;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,9 @@ public class StokController {
     @RequestMapping(value = "/Kategoriler")
     public String Kategoriler(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
+            List<Kategoriler> list = kategorilerService.findAll();
+            m.addAttribute("kategorilerList", list);
+            m.addAttribute("kategoriSilme", list);
             return "Kategoriler";
         } else {
             return "redirect:/";

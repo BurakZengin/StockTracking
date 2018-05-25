@@ -57,17 +57,22 @@ public class KategorilerDAOImpl implements KategorilerDAO {
     }
 
     public List<Kategoriler> findAll() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-
-        //
-        // We read labels record from database using a simple Hibernate query,
-        // the Hibernate Query Language (HQL).
-        //
-        List labels = session.createQuery("from kategoriler").list();
-        session.getTransaction().commit();
-
-        return labels;
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        List<Kategoriler> userList = null;
+        try {
+            org.hibernate.Transaction tr = session.beginTransaction();
+            CriteriaQuery cq = session.getCriteriaBuilder().createQuery(Kategoriler.class);
+            cq.from(Kategoriler.class);
+            userList = session.createQuery(cq).getResultList();
+            tr.commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+            //sessionFactory.close();
+        }
+        return userList;
     }
 
     public List<Kategoriler> findByProperty(String propName, Object propValue) {

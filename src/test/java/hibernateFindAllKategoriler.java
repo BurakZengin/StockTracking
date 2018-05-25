@@ -1,6 +1,6 @@
 
+import com.stoktakip.dao.KategorilerDAOImpl;
 import com.stoktakip.domain.Kategoriler;
-import com.stoktakip.service.KategorilerServiceImpl;
 import java.util.List;
 
 /*
@@ -15,8 +15,9 @@ import java.util.List;
 public class hibernateFindAllKategoriler {
 
     public static void main(String args[]) {
-        KategorilerServiceImpl ksi = new KategorilerServiceImpl();
-        List<Kategoriler> models = ksi.findAll();
+        
+        KategorilerDAOImpl a = new KategorilerDAOImpl();
+        List<Kategoriler> models = a.findAll();
         for (Kategoriler model : models) {
             System.out.println(model.getKategori());
         }

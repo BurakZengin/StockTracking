@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,39 +28,32 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="clearfix"></div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-5 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Kategoriler</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Kategori Adi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Turk Kahvesi</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Pure</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Sos</td>
-                                                    </tr>
+                    <div class="right_col" role="main">
+                        <div class="">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-5 col-sm-6 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Kategoriler</h2>                                                  
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="x_content">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Kategori Adi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <c:forEach var="c" items="${kategorilerList}">
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>${c.kategori}</td>
+                                                        </tr>
+                                                    </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -96,9 +89,9 @@
                                             <form action='/KategoriSil' method="POST">
                                                 <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
                                                     <select id="heard" class="form-control" name='kategoriSil' required>
-                                                        <option value="">Sec..</option>
-                                                        <option value="Sos">Sos</option>
-                                                        <option value="Sosssssssss">Sosssssssss</option>
+                                                        <c:forEach var="c" items="${kategoriSilme}">
+                                                            <option value="${c.kategori}">${c.kategori}</option>
+                                                        </c:forEach>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
@@ -108,8 +101,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
