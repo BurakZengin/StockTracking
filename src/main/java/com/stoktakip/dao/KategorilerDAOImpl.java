@@ -5,31 +5,24 @@
  */
 package com.stoktakip.dao;
 
-import com.stoktakip.domain.Urun;
-import org.springframework.stereotype.Repository;
+import com.stoktakip.domain.Kategoriler;
 import com.stoktakip.util.HibernateUtil;
 import java.util.List;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Elidor
  */
-@Repository("UrunDAO")
-public class UrunDAOImpl implements UrunDAO {
+@Repository("KategorilerDAO")
+public class KategorilerDAOImpl implements KategorilerDAO {
 
-    @Override
-    public void save(Urun u) {
-
+    public void save(Kategoriler u) {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
@@ -40,27 +33,44 @@ public class UrunDAOImpl implements UrunDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            sessionFactory.close();
         }
     }
 
-    public void update(Urun u) {
+    public void delete(Kategoriler u) {
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        try {
+            org.hibernate.Transaction tr = session.beginTransaction();
+            session.delete(u);
+            tr.commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+            sessionFactory.close();
+        }
+    }
+
+    public Kategoriler findById(Integer userId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void delete(Urun u) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Kategoriler> findAll() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        //
+        // We read labels record from database using a simple Hibernate query,
+        // the Hibernate Query Language (HQL).
+        //
+        List labels = session.createQuery("from kategoriler").list();
+        session.getTransaction().commit();
+
+        return labels;
     }
 
-    public Urun findById(Integer userId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Urun> findAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Urun> findByProperty(String propName, Object propValue) {
+    public List<Kategoriler> findByProperty(String propName, Object propValue) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

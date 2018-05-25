@@ -3,45 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.stoktakip.dao;
+package com.stoktakip.service;
 
+import com.stoktakip.dao.UrunDAO;
 import com.stoktakip.domain.Urun;
-import org.springframework.stereotype.Repository;
-import com.stoktakip.util.HibernateUtil;
 import java.util.List;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Elidor
  */
-@Repository("UrunDAO")
-public class UrunDAOImpl implements UrunDAO {
+@Service
+public class UrunServiceImpl implements UrunService {
 
-    @Override
+    @Autowired
+    private UrunDAO urunDAO;
+
     public void save(Urun u) {
-
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        try {
-            org.hibernate.Transaction tr = session.beginTransaction();
-            session.save(u);
-            tr.commit();
-        } catch (HibernateException e) {
-            session.getTransaction().rollback();
-        } finally {
-            session.close();
-            //sessionFactory.close();
-        }
+        urunDAO.save(u);
     }
 
     public void update(Urun u) {

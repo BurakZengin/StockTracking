@@ -14,5 +14,7 @@
         <property name="hibernate.current_session_context_class">thread</property>
         
         <mapping class="com.stoktakip.domain.User" />
+        <mapping class="com.stoktakip.domain.Urun" />
+        <mapping class="com.stoktakip.domain.Kategoriler" />
     </session-factory>
 </hibernate-configuration>

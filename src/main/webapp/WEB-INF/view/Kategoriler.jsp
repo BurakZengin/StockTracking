@@ -74,13 +74,15 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
-                                            <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Kategori Adi">
-                                                <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <button type="submit" class="btn btn-success">Ekle</button>
-                                            </div>
+                                            <form action='/KategoriEkle' method="POST">
+                                                <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <input type="text" class="form-control has-feedback-left" name='kategori' id="inputSuccess2" placeholder="Kategori Adi">
+                                                    <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <button type="submit" class="btn btn-success">Ekle</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -91,17 +93,18 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
-                                            <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <select id="heard" class="form-control" required>
-                                                    <option value="">Sec..</option>
-                                                    <option value="press">Turk Kahvesi</option>
-                                                    <option value="net">Pure</option>
-                                                    <option value="mouth">Sos</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                                <button type="submit" class="btn btn-danger">Sil</button>
-                                            </div>
+                                            <form action='/KategoriSil' method="POST">
+                                                <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <select id="heard" class="form-control" name='kategoriSil' required>
+                                                        <option value="">Sec..</option>
+                                                        <option value="Sos">Sos</option>
+                                                        <option value="Sosssssssss">Sosssssssss</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                                                    <button type="submit" class="btn btn-danger">Sil</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

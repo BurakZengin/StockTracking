@@ -8,6 +8,8 @@ package com.stoktakip.domain;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -22,6 +24,7 @@ import javax.persistence.UniqueConstraint;
 public class Urun implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUrun", unique = true, nullable = false, length = 11)
     private int idUrun;
 
@@ -36,9 +39,6 @@ public class Urun implements Serializable {
 
     @Column(name = "satisFiyati", nullable = false, length = 45)
     private String satisFiyati;
-
-    @Column(name = "birimFiyati", nullable = false, length = 45)
-    private String birimFiyati;
 
     @Column(name = "stokAdedi", nullable = false, length = 45)
     private String stokAdedi;
@@ -87,14 +87,6 @@ public class Urun implements Serializable {
 
     public void setSatisFiyati(String satisFiyati) {
         this.satisFiyati = satisFiyati;
-    }
-
-    public String getBirimFiyati() {
-        return birimFiyati;
-    }
-
-    public void setBirimFiyati(String birimFiyati) {
-        this.birimFiyati = birimFiyati;
     }
 
     public String getStokAdedi() {

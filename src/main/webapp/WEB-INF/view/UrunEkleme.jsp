@@ -41,59 +41,60 @@
                                         </div>
                                         <div class="x_content">
                                             <br />
-                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='/UrunEkleSubmit' method="POST">
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kategori</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <select id="heard" class="form-control" required>
+                                                        <select id="heard" class="form-control" name="kategori">
                                                             <option value="">Sec..</option>
-                                                            <option value="press">Turk Kahvesi</option>
-                                                            <option value="net">Pure</option>
-                                                            <option value="mouth">Sos</option>
+                                                            <option value="Turk Kahvesi">Turk Kahvesi</option>
+                                                            <option value="Pure">Pure</option>
+                                                            <option value="Sos">Sos</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Urun Adi</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                        <input type="text" id="last-name" name="urunAdi" required="required" class="form-control col-md-7 col-xs-12">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Birim</label>
-                                                    <div class="col-md-1 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" placeholder="">
-                                                    </div>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <select id="heard" class="form-control">
+                                                        <select id="heard" class="form-control" name="birim">
                                                             <option value="">Sec..</option>
-                                                            <option value="mouth">Kilogram</option>
-                                                            <option value="press">Gram</option>                       
-                                                            <option value="mouth">Litre</option>                                                                    
-                                                            <option value="mouth">Mililitre</option>
+                                                            <option value="Kilogram">Kilogram</option>
+                                                            <option value="Gram">Gram</option>
+                                                            <option value="Litre">Litre</option>
+                                                            <option value="Mililitre">Mililitre</option>
+                                                            <option value="Metre">Metre</option>
+                                                            <option value="Santimetre">Santimetre</option>
+                                                            <option value="Milimetre">Milimetre</option> 
+                                                            <option value="Adet">Adet</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Alis Fiyati</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="alisFiyati">
                                                     </div>
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Satis Fiyati</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="satisFiyati">
                                                     </div>
-                                                </div>   
+                                                </div>
                                                 <div class="form-group">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Kdv Orani</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name" placeholder="%8">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="kdvOrani" placeholder="%8">
                                                     </div>
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayisi</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="stokSayisi">
                                                     </div>
-                                                </div>                                                                                                         
+                                                </div>
                                                 <div class="ln_solid"></div>
                                                 <div class="form-group">
                                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

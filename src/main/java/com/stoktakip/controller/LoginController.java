@@ -25,13 +25,13 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
-    
+
     @RequestMapping(value = "/")
     public String Login(Model m) {
         m.addAttribute("command", new LoginCommand());
         return "Login";
     }
-    
+
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     public String LoginHandle(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
         User loggedInUser = userService.login(cmd.getUsername(), cmd.getPassword());
