@@ -31,36 +31,75 @@
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
         <script>
-            var i = 1;
+            var i = 0, k = 1;
+            var urunler = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             function addUrun() {
-                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" disabled value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
+                i++;
+                urunler[i] = "" + i;
+                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input disabled style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" name="miktar' + i + '" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" disabled value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
                 $("#datatable-buttons tr").click(function () {
                     var index = this.rowIndex;
                     $("#urunAdi" + i).val(document.getElementById("datatable-buttons").rows[index].cells[1].innerHTML);
                     $('#birimFiyati' + i).val(document.getElementById("datatable-buttons").rows[index].cells[4].innerHTML);
-                    var miktar1 = document.getElementById("miktar" + (i)).value;
-                    var birimFiyat1 = document.getElementById("birimFiyati" + (i)).value;
-                    var kdv1 = document.getElementById("kdv" + (i)).value;
+                    var miktar1 = document.getElementById("miktar" + i).value;
+                    var birimFiyat1 = document.getElementById("birimFiyati" + i).value;
+                    var kdv1 = document.getElementById("kdv" + i).value;
                     var kdvCarpan1 = 1 + kdv1 / 100;
-                    var iskonto1 = document.getElementById("iskonto" + (i)).value;
+                    var iskonto1 = document.getElementById("iskonto" + i).value;
                     document.getElementById("toplam" + i).value = Math.round(((miktar1 * birimFiyat1 * kdvCarpan1) - iskonto1) * 100) / 100;
-                    i++;
+                    //alert(i);
                 });
             }
 
             function removeUrun(id) {
+                urunler[id] = 0;
                 $("#urun" + id).remove();
             }
-            function OnButtonClick(i) {
-                var miktar = document.getElementById("miktar" + (i)).value;
-                var birimFiyat = document.getElementById("birimFiyati" + (i)).value;
-                var kdv = document.getElementById("kdv" + (i)).value;
+            function OnButtonClick(l) {
+                var miktar = document.getElementById("miktar" + (l)).value;
+                var birimFiyat = document.getElementById("birimFiyati" + (l)).value;
+                var kdv = document.getElementById("kdv" + (l)).value;
                 var kdvCarpan = 1 + kdv / 100;
-                var iskonto = document.getElementById("iskonto" + (i)).value;
-                document.getElementById("toplam" + i).value = Math.round(((miktar * birimFiyat * kdvCarpan) - iskonto) * 100) / 100;
+                var iskonto = document.getElementById("iskonto" + (l)).value;
+                document.getElementById("toplam" + l).value = Math.round(((miktar * birimFiyat * kdvCarpan) - iskonto) * 100) / 100;
             }
             function sadeceSayi(evt) {
                 return (evt.charCode >= 48 && evt.charCode <= 57) || (evt.charCode == 46);
+            }
+
+            function urun() {
+                //if (!document.getElementById("islemTutari").value.equals("0")) {
+                urunler = urunler.filter(Number);
+                var str = "";
+                for (var k = 0; k < urunler.length; k++) {
+                    str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
+                            + document.getElementById("miktar" + urunler[k]).value + "-"
+                            + document.getElementById("kdv" + urunler[k]).value + "-"
+                            + document.getElementById("iskonto" + urunler[k]).value + "-"
+                            + document.getElementById("toplam" + urunler[k]).value;
+                }
+                document.getElementById("Buttons").value = "Satis";
+                document.getElementById("urunler").value = "" + str;
+                document.getElementById("demo-form2").submit();
+                //}
+
+            }
+
+            function urun2() {
+                //if (!document.getElementById("islemTutari").value.equals("0")) {
+                urunler = urunler.filter(Number);
+                var str = "";
+                for (var k = 0; k < urunler.length; k++) {
+                    str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
+                            + document.getElementById("miktar" + urunler[k]).value + "-"
+                            + document.getElementById("kdv" + urunler[k]).value + "-"
+                            + document.getElementById("iskonto" + urunler[k]).value + "-"
+                            + document.getElementById("toplam" + urunler[k]).value;
+                }
+                document.getElementById("Buttons").value = "Borc";
+                document.getElementById("urunler").value = "" + str;
+                document.getElementById("demo-form2").submit();
+                //}
             }
 
         </script>
@@ -72,15 +111,16 @@
                 <jsp:include page="header.jsp"></jsp:include>
                     <!-- page content -->
                     <div class="right_col" role="main">
-                        <div class="col-md-12 col-sm-6 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Satis Yap</h2>                                                  
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <div class="x_content">                                                        
-                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Satis Yap</h2>                                                  
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="x_content">                                                        
+                                            <form id="demo-form2" name="formss" data-parsley-validate class="form-horizontal form-label-left" action="/SatisYap=${idCari}" method="POST">
                                             <div class="form-group" style="text-align: center;">
                                                 <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name"></label>
                                                 <label class=" col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Adi</label>
@@ -91,55 +131,35 @@
                                                 <label class=" col-md-2 col-sm-3 col-xs-12" for="first-name">Genel Toplam</label>
                                             </div>
                                             <div class="ln_solid"></div>
-                                            <div class="form-group" id='urunlist'>         
-                                                <!--<div class="col-md-1 col-sm-6 col-xs-12">
-                                                    <a href="#" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a>
-                                                </div> 
-                                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>                                            
-                                                <div class="col-md-1 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>                                            
-                                                <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>
-                                                <div class="col-md-1 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>
-                                                <div class="col-md-1 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>
-                                                <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                                </div>-->
-                                            </div>
+                                            <div class="form-group" id='urunlist'></div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" name="islemTarihi" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <textarea type="text" id="" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                    <textarea type="text" name="aciklama" required="required" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input disabled type="text" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
+                                            <input type="hidden" id="urunler" name="urunler"/>
+                                            <input type="hidden" id="Buttons" name="Buttons"/>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                    <button type="submit" class="btn btn-success">Satis Yap</button>
-                                                    <button type="submit" class="btn btn-warning">Borclandir</button>
+                                                    <button type="button" onclick="urun()" class="btn btn-success"/>Satis Yap
+                                                    <button type="button" onclick="urun2()" class="btn btn-warning"/>Borclandir
                                                 </div>
                                             </div>
                                         </form>
@@ -147,37 +167,42 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Urunler</h2>                                                  
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">                                                        
-                                <table id="datatable-buttons" class="table table-striped table-bordered">
-                                    <thead>
-                                        <tr>                                                        
-                                            <th>Kategori</th>
-                                            <th>Urun Adi</th>
-                                            <th style="width: 10%">Stok Sayisi</th>
-                                            <th style="width: 10%">Toplam Stok Fiyati</th>
-                                            <th style="width: 10%">Birim Fiyati</th>
-                                            <th style="width: 5%">Ekle</th>
-                                        </tr>
-                                    </thead>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Urunler</h2>                                                  
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">                                                        
+                                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>                                                        
+                                                <th>Kategori</th>
+                                                <th>Urun Adi</th>
+                                                <th style="width: 10%">Stok Sayisi</th>
+                                                <th style="width: 10%">Toplam Stok Fiyati</th>
+                                                <th style="width: 10%">Birim Fiyati</th>
+                                                <th style="width: 5%">Ekle</th>
+                                            </tr>
+                                        </thead>
 
-                                    <tbody>
-                                    <c:forEach var="c" items="${urunList}">
-                                        <tr>                                            
-                                            <td>${c.kategori}</td>
-                                            <td>${c.urunAdi}</td>
-                                            <td>${c.stokAdedi}</td>
-                                            <td>${c.stokAdedi}</td>
-                                            <td>${c.satisFiyati}</td>
-                                            <td><a onclick="addUrun()" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></a></td>
-                                        </tr>
-                                    </c:forEach>                                    
-                                </tbody>
-                            </table>
+                                        <tbody>
+                                            <c:forEach var="c" items="${urunList}">
+                                                <tr>                                            
+                                                    <td>${c.kategori}</td>
+                                                    <td>${c.urunAdi}</td>
+                                                    <td>${c.stokAdedi}</td>
+                                                    <td>${c.stokAdedi}</td>
+                                                    <td>${c.satisFiyati}</td>
+                                                    <td><a onclick="addUrun()" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></a></td>
+                                                </tr>
+                                            </c:forEach>                                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

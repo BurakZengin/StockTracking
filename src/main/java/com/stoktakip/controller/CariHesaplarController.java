@@ -7,9 +7,12 @@ package com.stoktakip.controller;
 
 import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
+import com.stoktakip.domain.CariHareketleri;
 import com.stoktakip.domain.Urun;
+import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
 import com.stoktakip.service.UrunService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,8 @@ public class CariHesaplarController {
     private CariService cariService;
     @Autowired
     private UrunService urunService;
+    @Autowired
+    private CariHareketleriService cariHareketleriService;
 
     @RequestMapping(value = "/CariTakip")
     public String CariTakip(Model m, HttpSession session) {
@@ -48,6 +53,14 @@ public class CariHesaplarController {
         if (nameSurname(m, session)) {
             Cari u = cariService.findById(idCari);
             m.addAttribute("cariBilgileri", u);
+            List<CariHareketleri> list = cariHareketleriService.findByProperty("idCari", idCari);
+            List<CariHareketleri> asilList = new ArrayList<CariHareketleri>();
+            for (CariHareketleri cariHareketleri : list) {
+                if (cariHareketleri.getUnq().equals("1")) {
+                    asilList.add(cariHareketleri);
+                }
+            }
+            m.addAttribute("cariHareketleri", asilList);
             return "CariHesapDetayi";
         } else {
             return "redirect:/";
@@ -63,12 +76,45 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/SatisYap")
-    public String CariAlacaklandir(Model m, HttpSession session) {
+    @RequestMapping(value = "/SatisYap={idCari}", method = RequestMethod.GET)
+    public String SatisYap(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
             List<Urun> list = urunService.findAll();
             m.addAttribute("urunList", list);
+            m.addAttribute("idCari", idCari);
             return "SatisYap";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/SatisYap={idCari}", method = RequestMethod.POST)
+    public String SatisYapSubmit(Model m, HttpSession session, @PathVariable("idCari") int idCari,
+            @RequestParam("aciklama") String aciklama,
+            @RequestParam("islemTarihi") String islemTarihi,
+            @RequestParam("islemTutari") String islemTutari,
+            @RequestParam("Buttons") String Button,
+            @RequestParam("urunler") String urunler) {
+        if (nameSurname(m, session)) {
+            String[] tanim = urunler.split("-");
+            int unq = 1;
+            for (int i = 1; i <= Integer.parseInt(tanim[0]) * 5; i++) {
+                CariHareketleri c = new CariHareketleri();
+                c.setIdCari("" + idCari);
+                c.setAciklama(aciklama);
+                c.setIslemTarihi(islemTarihi);
+                c.setIslemTutari(islemTutari);
+                c.setUrunAdi(tanim[i]);
+                c.setMiktar(tanim[++i].trim());
+                c.setKdv(tanim[++i].trim());
+                c.setIskonto(tanim[++i].trim());
+                c.setGenelToplam(tanim[++i].trim());
+                c.setIslemTuru(Button);
+                c.setUnq("" + unq);
+                unq = 0;
+                cariHareketleriService.save(c);
+            }
+            return "redirect:/CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
         }
