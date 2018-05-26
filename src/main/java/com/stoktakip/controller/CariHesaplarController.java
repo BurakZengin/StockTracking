@@ -146,7 +146,22 @@ public class CariHesaplarController {
     @RequestMapping(value = "/CariEkle", method = RequestMethod.GET)
     public String CariEkle(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
+            List<Cari> list = cariService.findAll();
+            m.addAttribute("cariList", list);
             return "CariEkle";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/CariSil", method = RequestMethod.POST)
+    public String CariSil(Model m, HttpSession session, @RequestParam("cari") String cari) {
+        if (nameSurname(m, session)) {
+            List<Cari> list = cariService.findByProperty("yetkili", cari);
+            for (Cari cari1 : list) {
+                cariService.delete(cari1);
+            }
+            return "redirect:/CariEkle";
         } else {
             return "redirect:/";
         }
@@ -185,7 +200,7 @@ public class CariHesaplarController {
             c.setVergiDairesiNo(vergiDairesiNo);
             c.setYetkili(yetkili);
             cariService.save(c);
-            return "CariEkle";
+            return "redirect:/CariEkle";
         } else {
             return "redirect:/";
         }

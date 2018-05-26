@@ -42,7 +42,7 @@
                     <li><a><i class="fa fa-users"></i> Cari Hesaplar <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/CariTakip">Cari Takip</a></li>
-                            <li><a href="/CariEkle">Cari Ekle</a></li>
+                            <li><a href="/CariEkle">Cari Ekleme / Silme</a></li>
                         </ul>
                     </li>
                     <li><a href="/Kasa"><i class="fa fa-money"></i> Kasa</a></li>

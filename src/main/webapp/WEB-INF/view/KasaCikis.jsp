@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Kasa Cikis | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,7 +18,32 @@
         <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
+        <!-- PNotify -->
+        <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     </head>
+    <script>
+        function myFunction() {
+
+            var txt = document.getElementById('1');
+            var txt1 = document.getElementById('2');
+            var txt2 = document.getElementById('3');
+            if (txt.value != "" && txt1.value != "" && txt2.value != "")
+            {
+
+                new PNotify({
+                    title: 'Kasadan çikis yapiliyor!',
+                    text: 'Kasayi kontrol edin.',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+
+            }
+
+        }
+
+    </script>
 
     <body class="nav-md">
         <div class="container body">
@@ -40,26 +65,26 @@
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
                                             </label>
                                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" id="1" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>                                        
                                         <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <textarea type="text" id="2" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar
                                             </label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" id="3" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-success">Kaydet</button>
+                                                <button type="submit" onclick="myFunction()" class="btn btn-success">Kaydet</button>
                                             </div>
                                         </div>
 
@@ -86,9 +111,13 @@
         <script src="static/vendors/fastclick/lib/fastclick.js"></script>
         <!-- NProgress -->
         <script src="static/vendors/nprogress/nprogress.js"></script>
-
+        <!-- PNotify -->
+        <script src="static/vendors/pnotify/dist/pnotify.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
+
         <!-- Google Analytics -->
     </body>
 </html>
