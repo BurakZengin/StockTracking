@@ -198,6 +198,8 @@
         <script src="static/vendors/nprogress/nprogress.js"></script>
         <!-- jQuery Smart Wizard -->
         <script src="static/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+        <!-- jquery.inputmask -->
+        <script src="static/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
         <!-- Google Analytics -->

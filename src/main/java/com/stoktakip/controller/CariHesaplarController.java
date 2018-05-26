@@ -7,7 +7,9 @@ package com.stoktakip.controller;
 
 import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
+import com.stoktakip.domain.Urun;
 import com.stoktakip.service.CariService;
+import com.stoktakip.service.UrunService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class CariHesaplarController {
 
     @Autowired
     private CariService cariService;
+    @Autowired
+    private UrunService urunService;
 
     @RequestMapping(value = "/CariTakip")
     public String CariTakip(Model m, HttpSession session) {
@@ -59,10 +63,12 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/CariAlacaklandir")
+    @RequestMapping(value = "/SatisYap")
     public String CariAlacaklandir(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
-            return "CariAlacaklandir";
+            List<Urun> list = urunService.findAll();
+            m.addAttribute("urunList", list);
+            return "SatisYap";
         } else {
             return "redirect:/";
         }
@@ -113,7 +119,7 @@ public class CariHesaplarController {
             c.setVergiDairesiNo(vergiDairesiNo);
             c.setYetkili(yetkili);
             cariService.update(c);
-            return "redirect:CariHesapDetayi="+idCari;
+            return "redirect:CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
         }
