@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,26 +31,26 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="clearfix"></div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="x_panel">
-                                <div class="x_title">
-                                    <h2>Bakiye</h2>
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="x_content">
-                                    <div class="form-group">
-                                        <label class="col-md-3 col-sm-3 col-xs-3">Kasa Bakiyesi :</label>
-                                        <label class="col-md-5 col-sm-3 col-xs-3">50.000 $</label>
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Bakiye</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content">
+                                        <div class="form-group">
+                                            <label class="col-md-3 col-sm-3 col-xs-3">Kasa Bakiyesi :</label>
+                                            <label class="col-md-5 col-sm-3 col-xs-3">${butce} $</label>
                                     </div>
                                 </div>
                             </div>
@@ -100,41 +100,15 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>22/09/2018</td>
-                                                <td>Cikis</td>
-                                                <td>12.000 $</td>
-                                                <td>Mal Alimi</td>
-                                                <td>Baskan Mehmet</td>
-                                            </tr>
-                                            <tr>
-                                                <td>19/09/2018</td>
-                                                <td>Giris</td>
-                                                <td>2.000 $</td>
-                                                <td>Mal Satimi</td>
-                                                <td>Baskan Berk</td>
-                                            </tr>
-                                            <tr>
-                                                <td>10/09/2018</td>
-                                                <td>Giris</td>
-                                                <td>1.000 $</td>
-                                                <td>Kahve Sattim</td>
-                                                <td>Baskan Mehmet</td>
-                                            </tr>
-                                            <tr>
-                                                <td>09/09/2018</td>
-                                                <td>Cikis</td>
-                                                <td>5.000 $</td>
-                                                <td>Kahve Alimi</td>
-                                                <td>Baskan Ali</td>
-                                            </tr>
-                                            <tr>
-                                                <td>19/09/2018</td>
-                                                <td>Cikis</td>
-                                                <td>6.000 $</td>
-                                                <td>Mal Alimi</td>
-                                                <td>Baskan Faruk</td>
-                                            </tr>
+                                            <c:forEach var="c" items="${kasaList}">
+                                                <tr>                                            
+                                                    <td>${c.tarih}</td>
+                                                    <td>${c.tip}</td>
+                                                    <td>${c.tutar}</td>
+                                                    <td>${c.aciklama}</td>
+                                                    <td>${c.yetkili}</td>                                                    
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

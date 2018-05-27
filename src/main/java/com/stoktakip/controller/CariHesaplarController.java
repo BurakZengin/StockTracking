@@ -12,6 +12,7 @@ import com.stoktakip.domain.Stok;
 import com.stoktakip.domain.Urun;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
+import com.stoktakip.service.KasaService;
 import com.stoktakip.service.StokService;
 import com.stoktakip.service.UrunService;
 import java.text.DateFormat;
@@ -43,6 +44,8 @@ public class CariHesaplarController {
     private CariHareketleriService cariHareketleriService;
     @Autowired
     private StokService stokService;
+    @Autowired
+    private KasaService kasaService;
 
     @RequestMapping(value = "/CariTakip", method = RequestMethod.GET)
     public String CariTakip(Model m, HttpSession session) {
@@ -153,7 +156,6 @@ public class CariHesaplarController {
                 c.setUnq("" + unq);
                 unq = 0;
                 cariHareketleriService.save(c);
-
             }
             return "redirect:/CariHesapDetayi=" + idCari;
         } else {

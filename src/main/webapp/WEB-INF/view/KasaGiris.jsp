@@ -27,101 +27,48 @@
         <!-- Bootstrap -->
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
-        <script>
-            function myFunction() {
-            //var kdv1 = document.getElementById("kdv" + (i)).value;
-            var txt = document.getElementById('1');
-            var txt1 = document.getElementById('2');
-            var txt2 = document.getElementById('3');
-            if (txt.value != "" && txt1.value != "" && txt2.value != "")
-            {
-
-            new PNotify({
-            title: 'Kasaya giris yapiliyor!',
-                    text: 'Kasayi kontrol edin.',
-                    type: 'success',
-                    styling: 'bootstrap3'
-            });
-            }
-            }
-
-            function myFunction2() {
-
-            new PNotify({
-            title: 'Ürün siliniyor!',
-                    text: 'Ürünleri kontrol edin.',
-                    type: 'error',
-                    styling: 'bootstrap3'
-            });
-            }
-
-
-            $(function() {
-            $("#dialog-confirm").dialog({
-            resizable: false,
-                    height: "auto",
-                    width: 400,
-                    modal: true,
-                    buttons: {
-                    "Delete all items": function() {
-                    $(this).dialog("close");
-                    },
-                            Cancel: function() {
-                            $(this).dialog("close");
-                            }
-                    }
-            });
-            });
-        </script>
-
     </head>
 
-
-
     <body class="nav-md">
-
-
-
-
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Kasaya Giris Yap</h2>                                                  
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <div class="x_content">                                                        
-                                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Kasaya Giris Yap</h2>                                                  
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="x_content">                                                        
+                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/KasaGiris" method="POST">
 
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
-                                            </label>
-                                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" id="1" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
+                                                </label>
+                                                <div class="col-md-2 col-sm-6 col-xs-12">
+                                                    <input type="text" name="tarih" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>                                        
                                         <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="2" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <textarea type="text" id="2" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar
                                             </label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" id="3" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="text" name="tutar" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-success" onclick="myFunction()" >Kaydet</button>
+                                                <button type="submit" class="btn btn-success" >Kaydet</button>
                                             </div>
                                         </div>
 

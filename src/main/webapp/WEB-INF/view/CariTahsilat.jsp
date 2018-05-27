@@ -18,9 +18,21 @@
         <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
+        <script>
+            function myFunction() {
+                var list = document.getElementsByClassName("btn btn-success btn-xs ekle");
+                for (var i = 0; i < list.length; i++) {
+                    list[i].setAttribute("id", "buttonekle" + i);
+                }
+                var list = document.getElementsByClassName("btn btn-danger btn-xs cikar");
+                for (var i = 0; i < list.length; i++) {
+                    list[i].setAttribute("id", "buttoncikar" + i);
+                }
+            }
+        </script>
     </head>
 
-    <body class="nav-md">
+    <body class="nav-md" onload="myFunction()">
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
@@ -86,7 +98,7 @@
                                                             <th>Aciklama</th>
                                                             <th style="width: 10%">Islem Turu</th>
                                                             <th style="width: 15%">Islem Tutari</th>
-                                                            <th style="width: 5%">Ekle</th>
+                                                            <th style="width: 10%">Ekle</th>
                                                         </tr>
                                                     </thead>
 
@@ -97,7 +109,8 @@
                                                                 <td>${c.aciklama}</td>
                                                                 <td>${c.islemTuru}</td>
                                                                 <td>${c.islemTutari}</td>
-                                                                <td><a class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></a></td>
+                                                                <td><a id="buttonekle" class="btn btn-success btn-xs ekle"><i class="glyphicon glyphicon-plus"></i></a>
+                                                                    <a id="buttoncikar" class="btn btn-danger btn-xs cikar"><i class="glyphicon glyphicon-minus"></i></a></td>
                                                             </tr>
                                                         </c:forEach>                                                        
                                                     </tbody>
