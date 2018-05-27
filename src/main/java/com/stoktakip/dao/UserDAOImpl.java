@@ -29,7 +29,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void save(User u) {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -46,7 +46,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void update(User u) {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -63,7 +63,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void delete(User u) {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -80,7 +80,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public User findById(Integer userId) {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         User user = null;
         try {

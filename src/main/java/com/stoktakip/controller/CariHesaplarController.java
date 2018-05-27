@@ -8,8 +8,10 @@ package com.stoktakip.controller;
 import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
 import com.stoktakip.domain.CariHareketleri;
+import com.stoktakip.domain.Kasa;
 import com.stoktakip.domain.Stok;
 import com.stoktakip.domain.Urun;
+import com.stoktakip.domain.User;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
 import com.stoktakip.service.KasaService;
@@ -20,6 +22,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -97,6 +100,16 @@ public class CariHesaplarController {
         }
     }
 
+    @RequestMapping(value = "/CariTahsilat={idCari}", method = RequestMethod.POST)
+    public String CariTahsilatSubmit(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
+        if (nameSurname(m, session)) {
+
+            return "redirect:/CariHesapDetayi=" + idCari;
+        } else {
+            return "redirect:/";
+        }
+    }
+
     @RequestMapping(value = "/SatisYap={idCari}", method = RequestMethod.GET)
     public String SatisYap(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
@@ -120,9 +133,13 @@ public class CariHesaplarController {
             @RequestParam("Buttons") String Button,
             @RequestParam("urunler") String urunler) {
         if (nameSurname(m, session)) {
+            User user = (User) session.getAttribute("user");
             String[] tanim = urunler.split("-");
             int unq = 1;
+            Random rand = new Random();
+            int random = rand.nextInt();
             for (int i = 1; i <= Integer.parseInt(tanim[0]) * 5; i++) {
+
                 CariHareketleri c = new CariHareketleri();
                 Stok s = new Stok();
                 c.setIdCari("" + idCari);
@@ -154,9 +171,17 @@ public class CariHesaplarController {
                 c.setGenelToplam(tanim[++i].trim());
                 c.setIslemTuru(Button);
                 c.setUnq("" + unq);
+                c.setTeam("" + random);
                 unq = 0;
                 cariHareketleriService.save(c);
             }
+            Kasa k = new Kasa();
+            k.setTarih(islemTarihi);
+            k.setTip("Giris");
+            k.setTutar(islemTutari);
+            k.setAciklama(aciklama);
+            k.setYetkili(user.getName() + " " + user.getSurname());
+            kasaService.save(k);
             return "redirect:/CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
@@ -237,8 +262,11 @@ public class CariHesaplarController {
             @RequestParam("Button") String button,
             @RequestParam("islemTutari") String islemTutari) {
         if (nameSurname(m, session)) {
+            User user = (User) session.getAttribute("user");
             CariHareketleri c = new CariHareketleri();
             List<Urun> u = urunService.findByProperty("urunAdi", urunListesi);
+            Random rand = new Random();
+            int random = rand.nextInt();
             for (Urun urun : u) {
                 int yeniStok = Integer.parseInt(urun.getStokAdedi()) + Integer.parseInt(alinanMiktar);
                 urun.setStokAdedi("" + yeniStok);
@@ -255,6 +283,7 @@ public class CariHesaplarController {
                 c.setIdCari(idCari);
                 c.setIslemTuru(button);
                 c.setUnq("1");
+                c.setTeam("" + random);
                 cariHareketleriService.save(c);
                 break;
             }
@@ -266,6 +295,14 @@ public class CariHesaplarController {
             s.setAciklama(aciklama);
             s.setIslemTuru("Giris");
             stokService.save(s);
+
+            Kasa k = new Kasa();
+            k.setTarih(islemTarihi);
+            k.setTip("Cikis");
+            k.setTutar(islemTutari);
+            k.setAciklama(aciklama);
+            k.setYetkili(user.getName() + " " + user.getSurname());
+            kasaService.save(k);
 
             return "redirect:CariHesapDetayi=" + idCari;
         } else {

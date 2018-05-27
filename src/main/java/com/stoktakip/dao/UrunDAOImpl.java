@@ -29,7 +29,7 @@ public class UrunDAOImpl implements UrunDAO {
     @Override
     public void save(Urun u) {
 
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -44,7 +44,7 @@ public class UrunDAOImpl implements UrunDAO {
     }
 
     public void update(Urun u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -59,7 +59,7 @@ public class UrunDAOImpl implements UrunDAO {
     }
 
     public void delete(Urun u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -74,7 +74,7 @@ public class UrunDAOImpl implements UrunDAO {
     }
 
     public Urun findById(Integer userId) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         Urun urun = null;
         try {
@@ -85,7 +85,7 @@ public class UrunDAOImpl implements UrunDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
         }
         return urun;
     }

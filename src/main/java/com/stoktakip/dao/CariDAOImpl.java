@@ -27,7 +27,7 @@ import org.springframework.stereotype.Repository;
 public class CariDAOImpl implements CariDAO {
 
     public void save(Cari u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -37,12 +37,12 @@ public class CariDAOImpl implements CariDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
     public void update(Cari u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -52,12 +52,12 @@ public class CariDAOImpl implements CariDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
     public void delete(Cari u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -67,12 +67,12 @@ public class CariDAOImpl implements CariDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
     public Cari findById(Integer userId) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         Cari user = null;
         try {
@@ -83,7 +83,7 @@ public class CariDAOImpl implements CariDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return user;
     }
@@ -102,7 +102,7 @@ public class CariDAOImpl implements CariDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return userList;
     }
@@ -127,7 +127,7 @@ public class CariDAOImpl implements CariDAO {
             }
         } finally {
             session.close();
-            //sessionFactory.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return userList;
     }

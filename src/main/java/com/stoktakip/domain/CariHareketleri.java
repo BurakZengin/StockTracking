@@ -55,6 +55,17 @@ public class CariHareketleri implements Serializable {
     @Column(name = "unq", nullable = false, length = 45)
     private String unq;
 
+    @Column(name = "team", nullable = false, length = 45)
+    private String team;
+
+    public String getTeam() {
+        return team;
+    }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
     public String getUnq() {
         return unq;
     }

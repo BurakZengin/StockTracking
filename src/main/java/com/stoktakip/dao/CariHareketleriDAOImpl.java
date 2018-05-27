@@ -27,7 +27,7 @@ import org.springframework.stereotype.Repository;
 public class CariHareketleriDAOImpl implements CariHareketleriDAO {
 
     public void save(CariHareketleri c) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -42,7 +42,7 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
     }
 
     public void update(CariHareketleri c) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -57,7 +57,7 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
     }
 
     public void delete(CariHareketleri c) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -72,7 +72,7 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
     }
 
     public CariHareketleri findById(Integer cariId) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         CariHareketleri cariHareketleri = null;
         try {

@@ -23,7 +23,7 @@ import org.springframework.stereotype.Repository;
 public class KategorilerDAOImpl implements KategorilerDAO {
 
     public void save(Kategoriler u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -33,12 +33,12 @@ public class KategorilerDAOImpl implements KategorilerDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
         }
     }
 
     public void delete(Kategoriler u) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -48,7 +48,7 @@ public class KategorilerDAOImpl implements KategorilerDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
         }
     }
 

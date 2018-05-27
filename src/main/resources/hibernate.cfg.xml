@@ -8,7 +8,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://b4a33bd6583aef:ff16957b@eu-cdbr-west-02.cleardb.net/heroku_3516d96384896f5?reconnect=true</property>
         <property name="hibernate.connection.username">b4a33bd6583aef</property>
         <property name="hibernate.connection.password">ff16957b</property>
-        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.connection.pool_size">30</property>
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.current_session_context_class">thread</property>

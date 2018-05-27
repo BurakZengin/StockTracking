@@ -27,7 +27,7 @@ import org.springframework.stereotype.Repository;
 public class StokDAOImpl implements StokDAO {
 
     public void update(Stok s) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -37,12 +37,12 @@ public class StokDAOImpl implements StokDAO {
             session.getTransaction().rollback();
         } finally {
             session.close();
-            sessionFactory.close();
+            //sessionFactory.close();
         }
     }
 
     public void save(Stok s) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();
@@ -82,7 +82,7 @@ public class StokDAOImpl implements StokDAO {
     }
 
     public void delete(Stok s) {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         try {
             org.hibernate.Transaction tr = session.beginTransaction();

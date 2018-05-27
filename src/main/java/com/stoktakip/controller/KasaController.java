@@ -38,9 +38,9 @@ public class KasaController {
             int butce = 0;
             for (Kasa kasa : k) {
                 if (kasa.getTip().equals("Giris")) {
-                    butce += Integer.parseInt(kasa.getTutar());
+                    butce += Float.parseFloat(kasa.getTutar());
                 } else {
-                    butce -= Integer.parseInt(kasa.getTutar());
+                    butce -= Float.parseFloat(kasa.getTutar());
                 }
             }
             m.addAttribute("butce", butce);
