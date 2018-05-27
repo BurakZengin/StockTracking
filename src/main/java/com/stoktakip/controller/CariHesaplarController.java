@@ -12,7 +12,10 @@ import com.stoktakip.domain.Urun;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
 import com.stoktakip.service.UrunService;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +85,9 @@ public class CariHesaplarController {
             List<Urun> list = urunService.findAll();
             m.addAttribute("urunList", list);
             m.addAttribute("idCari", idCari);
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            m.addAttribute("tarih", dateFormat.format(date));
             return "SatisYap";
         } else {
             return "redirect:/";

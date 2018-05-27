@@ -31,7 +31,8 @@
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
         <script>
-            var i = 0, k = 1;
+            var i = 0, k = 1, counter = 0;
+            var arr = new Array();
             var urunler = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             function addUrun() {
                 i++;
@@ -47,12 +48,15 @@
                     var kdvCarpan1 = 1 + kdv1 / 100;
                     var iskonto1 = document.getElementById("iskonto" + i).value;
                     document.getElementById("toplam" + i).value = Math.round(((miktar1 * birimFiyat1 * kdvCarpan1) - iskonto1) * 100) / 100;
-                    //alert(i);
+
+                    arr[i] = parseFloat(document.getElementById("toplam" + i).value);
+                    hesapla();
                 });
             }
 
             function removeUrun(id) {
                 urunler[id] = 0;
+                arr[id] = 0;
                 $("#urun" + id).remove();
             }
             function OnButtonClick(l) {
@@ -62,7 +66,22 @@
                 var kdvCarpan = 1 + kdv / 100;
                 var iskonto = document.getElementById("iskonto" + (l)).value;
                 document.getElementById("toplam" + l).value = Math.round(((miktar * birimFiyat * kdvCarpan) - iskonto) * 100) / 100;
+
+                arr[l] = parseFloat(document.getElementById("toplam" + l).value);
+                hesapla();
             }
+
+            function hesapla() {
+                for (j = 1; j < arr.length; j++) {
+                    if (arr[j] != null) {
+                        counter += arr[j];
+                        document.getElementById("islemTutari").value = counter;
+                    }
+                }
+                counter = 0;
+
+            }
+
             function sadeceSayi(evt) {
                 return (evt.charCode >= 48 && evt.charCode <= 57) || (evt.charCode == 46);
             }
@@ -137,7 +156,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" name="islemTarihi" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -150,7 +169,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input disabled type="text" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input disabled type="text" id="islemTutari" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <input type="hidden" id="urunler" name="urunler"/>
