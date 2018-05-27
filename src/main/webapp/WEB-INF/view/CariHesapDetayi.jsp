@@ -237,7 +237,7 @@
                                                         <tr>
                                                             <th style="width: 10%;">Tarih</th>
                                                             <th>Aciklama</th>
-                                                            <th style="width: 10%">Islem Turu</th>
+                                                            <th style="width: 15%">Islem Turu</th>
                                                             <th style="width: 15%">Islem Tutari</th>
                                                         </tr>
                                                     </thead>

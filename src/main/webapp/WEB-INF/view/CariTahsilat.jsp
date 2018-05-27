@@ -30,27 +30,30 @@
             var odenenler = new Array();
             var counter = 0;
             function ekleFunction(element) {
-                odenenler = odenenler.filter(Number);
                 var index = element.parentNode.parentNode.rowIndex;
                 odenenler[index - 1] = document.getElementById("datatable-buttons").rows[index].cells[5].innerHTML;
-                alert(odenenler.toString());
                 counter += parseFloat(document.getElementById("datatable-buttons").rows[index].cells[3].innerHTML);
                 $("#borc").val(Math.round(counter));
                 $("#buttonekle" + (index - 1)).removeAttr('onclick');
                 $("#buttonekle" + (index - 1)).attr('disabled', 'disabled');
                 $("#buttoncikar" + (index - 1)).removeAttr('disabled');
                 $("#buttoncikar" + (index - 1)).attr('onclick', 'cikarFunction(this)');
+                document.getElementById("urunler").value = odenenler;
+                alert(document.getElementById("urunler").value);
+                //alert(odenenler.toString());
             }
+
             function cikarFunction(element) {
                 var index = element.parentNode.parentNode.rowIndex;
-                odenenler[index - 1] = 0;
-                alert(odenenler.toString());
+                odenenler[index - 1] = "0";
                 counter -= parseFloat(document.getElementById("datatable-buttons").rows[index].cells[3].innerHTML);
                 $("#borc").val(Math.round(counter));
                 $("#buttoncikar" + (index - 1)).removeAttr('onclick');
                 $("#buttoncikar" + (index - 1)).attr('disabled', 'disabled');
                 $("#buttonekle" + (index - 1)).removeAttr('disabled');
                 $("#buttonekle" + (index - 1)).attr('onclick', 'ekleFunction(this)');
+                document.getElementById("urunler").value = odenenler;
+                alert(document.getElementById("urunler").value);
             }
 
             function myFunction() {
@@ -99,10 +102,10 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Borc Miktari
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input disabled type="text" id="borc" name="borcMiktari" value="0" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input readonly="true" type="text" id="borc" name="borcMiktari" value="0" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
-                                                <input type="hidden" name="urunler"/>
-                                            </div>                                                
+                                                <input type="hidden" id="urunler" name="urunler" value='2'/>
+                                            </div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

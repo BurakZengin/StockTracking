@@ -101,9 +101,34 @@ public class CariHesaplarController {
     }
 
     @RequestMapping(value = "/CariTahsilat={idCari}", method = RequestMethod.POST)
-    public String CariTahsilatSubmit(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
+    public String CariTahsilatSubmit(Model m, HttpSession session, @PathVariable("idCari") int idCari,
+            @RequestParam("islemTarihi") String islemTarihi,
+            @RequestParam("aciklama") String aciklama,
+            @RequestParam("borcMiktari") String borcMiktari,
+            @RequestParam("urunler") String urunler) {
         if (nameSurname(m, session)) {
-
+            User user = (User) session.getAttribute("user");
+            String[] idTeam = urunler.split(",");
+            for (String idTeam1 : idTeam) {
+                if (!idTeam1.equals("0")) {
+                    List<CariHareketleri> ch = cariHareketleriService.findByProperty("team", idTeam1);
+                    for (CariHareketleri cariHareketleri : ch) {
+                        cariHareketleri.setIslemTuru("Borc(Odendi)");
+                        cariHareketleriService.update(cariHareketleri);
+                        cariHareketleri.setAciklama(aciklama);
+                        cariHareketleri.setIslemTarihi(islemTarihi);
+                        cariHareketleri.setIslemTuru("Tahsilat");
+                        cariHareketleriService.save(cariHareketleri);
+                    }
+                }
+            }
+            Kasa k = new Kasa();
+            k.setTarih(islemTarihi);
+            k.setTip("Giris");
+            k.setTutar(borcMiktari);
+            k.setAciklama(aciklama);
+            k.setYetkili(user.getName() + " " + user.getSurname());
+            kasaService.save(k);
             return "redirect:/CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
@@ -175,13 +200,16 @@ public class CariHesaplarController {
                 unq = 0;
                 cariHareketleriService.save(c);
             }
-            Kasa k = new Kasa();
-            k.setTarih(islemTarihi);
-            k.setTip("Giris");
-            k.setTutar(islemTutari);
-            k.setAciklama(aciklama);
-            k.setYetkili(user.getName() + " " + user.getSurname());
-            kasaService.save(k);
+            if (!Button.equals("Borc")) {
+                Kasa k = new Kasa();
+                k.setTarih(islemTarihi);
+                k.setTip("Giris");
+                k.setTutar(islemTutari);
+                k.setAciklama(aciklama);
+                k.setYetkili(user.getName() + " " + user.getSurname());
+                kasaService.save(k);
+            }
+
             return "redirect:/CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
@@ -325,6 +353,41 @@ public class CariHesaplarController {
             }
             m.addAttribute("cariHareketleri", asilList);
             return "CariOdeme";
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/CariOdeme={idCari}", method = RequestMethod.POST)
+    public String CariOdemeSubmit(Model m, HttpSession session, @PathVariable("idCari") String idCari,
+            @RequestParam("islemTarihi") String islemTarihi,
+            @RequestParam("aciklama") String aciklama,
+            @RequestParam("borcMiktari") String borcMiktari,
+            @RequestParam("urunler") String urunler) {
+        if (nameSurname(m, session)) {
+            User user = (User) session.getAttribute("user");
+            String[] idTeam = urunler.split(",");
+            for (String idTeam1 : idTeam) {
+                if (!idTeam1.equals("0")) {
+                    List<CariHareketleri> ch = cariHareketleriService.findByProperty("team", idTeam1);
+                    for (CariHareketleri cariHareketleri : ch) {
+                        cariHareketleri.setIslemTuru("Alacakli (Odendi)");
+                        cariHareketleriService.update(cariHareketleri);
+                        cariHareketleri.setAciklama(aciklama);
+                        cariHareketleri.setIslemTarihi(islemTarihi);
+                        cariHareketleri.setIslemTuru("Odeme");
+                        cariHareketleriService.save(cariHareketleri);
+                    }
+                }
+            }
+            Kasa k = new Kasa();
+            k.setTarih(islemTarihi);
+            k.setTip("Cikis");
+            k.setTutar(borcMiktari);
+            k.setAciklama(aciklama);
+            k.setYetkili(user.getName() + " " + user.getSurname());
+            kasaService.save(k);
+            return "redirect:/CariHesapDetayi=" + idCari;
         } else {
             return "redirect:/";
         }

@@ -60,36 +60,6 @@
                                                     <td>5.000 $</td>
                                                 </tr>
                                             </c:forEach>
-                                            <!--<tr>
-                                                <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
-                                                <td>Burak Zengin</td>
-                                                <td>507 475 77 70</td>
-                                                <td>5.000 $</td>                                                                    
-                                            </tr>
-                                            <tr>
-                                                <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
-                                                <td>Omer Faruk Oner</td>
-                                                <td>507 475 77 70</td>
-                                                <td>11.000 $</td>                                                                    
-                                            </tr>
-                                            <tr>
-                                                <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
-                                                <td>Omer Faruk Oner</td>
-                                                <td>507 475 77 70</td>
-                                                <td>16.000 $</td>                                                                      
-                                            </tr>
-                                            <tr>                                                                    
-                                                <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
-                                                <td>Burak Zengin</td>
-                                                <td>507 475 77 70</td>
-                                                <td>15.000 $</td>                                                            
-                                            </tr>
-                                            <tr>                                                                    
-                                                <td><a href="/CariHesapDetayi" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-cog"></i></a></td>
-                                                <td>Burak Zengin</td>
-                                                <td>507 475 77 70</td>
-                                                <td>2.000 $</td>                                                          
-                                            </tr>-->
                                         </tbody>
                                     </table>
                                 </div>
