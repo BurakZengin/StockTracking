@@ -39,8 +39,6 @@
                 $("#buttoncikar" + (index - 1)).removeAttr('disabled');
                 $("#buttoncikar" + (index - 1)).attr('onclick', 'cikarFunction(this)');
                 document.getElementById("urunler").value = odenenler;
-                alert(document.getElementById("urunler").value);
-                //alert(odenenler.toString());
             }
 
             function cikarFunction(element) {
@@ -53,7 +51,6 @@
                 $("#buttonekle" + (index - 1)).removeAttr('disabled');
                 $("#buttonekle" + (index - 1)).attr('onclick', 'ekleFunction(this)');
                 document.getElementById("urunler").value = odenenler;
-                alert(document.getElementById("urunler").value);
             }
 
             function myFunction() {

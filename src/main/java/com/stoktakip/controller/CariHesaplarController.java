@@ -323,14 +323,15 @@ public class CariHesaplarController {
             s.setAciklama(aciklama);
             s.setIslemTuru("Giris");
             stokService.save(s);
-
-            Kasa k = new Kasa();
-            k.setTarih(islemTarihi);
-            k.setTip("Cikis");
-            k.setTutar(islemTutari);
-            k.setAciklama(aciklama);
-            k.setYetkili(user.getName() + " " + user.getSurname());
-            kasaService.save(k);
+            if (!button.equals("Alacakli")) {
+                Kasa k = new Kasa();
+                k.setTarih(islemTarihi);
+                k.setTip("Cikis");
+                k.setTutar(islemTutari);
+                k.setAciklama(aciklama);
+                k.setYetkili(user.getName() + " " + user.getSurname());
+                kasaService.save(k);
+            }
 
             return "redirect:CariHesapDetayi=" + idCari;
         } else {
@@ -441,20 +442,20 @@ public class CariHesaplarController {
             @RequestParam("iban") String iban) {
         if (nameSurname(m, session)) {
             Cari c = new Cari();
-            c.setAdres(adres);
-            c.setBankaAdi(bankaAdi);
-            c.setFax(fax);
-            c.setHesapNo(hesapNo);
-            c.setIban(iban);
-            c.setMail(mail);
-            c.setSube(sube);
-            c.setSubeNo(subeNo);
-            c.setTelefon(telefon);
-            c.setTicaretSicilNo(ticaretSicilNo);
-            c.setUnvan(unvan);
-            c.setVergiDairesi(vergiDairesi);
-            c.setVergiDairesiNo(vergiDairesiNo);
-            c.setYetkili(yetkili);
+            c.setAdres(adres.trim());
+            c.setBankaAdi(bankaAdi.trim());
+            c.setFax(fax.trim());
+            c.setHesapNo(hesapNo.trim());
+            c.setIban(iban.trim());
+            c.setMail(mail.trim());
+            c.setSube(sube.trim());
+            c.setSubeNo(subeNo.trim());
+            c.setTelefon(telefon.trim());
+            c.setTicaretSicilNo(ticaretSicilNo.trim());
+            c.setUnvan(unvan.trim());
+            c.setVergiDairesi(vergiDairesi.trim());
+            c.setVergiDairesiNo(vergiDairesiNo.trim());
+            c.setYetkili(yetkili.trim());
             cariService.save(c);
             return "redirect:/CariEkle";
         } else {
