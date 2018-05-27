@@ -95,7 +95,7 @@
                                                 <th style="width: 10%">Tip</th>
                                                 <th style="width: 10%">Tutar</th>
                                                 <th style="width: 50%">Aciklama</th>
-                                                <th style="width: 20%">Unvan</th>
+                                                <th style="width: 20%">Yetkili</th>
                                             </tr>
                                         </thead>
 

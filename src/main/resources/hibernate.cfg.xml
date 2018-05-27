@@ -19,5 +19,6 @@
         <mapping class="com.stoktakip.domain.Stok" />
         <mapping class="com.stoktakip.domain.Cari" />
         <mapping class="com.stoktakip.domain.CariHareketleri" />
+        <mapping class="com.stoktakip.domain.Kasa" />
     </session-factory>
 </hibernate-configuration>

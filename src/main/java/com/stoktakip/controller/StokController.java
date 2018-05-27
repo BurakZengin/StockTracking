@@ -39,7 +39,7 @@ public class StokController {
     @Autowired
     private StokService stokService;
 
-    @RequestMapping(value = "/Kategoriler")
+    @RequestMapping(value = "/Kategoriler", method = RequestMethod.GET)
     public String Kategoriler(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             List<Kategoriler> list = kategorilerService.findAll();
@@ -71,7 +71,6 @@ public class StokController {
             Kategoriler k = new Kategoriler();
             k.setKategori(kategori);
             kategorilerService.delete(k);
-
             List<Urun> u = urunService.findByProperty("kategori", kategori);
             for (Urun urun : u) {
                 List<Stok> s = stokService.findByProperty("urun", urun.getUrunAdi());
@@ -87,7 +86,7 @@ public class StokController {
         }
     }
 
-    @RequestMapping(value = "/UrunEkleme")
+    @RequestMapping(value = "/UrunEkleme", method = RequestMethod.GET)
     public String UrunEkleme(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             List<Kategoriler> listKategori = kategorilerService.findAll();
@@ -105,8 +104,12 @@ public class StokController {
             @RequestParam("urunAdi") String urunAdi) {
         if (nameSurname(m, session)) {
             List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
+            List<Stok> s = stokService.findByProperty("urun", urunAdi);
             for (Urun urun : u) {
                 urunService.delete(urun);
+            }
+            for (Stok stok : s) {
+                stokService.delete(stok);
             }
             return "redirect:UrunEkleme";
         } else {
@@ -163,25 +166,22 @@ public class StokController {
             @RequestParam("Button") String Button,
             @RequestParam("tarih") String tarih) {
         if (nameSurname(m, session)) {
+
             Stok s = new Stok();
-            if (Button.equals("Giris")) {
-                s.setIslemTuru("Giris");
-                List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
-                for (Urun urun : u) {
+            List<Urun> u = urunService.findByProperty("idUrun", idUrun);
+            for (Urun urun : u) {
+                s.setUrun(urun.getUrunAdi());
+                if (Button.equals("Giris")) {
+                    s.setIslemTuru("Giris");
                     int yeniStokAdedi = Integer.parseInt(urun.getStokAdedi()) + miktar;
                     urun.setStokAdedi("" + yeniStokAdedi);
-                    urunService.update(urun);
-                }
-            } else {
-                s.setIslemTuru("Cikis");
-                List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
-                for (Urun urun : u) {
+                } else {
+                    s.setIslemTuru("Cikis");
                     int yeniStokAdedi = Integer.parseInt(urun.getStokAdedi()) - miktar;
                     urun.setStokAdedi("" + yeniStokAdedi);
-                    urunService.update(urun);
                 }
+                urunService.update(urun);
             }
-            s.setUrun(urunAdi);
             s.setAciklama(aciklama);
             s.setMiktar("" + miktar);
             s.setTarih(tarih);
@@ -195,8 +195,11 @@ public class StokController {
     @RequestMapping(value = "/UrunDetay={idUrun}", method = RequestMethod.GET)
     public String UrunDetay(Model m, HttpSession session, @PathVariable("idUrun") int idUrun) {
         if (nameSurname(m, session)) {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            m.addAttribute("tarih", dateFormat.format(date));
             Urun u = urunService.findById(idUrun);
-            m.addAttribute("urunBilgileri", u);           
+            m.addAttribute("urunBilgileri", u);
             List<Stok> list = stokService.findByProperty("urun", u.getUrunAdi());
             m.addAttribute("urunTablo", list);
             return "UrunDetay";
@@ -205,7 +208,7 @@ public class StokController {
         }
     }
 
-    @RequestMapping(value = "/StokTakp")
+    @RequestMapping(value = "/StokTakp", method = RequestMethod.GET)
     public String StokTakp(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             List<Urun> list = urunService.findAll();

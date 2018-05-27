@@ -195,9 +195,9 @@
                             <div class="x_content">
                                 <div class="col-md-12 col-sm-6 col-xs-12" >
                                     <a href="/SatisYap=${cariBilgileri.idCari}" class="btn btn-info">Satis Yap</a>
-                                    <a href="/CariBorclandir" class="btn btn-warning">Alis Yap</a>
-                                    <a href="/CariTahsilat" class="btn btn-primary">Tahsilat</a>
-                                    <a href="/CariOdeme" class="btn btn-dark">Odeme</a>                                    
+                                    <a href="/AlisYap=${cariBilgileri.idCari}" class="btn btn-warning">Alis Yap</a>
+                                    <a href="/CariTahsilat=${cariBilgileri.idCari}" class="btn btn-primary">Tahsilat</a>
+                                    <a href="/CariOdeme=${cariBilgileri.idCari}" class="btn btn-dark">Odeme</a>                                    
                                 </div>
                             </div>
                         </div>
@@ -262,7 +262,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <!-- /page content -->
 
             <!-- footer content -->

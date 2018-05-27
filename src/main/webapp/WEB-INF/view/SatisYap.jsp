@@ -75,7 +75,7 @@
                 for (j = 1; j < arr.length; j++) {
                     if (arr[j] != null) {
                         counter += arr[j];
-                        document.getElementById("islemTutari").value = counter;
+                        document.getElementsByName("islemTutari")[0].value = counter;
                     }
                 }
                 counter = 0;
@@ -169,7 +169,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input disabled type="text" id="islemTutari" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input readonly="true" type="text" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <input type="hidden" id="urunler" name="urunler"/>

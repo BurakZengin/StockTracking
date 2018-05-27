@@ -8,9 +8,11 @@ package com.stoktakip.controller;
 import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
 import com.stoktakip.domain.CariHareketleri;
+import com.stoktakip.domain.Stok;
 import com.stoktakip.domain.Urun;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
+import com.stoktakip.service.StokService;
 import com.stoktakip.service.UrunService;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -39,8 +41,10 @@ public class CariHesaplarController {
     private UrunService urunService;
     @Autowired
     private CariHareketleriService cariHareketleriService;
+    @Autowired
+    private StokService stokService;
 
-    @RequestMapping(value = "/CariTakip")
+    @RequestMapping(value = "/CariTakip", method = RequestMethod.GET)
     public String CariTakip(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             List<Cari> list = cariService.findAll();
@@ -51,7 +55,7 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/CariHesapDetayi={idCari}")
+    @RequestMapping(value = "/CariHesapDetayi={idCari}", method = RequestMethod.GET)
     public String CariHesapDetayi(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
             Cari u = cariService.findById(idCari);
@@ -70,9 +74,20 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/CariTahsilat")
-    public String CariTahsilat(Model m, HttpSession session) {
+    @RequestMapping(value = "/CariTahsilat={idCari}", method = RequestMethod.GET)
+    public String CariTahsilat(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            m.addAttribute("tarih", dateFormat.format(date));
+            List<CariHareketleri> list = cariHareketleriService.findByProperty("idCari", idCari);
+            List<CariHareketleri> asilList = new ArrayList<CariHareketleri>();
+            for (CariHareketleri cariHareketleri : list) {
+                if (cariHareketleri.getUnq().equals("1") && cariHareketleri.getIslemTuru().equals("Borc")) {
+                    asilList.add(cariHareketleri);
+                }
+            }
+            m.addAttribute("cariHareketleri", asilList);
             return "CariTahsilat";
         } else {
             return "redirect:/";
@@ -106,12 +121,31 @@ public class CariHesaplarController {
             int unq = 1;
             for (int i = 1; i <= Integer.parseInt(tanim[0]) * 5; i++) {
                 CariHareketleri c = new CariHareketleri();
+                Stok s = new Stok();
                 c.setIdCari("" + idCari);
                 c.setAciklama(aciklama);
                 c.setIslemTarihi(islemTarihi);
                 c.setIslemTutari(islemTutari);
-                c.setUrunAdi(tanim[i]);
-                c.setMiktar(tanim[++i].trim());
+                String urunAdi = tanim[i];
+                c.setUrunAdi(urunAdi);
+
+                String miktar = tanim[++i].trim();
+                List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
+                for (Urun urun : u) {
+                    int stokAdedi = Integer.parseInt(urun.getStokAdedi());
+                    stokAdedi -= Integer.parseInt(miktar);
+                    urun.setStokAdedi("" + stokAdedi);
+                    urunService.update(urun);
+                }
+
+                s.setUrun(urunAdi);
+                s.setMiktar(miktar);
+                s.setTarih(islemTarihi);
+                s.setAciklama(aciklama);
+                s.setIslemTuru("Cikis");
+                stokService.save(s);
+
+                c.setMiktar(miktar);
                 c.setKdv(tanim[++i].trim());
                 c.setIskonto(tanim[++i].trim());
                 c.setGenelToplam(tanim[++i].trim());
@@ -119,6 +153,7 @@ public class CariHesaplarController {
                 c.setUnq("" + unq);
                 unq = 0;
                 cariHareketleriService.save(c);
+
             }
             return "redirect:/CariHesapDetayi=" + idCari;
         } else {
@@ -126,7 +161,7 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/CariDuzenle={idCari}")
+    @RequestMapping(value = "/CariDuzenle={idCari}", method = RequestMethod.GET)
     public String CariDuzenle(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
             Cari c = cariService.findById(idCari);
@@ -177,18 +212,79 @@ public class CariHesaplarController {
         }
     }
 
-    @RequestMapping(value = "/CariBorclandir")
-    public String CariBorclandir(Model m, HttpSession session) {
+    @RequestMapping(value = "/AlisYap={idCari}", method = RequestMethod.GET)
+    public String AlisYap(Model m, HttpSession session, @PathVariable("idCari") int idCari) {
         if (nameSurname(m, session)) {
-            return "CariBorclandir";
+            List<Urun> list = urunService.findAll();
+            m.addAttribute("urunList", list);
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            m.addAttribute("tarih", dateFormat.format(date));
+            return "AlisYap";
         } else {
             return "redirect:/";
         }
     }
 
-    @RequestMapping(value = "/CariOdeme")
-    public String CariOdeme(Model m, HttpSession session) {
+    @RequestMapping(value = "/AlisYap={idCari}", method = RequestMethod.POST)
+    public String AlisYapSubmit(Model m, HttpSession session, @PathVariable("idCari") String idCari,
+            @RequestParam("urunListesi") String urunListesi,
+            @RequestParam("islemTarihi") String islemTarihi,
+            @RequestParam("alinanMiktar") String alinanMiktar,
+            @RequestParam("aciklama") String aciklama,
+            @RequestParam("Button") String button,
+            @RequestParam("islemTutari") String islemTutari) {
         if (nameSurname(m, session)) {
+            CariHareketleri c = new CariHareketleri();
+            List<Urun> u = urunService.findByProperty("urunAdi", urunListesi);
+            for (Urun urun : u) {
+                int yeniStok = Integer.parseInt(urun.getStokAdedi()) + Integer.parseInt(alinanMiktar);
+                urun.setStokAdedi("" + yeniStok);
+                urunService.update(urun);
+
+                c.setIslemTarihi(islemTarihi);
+                c.setAciklama(aciklama);
+                c.setIslemTutari(islemTutari);
+                c.setUrunAdi(urun.getUrunAdi());
+                c.setMiktar(alinanMiktar);
+                c.setKdv("8");
+                c.setIskonto("0");
+                c.setGenelToplam("0");
+                c.setIdCari(idCari);
+                c.setIslemTuru(button);
+                c.setUnq("1");
+                cariHareketleriService.save(c);
+                break;
+            }
+
+            Stok s = new Stok();
+            s.setUrun(urunListesi);
+            s.setMiktar(alinanMiktar);
+            s.setTarih(islemTarihi);
+            s.setAciklama(aciklama);
+            s.setIslemTuru("Giris");
+            stokService.save(s);
+
+            return "redirect:CariHesapDetayi=" + idCari;
+        } else {
+            return "redirect:/";
+        }
+    }
+
+    @RequestMapping(value = "/CariOdeme={idCari}", method = RequestMethod.GET)
+    public String CariOdeme(Model m, HttpSession session, @PathVariable("idCari") String idCari) {
+        if (nameSurname(m, session)) {
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date date = new Date();
+            m.addAttribute("tarih", dateFormat.format(date));
+            List<CariHareketleri> list = cariHareketleriService.findByProperty("idCari", idCari);
+            List<CariHareketleri> asilList = new ArrayList<CariHareketleri>();
+            for (CariHareketleri cariHareketleri : list) {
+                if (cariHareketleri.getUnq().equals("1") && cariHareketleri.getIslemTuru().equals("Alacakli")) {
+                    asilList.add(cariHareketleri);
+                }
+            }
+            m.addAttribute("cariHareketleri", asilList);
             return "CariOdeme";
         } else {
             return "redirect:/";
@@ -209,9 +305,15 @@ public class CariHesaplarController {
     @RequestMapping(value = "/CariSil", method = RequestMethod.POST)
     public String CariSil(Model m, HttpSession session, @RequestParam("cari") String cari) {
         if (nameSurname(m, session)) {
+            int idCari = 0;
             List<Cari> list = cariService.findByProperty("yetkili", cari);
             for (Cari cari1 : list) {
                 cariService.delete(cari1);
+                idCari = cari1.getIdCari();
+            }
+            List<CariHareketleri> cariHareketList = cariHareketleriService.findByProperty("idCari", "" + idCari);
+            for (CariHareketleri cariHareketleri : cariHareketList) {
+                cariHareketleriService.delete(cariHareketleri);
             }
             return "redirect:/CariEkle";
         } else {

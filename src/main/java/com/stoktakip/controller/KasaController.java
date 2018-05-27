@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -18,15 +19,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class KasaController {
 
-    @RequestMapping(value = "/Kasa")
-    public String CariTakip(Model m, HttpSession session) {
+    @RequestMapping(value = "/Kasa", method = RequestMethod.GET)
+    public String KasaTakip(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             return "Kasa";
         } else {
             return "redirect:/";
         }
     }
-    
+
     @RequestMapping(value = "/KasaGiris")
     public String KasaGiris(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
@@ -35,7 +36,7 @@ public class KasaController {
             return "redirect:/";
         }
     }
-    
+
     @RequestMapping(value = "/KasaCikis")
     public String KasaCikis(Model m, HttpSession session) {
         if (nameSurname(m, session)) {

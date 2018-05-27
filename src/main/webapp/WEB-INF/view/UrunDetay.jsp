@@ -92,10 +92,10 @@
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Tarih :
                                                         </label>
                                                         <input type="hidden" name="urunAdi" value="${urunAdi}">
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <div class="col-md-3 col-sm-6 col-xs-12">
                                                             <div class="controls">
-                                                                <div class="input-prepend input-group">                                                                            
-                                                                    <input type="text" name="tarih" required="required" class="form-control col-md-7 col-xs-12"/>
+                                                                <div class="input-prepend input-group">
+                                                                    <input type="text" name="tarih" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -142,15 +142,13 @@
                                                 <table id="datatable-buttons" class="table table-striped table-bordered">
                                                     <thead>
                                                         <tr>                                                                    
-                                                            <th>Tarih</th>
-                                                            <th>Islem Turu</th>
-                                                            <th>Miktar</th>
-                                                            <th>Aciklama</th>                                                                    
+                                                            <th style="width: 10%">Tarih</th>
+                                                            <th style="width: 10%">Islem Turu</th>
+                                                            <th style="width: 10%">Miktar</th>
+                                                            <th>Aciklama</th>
                                                         </tr>
                                                     </thead>
-
                                                     <tbody>
-
                                                         <c:forEach var="c" items="${urunTablo}">
                                                             <tr>                                                                
                                                                 <td>${c.tarih}</td>
@@ -159,36 +157,6 @@
                                                                 <td>${c.aciklama}</td>
                                                             </tr>
                                                         </c:forEach>
-                                                        <!--<tr>                                                                    
-                                                            <td>19/09/2018</td>
-                                                            <td>Giris</td>
-                                                            <td>500</td>
-                                                            <td>Aciklama Girilecek</td>                                                                    
-                                                        </tr>
-                                                        <tr>                                                                    
-                                                            <td>19/09/2018</td>
-                                                            <td>Giris</td>
-                                                            <td>500</td>
-                                                            <td>Aciklama Girilecek</td>                                                                    
-                                                        </tr>
-                                                        <tr>                                                                    
-                                                            <td>19/09/2018</td>
-                                                            <td>Cikis</td>
-                                                            <td>500</td>
-                                                            <td>Aciklama Girilecek</td>                                                                    
-                                                        </tr>
-                                                        <tr>                                                                    
-                                                            <td>19/09/2018</td>
-                                                            <td>Cikis</td>
-                                                            <td>500</td>
-                                                            <td>Aciklama Girilecek</td>                                                          
-                                                        </tr>
-                                                        <tr>                                                                    
-                                                            <td>19/09/2018</td>
-                                                            <td>Giris</td>
-                                                            <td>500</td>
-                                                            <td>Aciklama Girilecek</td>                                                        
-                                                        </tr>-->
                                                     </tbody>
                                                 </table>
                                             </div>

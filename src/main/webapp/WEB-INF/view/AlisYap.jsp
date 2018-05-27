@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Alis Yap | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -24,56 +24,57 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <div class="col-md-12 col-sm-6 col-xs-12">
-                        <div class="x_panel">
-                            <div class="x_title">
-                                <h2>Cari Borclandirma</h2>                                                  
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <div class="x_content">                                                        
-                                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        <div class="col-md-12 col-sm-6 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Alis Yapma</h2>                                                  
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="x_content">                                                        
+                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/AlisYap=${idCari}" method="POST">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
-                                            </label>
-                                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="first-name">Vade Tarihi
-                                            </label>
-                                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Odeme Sekli
-                                            </label>
-                                            <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <select id="heard" class="form-control" required>
-                                                    <option value="">Acik Hesap</option>
-                                                    <option value="press">Senet</option>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Listesi</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <select id="heard" class="form-control" name="urunListesi">
+                                                    <c:forEach var="c" items="${urunList}">                                                               
+                                                        <option value="${c.urunAdi}">${c.urunAdi}</option>
+                                                    </c:forEach>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
+                                            </label>
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="first-name">Alinan Miktar
+                                            </label>
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="text" name="alinanMiktar" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>                                        
+                                        <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="" name="" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <textarea type="text" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
                                             </label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="text" id="first-name" name="islemTutari" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-success">Borclandir</button>
+                                                <button type="submit" name="Button" value="Alis" class="btn btn-success">Alis Yap</button>
+                                                <button type="submit" name="Button" value="Alacakli" class="btn btn-warning">Alacaklandir</button>
                                             </div>
                                         </div>
 

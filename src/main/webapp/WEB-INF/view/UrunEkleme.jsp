@@ -86,7 +86,7 @@
                                                 <div class="form-group form-group has-feedback">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12" >Kdv Orani</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
-                                                        <input type="text" class="form-control has-feedback-left" name='kdvOrani' required="required">
+                                                        <input type="text" class="form-control has-feedback-left" name='kdvOrani' value="8" required="required">
                                                         <span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
                                                     </div>                                                    
                                                     <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayisi</label>
