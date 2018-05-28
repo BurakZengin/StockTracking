@@ -113,7 +113,7 @@ public class CariHesaplarController {
                 if (!idTeam1.equals("0")) {
                     List<CariHareketleri> ch = cariHareketleriService.findByProperty("team", idTeam1);
                     for (CariHareketleri cariHareketleri : ch) {
-                        cariHareketleri.setIslemTuru("Borc(Odendi)");
+                        cariHareketleri.setIslemTuru("Borc (Odendi)");
                         cariHareketleriService.update(cariHareketleri);
                         cariHareketleri.setAciklama(aciklama);
                         cariHareketleri.setIslemTarihi(islemTarihi);
@@ -163,7 +163,7 @@ public class CariHesaplarController {
             int unq = 1;
             Random rand = new Random();
             int random = rand.nextInt();
-            for (int i = 1; i <= Integer.parseInt(tanim[0]) * 5; i++) {
+            for (int i = 1; i <= Integer.parseInt(tanim[0]) * 6; i++) {
 
                 CariHareketleri c = new CariHareketleri();
                 Stok s = new Stok();
@@ -193,7 +193,12 @@ public class CariHesaplarController {
                 c.setMiktar(miktar);
                 c.setKdv(tanim[++i].trim());
                 c.setIskonto(tanim[++i].trim());
-                c.setGenelToplam(tanim[++i].trim());
+                c.setBirimFiyati(tanim[++i].trim());
+                if (i < 6) {
+                    c.setGenelToplam(tanim[++i].trim().replaceFirst(".$", ""));
+                } else {
+                    c.setGenelToplam(tanim[++i].trim());
+                }
                 c.setIslemTuru(Button);
                 c.setUnq("" + unq);
                 c.setTeam("" + random);
@@ -307,7 +312,8 @@ public class CariHesaplarController {
                 c.setMiktar(alinanMiktar);
                 c.setKdv("8");
                 c.setIskonto("0");
-                c.setGenelToplam("0");
+                c.setGenelToplam(islemTutari);
+                c.setBirimFiyati("" + Float.parseFloat(islemTutari) / Float.parseFloat(alinanMiktar));
                 c.setIdCari(idCari);
                 c.setIslemTuru(button);
                 c.setUnq("1");

@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gentelella Alela! | </title>
+        <title>Fatura | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,99 +32,42 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <div class="right_col" role="main">
-                    <div class="">
-                        <div class="clearfix"></div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Islemler</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <div class="x_content">                                                        
-                                                <div class="col-md-12 col-sm-6 col-xs-12" >
-                                                    <a href="/CariTahsilat" class="btn btn-primary">Yeni Satis Faturasi</a>
-                                                    <a href="/CariOdeme" class="btn btn-dark">Yeni Alis Faturasi</a>
-                                                    <a href="/CariAlacaklandir" class="btn btn-warning">Yeni Irsaliye</a>
-                                                </div>
+                    <div class="right_col" role="main">
+                        <div class="">
+                            <div class="clearfix"></div>                        
+                            <div class="row">
+                                <div class="x_content">
+                                    <div class="col-md-12 col-sm-6 col-xs-12">
+                                        <div class="x_panel">
+                                            <div class="x_title">
+                                                <h2>Fatura Listesi</h2>                                                  
+                                                <div class="clearfix"></div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="x_content">
-                                <div class="col-md-12 col-sm-6 col-xs-12">
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2>Fatura</h2>                                                  
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="x_content">
-                                            <div class="x_content">                                                        
-                                                <table id="datatable-buttons" class="table table-striped table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th style="width: 5%">Detay</th>
-                                                            <th style="width: 20%">Unvan</th>
-                                                            <th style="width: 20%">Yetkili</th>
-                                                            <th style="width: 10%">Tarih</th>
-                                                            <th style="width: 15%">Turu</th>
-                                                            <th style="width: 10%">Genel Toplam</th>
-                                                            <th style="width: 10%">Odeme Sekli</th>
-                                                        </tr>
-                                                    </thead>
+                                            <div class="x_content">
+                                                <div class="x_content">                                                        
+                                                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 5%">Detay</th>
+                                                                <th style="width: 30%">Unvan</th>
+                                                                <th style="width: 15%">Yetkili</th>
+                                                                <th style="width: 10%">Tarih</th>
+                                                                <th style="width: 10%">Turu</th>
+                                                                <th style="width: 10%">Genel Toplam</th>
+                                                            </tr>
+                                                        </thead>
 
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Genel Mudur</td>
-                                                            <td>Ceren Kisakol</td>
-                                                            <td>19/09/2017</td>
-                                                            <td>Satis Faturasi</td>
-                                                            <td>$320,800</td>
-                                                            <td>Nakit</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Genel Mudur</td>
-                                                            <td>Ceren Kisakol</td>
-                                                            <td>19/09/2017</td>
-                                                            <td>Satis Faturasi</td>
-                                                            <td>$320,800</td>
-                                                            <td>Nakit</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Genel Mudur</td>
-                                                            <td>Ceren Kisakol</td>
-                                                            <td>19/09/2017</td>
-                                                            <td>Satis Faturasi</td>
-                                                            <td>$320,800</td>
-                                                            <td>Nakit</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Genel Mudur</td>
-                                                            <td>Ceren Kisakol</td>
-                                                            <td>19/09/2017</td>
-                                                            <td>Satis Faturasi</td>
-                                                            <td>$320,800</td>
-                                                            <td>Nakit</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><a href="/UrunDetay" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
-                                                            <td>Genel Mudur</td>
-                                                            <td>Ceren Kisakol</td>
-                                                            <td>19/09/2017</td>
-                                                            <td>Satis Faturasi</td>
-                                                            <td>$320,800</td>
-                                                            <td>Nakit</td>
-                                                        </tr>
+                                                        <tbody>
+                                                        <c:forEach var="c" items="${alisSatis}">
+                                                            <tr>                                            
+                                                                <td><a href="/FaturaDetay=${c.idCari}=${c.team}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
+                                                                <td>${c.iskonto}</td>
+                                                                <td>${c.kdv}</td>
+                                                                <td>${c.islemTarihi}</td>
+                                                                <td>${c.islemTuru} Faturasi</td>
+                                                                <td>${c.islemTutari}</td>
+                                                            </tr>
+                                                        </c:forEach>
                                                     </tbody>
                                                 </table>
                                             </div>

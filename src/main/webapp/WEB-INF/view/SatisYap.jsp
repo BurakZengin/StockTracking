@@ -37,7 +37,7 @@
             function addUrun() {
                 i++;
                 urunler[i] = "" + i;
-                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input disabled style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" name="miktar' + i + '" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" disabled value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
+                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input readonly="true" style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" name="miktar' + i + '" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" readonly="true" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
                 $("#datatable-buttons tr").click(function () {
                     var index = this.rowIndex;
                     $("#urunAdi" + i).val(document.getElementById("datatable-buttons").rows[index].cells[1].innerHTML);
@@ -73,7 +73,7 @@
 
             function hesapla() {
                 for (j = 1; j < arr.length; j++) {
-                    if (arr[j] != null) {
+                    if (arr[j] !== null) {
                         counter += arr[j];
                         document.getElementsByName("islemTutari")[0].value = counter;
                     }
@@ -95,6 +95,7 @@
                             + document.getElementById("miktar" + urunler[k]).value + "-"
                             + document.getElementById("kdv" + urunler[k]).value + "-"
                             + document.getElementById("iskonto" + urunler[k]).value + "-"
+                            + document.getElementById("birimFiyati" + urunler[k]).value + "-"
                             + document.getElementById("toplam" + urunler[k]).value;
                 }
                 document.getElementById("Buttons").value = "Satis";
@@ -113,6 +114,7 @@
                             + document.getElementById("miktar" + urunler[k]).value + "-"
                             + document.getElementById("kdv" + urunler[k]).value + "-"
                             + document.getElementById("iskonto" + urunler[k]).value + "-"
+                            + document.getElementById("birimFiyati" + urunler[k]).value + "-"
                             + document.getElementById("toplam" + urunler[k]).value;
                 }
                 document.getElementById("Buttons").value = "Borc";

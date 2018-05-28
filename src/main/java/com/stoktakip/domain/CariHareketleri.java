@@ -43,6 +43,9 @@ public class CariHareketleri implements Serializable {
     @Column(name = "miktar", nullable = false, length = 45)
     private String miktar;
 
+    @Column(name = "birimFiyati", nullable = false, length = 45)
+    private String birimFiyati;
+
     @Column(name = "kdv", nullable = false, length = 45)
     private String kdv;
 
@@ -57,6 +60,14 @@ public class CariHareketleri implements Serializable {
 
     @Column(name = "team", nullable = false, length = 45)
     private String team;
+
+    public String getBirimFiyati() {
+        return birimFiyati;
+    }
+
+    public void setBirimFiyati(String birimFiyati) {
+        this.birimFiyati = birimFiyati;
+    }
 
     public String getTeam() {
         return team;
