@@ -22,6 +22,30 @@
 
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
+        <script>
+            function myFunction() {
+                if (document.getElementById("inputSuccess2").value) {
+                    new PNotify({
+                        title: 'Katagori ekleniyor!',
+                        text: 'Kategorileri kontrol edin.',
+                        type: 'success',
+                        styling: 'bootstrap3'
+                    });
+                }
+            }
+            function myFunction2() {
+                var a = confirm('Kategorideki bütün ürünler silinicek,emin misin?', 'Son');
+                if (a === true) {
+                    $("#sil").attr('type', 'submit');
+                    new PNotify({
+                        title: 'Kategori siliniyor!',
+                        text: 'Kategorileri kontrol edin.',
+                        type: 'error',
+                        styling: 'bootstrap3'
+                    });
+                }
+            }
+        </script>
     </head>
 
     <body class="nav-md">
@@ -73,7 +97,7 @@
                                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <button type="submit" class="btn btn-success">Ekle</button>
+                                                    <button type="submit" onclick="myFunction()" class="btn btn-success">Ekle</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -95,7 +119,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <button type="submit" class="btn btn-danger">Sil</button>
+                                                    <button id="sil" type="button" onclick="myFunction2()" class="btn btn-danger">Sil</button>
                                                 </div>
                                             </form>
                                         </div>
