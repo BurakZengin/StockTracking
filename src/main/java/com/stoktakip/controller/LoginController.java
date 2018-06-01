@@ -49,7 +49,7 @@ public class LoginController {
     @RequestMapping(value = "/Login", method = RequestMethod.GET)
     public String GetLogin(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
         m.addAttribute("command", new LoginCommand());
-        if (HomeController.nameSurname(m, session)) {
+        if (nameSurname(m, session)) {
             return "redirect:Anasayfa";
         } else {
             return "Login";
@@ -70,5 +70,16 @@ public class LoginController {
     private void addUserInSession(User u, HttpSession session) {
         session.setAttribute("user", u);
         session.setAttribute("userId", u.getId());
+    }
+
+    public boolean nameSurname(Model m, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        if (u == null) {
+            return false;
+        } else {
+            m.addAttribute("name", u.getName() + " ");
+            m.addAttribute("surname", u.getSurname());
+            return true;
+        }
     }
 }

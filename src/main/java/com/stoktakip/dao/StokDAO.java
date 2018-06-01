@@ -13,12 +13,14 @@ import java.util.List;
  * @author Elidor
  */
 public interface StokDAO {
-    
+
     public void save(Stok s);
-    
+
     public void update(Stok s);
-    
+
     public void delete(Stok s);
+
+    public List<Stok> findAll();
 
     public List<Stok> findByProperty(String propName, Object propValue);
 }

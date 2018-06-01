@@ -45,37 +45,37 @@
         <div class="container body">
             <div class="main_container">
                 <jsp:include page="header.jsp"></jsp:include>
-                <!-- page content -->
-                <div class="right_col" role="main">
-                    <!-- top tiles -->
-                    <div class="row tile_count text-center">
-                        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-users"></i> Musteriler</span>
-                            <div class="count">200</div>
+                    <!-- page content -->
+                    <div class="right_col" role="main">
+                        <!-- top tiles -->
+                        <div class="row tile_count text-center">
+                            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                                <span class="count_top"><i class="fa fa-users"></i> Musteriler</span>
+                                <div class="count">${musteriSayisi}</div>
                             <span class="count_bottom"><i class="green">4% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-dollar"></i> Toplam Satis</span>
-                            <div class="count">123.50 $</div>
+                            <span class="count_top"><i class="fa fa-dollar"></i> Aylik Kar</span>
+                            <div class="count green">123.50 $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Toplam Vade</span>
-                            <div class="count dark">500 $</div>
+                            <div class="count dark">${toplamVade} $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-battery-half"></i> Stogu Biten Urunler</span>
-                            <div class="count green">3</div>
+                            <div class="count red">${stokBitenUrunler}</div>
                             <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-line-chart"></i> Toplam Stok Degeri</span>
-                            <div class="count">2,315 $</div>
+                            <div class="count">${stokDegeri} $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-money"></i> Gunsonu Kar</span>
+                            <span class="count_top"><i class="fa fa-money"></i> Gun Sonu Kar</span>
                             <div class="count">7,325 $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>

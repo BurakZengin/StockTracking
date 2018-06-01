@@ -5,9 +5,9 @@
  */
 package com.stoktakip.controller;
 
-import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
 import com.stoktakip.domain.CariHareketleri;
+import com.stoktakip.domain.User;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
 import java.util.ArrayList;
@@ -88,12 +88,23 @@ public class FaturaController {
                 if (cariHareketleri.getIslemTuru().equals("Satis") || cariHareketleri.getIslemTuru().equals("Alis")
                         || cariHareketleri.getIslemTuru().equals("Tahsilat") || cariHareketleri.getIslemTuru().equals("Odeme")) {
                     asilList.add(cariHareketleri);
-                } 
+                }
             }
             m.addAttribute("urunler", asilList);
             return "FaturaDetay";
         } else {
             return "redirect:/";
+        }
+    }
+
+    public boolean nameSurname(Model m, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        if (u == null) {
+            return false;
+        } else {
+            m.addAttribute("name", u.getName() + " ");
+            m.addAttribute("surname", u.getSurname());
+            return true;
         }
     }
 }

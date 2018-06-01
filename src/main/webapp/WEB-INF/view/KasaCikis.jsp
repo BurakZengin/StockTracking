@@ -23,7 +23,24 @@
         <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     </head>
+    <script>
+        function myFunction() {
 
+            var txt = document.getElementById('aciklama');
+            var txt1 = document.getElementById('tutar');
+
+            if (txt.value != "" && txt1.value != "")
+            {
+                new PNotify({
+                    title: 'Kasadan cikis yapiliyor!',
+                    text: 'Lütfen,kasayi kontrol edin.',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            }
+
+        }
+    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
@@ -49,20 +66,20 @@
                                         <div class="form-group">
                                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="2" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <textarea type="text" id="aciklama" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar
                                             </label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="tutar" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="text" name="tutar" id="tutar" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-success">Cikis Yap</button>
+                                                <button type="submit" class="btn btn-danger" onclick="myFunction()">Cikis Yap</button>
                                             </div>
                                         </div>
                                     </form>

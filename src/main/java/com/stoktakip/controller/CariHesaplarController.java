@@ -5,7 +5,6 @@
  */
 package com.stoktakip.controller;
 
-import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Cari;
 import com.stoktakip.domain.CariHareketleri;
 import com.stoktakip.domain.Kasa;
@@ -466,6 +465,17 @@ public class CariHesaplarController {
             return "redirect:/CariEkle";
         } else {
             return "redirect:/";
+        }
+    }
+
+    public boolean nameSurname(Model m, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        if (u == null) {
+            return false;
+        } else {
+            m.addAttribute("name", u.getName() + " ");
+            m.addAttribute("surname", u.getSurname());
+            return true;
         }
     }
 }

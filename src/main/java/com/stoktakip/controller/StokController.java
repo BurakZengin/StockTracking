@@ -219,7 +219,7 @@ public class StokController {
         }
     }
 
-    static boolean nameSurname(Model m, HttpSession session) {
+    public boolean nameSurname(Model m, HttpSession session) {
         User u = (User) session.getAttribute("user");
         if (u == null) {
             return false;

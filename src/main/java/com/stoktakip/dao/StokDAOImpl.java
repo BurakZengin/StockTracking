@@ -6,6 +6,7 @@
 package com.stoktakip.dao;
 
 import com.stoktakip.domain.Stok;
+import com.stoktakip.domain.Urun;
 import com.stoktakip.util.HibernateUtil;
 import java.util.List;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -15,7 +16,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -94,5 +94,24 @@ public class StokDAOImpl implements StokDAO {
             session.close();
             //sessionFactory.close();
         }
+    }
+
+    public List<Stok> findAll() {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        List<Stok> urunList = null;
+        try {
+            org.hibernate.Transaction tr = session.beginTransaction();
+            CriteriaQuery cq = session.getCriteriaBuilder().createQuery(Stok.class);
+            cq.from(Stok.class);
+            urunList = session.createQuery(cq).getResultList();
+            tr.commit();
+        } catch (HibernateException e) {
+            session.getTransaction().rollback();
+        } finally {
+            session.close();
+            //sessionFactory.close();
+        }
+        return urunList;
     }
 }

@@ -27,6 +27,10 @@
         <link href="static/css/custom.min.css" rel="stylesheet">
         <!-- jQuery -->
         <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- PNotify -->
+        <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
         <!-- Bootstrap -->
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
@@ -59,6 +63,7 @@
                 arr[id] = 0;
                 $("#urun" + id).remove();
             }
+
             function OnButtonClick(l) {
                 var miktar = document.getElementById("miktar" + (l)).value;
                 var birimFiyat = document.getElementById("birimFiyati" + (l)).value;
@@ -87,40 +92,51 @@
             }
 
             function urun() {
-                //if (!document.getElementById("islemTutari").value.equals("0")) {
-                urunler = urunler.filter(Number);
-                var str = "";
-                for (var k = 0; k < urunler.length; k++) {
-                    str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
-                            + document.getElementById("miktar" + urunler[k]).value + "-"
-                            + document.getElementById("kdv" + urunler[k]).value + "-"
-                            + document.getElementById("iskonto" + urunler[k]).value + "-"
-                            + document.getElementById("birimFiyati" + urunler[k]).value + "-"
-                            + document.getElementById("toplam" + urunler[k]).value;
+                if (document.getElementById("islemTutari").value > 0) {
+                    urunler = urunler.filter(Number);
+                    var str = "";
+                    for (var k = 0; k < urunler.length; k++) {
+                        str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
+                                + document.getElementById("miktar" + urunler[k]).value + "-"
+                                + document.getElementById("kdv" + urunler[k]).value + "-"
+                                + document.getElementById("iskonto" + urunler[k]).value + "-"
+                                + document.getElementById("birimFiyati" + urunler[k]).value + "-"
+                                + document.getElementById("toplam" + urunler[k]).value;
+                    }
+                    document.getElementById("Buttons").value = "Satis";
+                    document.getElementById("urunler").value = "" + str;
+                    document.getElementById("demo-form2").submit();
+                    new PNotify({
+                        title: 'Satis islemi gerceklesiyor!',
+                        text: 'Lütfen,urunleri kontrol edin.',
+                        type: 'success',
+                        styling: 'bootstrap3'
+                    });
                 }
-                document.getElementById("Buttons").value = "Satis";
-                document.getElementById("urunler").value = "" + str;
-                document.getElementById("demo-form2").submit();
-                //}
-
             }
 
             function urun2() {
-                //if (!document.getElementById("islemTutari").value.equals("0")) {
-                urunler = urunler.filter(Number);
-                var str = "";
-                for (var k = 0; k < urunler.length; k++) {
-                    str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
-                            + document.getElementById("miktar" + urunler[k]).value + "-"
-                            + document.getElementById("kdv" + urunler[k]).value + "-"
-                            + document.getElementById("iskonto" + urunler[k]).value + "-"
-                            + document.getElementById("birimFiyati" + urunler[k]).value + "-"
-                            + document.getElementById("toplam" + urunler[k]).value;
+                if (document.getElementById("islemTutari").value > 0) {
+                    urunler = urunler.filter(Number);
+                    var str = "";
+                    for (var k = 0; k < urunler.length; k++) {
+                        str += urunler.length + "-" + document.getElementById("urunAdi" + urunler[k]).value + "-"
+                                + document.getElementById("miktar" + urunler[k]).value + "-"
+                                + document.getElementById("kdv" + urunler[k]).value + "-"
+                                + document.getElementById("iskonto" + urunler[k]).value + "-"
+                                + document.getElementById("birimFiyati" + urunler[k]).value + "-"
+                                + document.getElementById("toplam" + urunler[k]).value;
+                    }
+                    document.getElementById("Buttons").value = "Borc";
+                    document.getElementById("urunler").value = "" + str;
+                    document.getElementById("demo-form2").submit();
+                    new PNotify({
+                        title: 'Borclandirma islemi gerceklesiyor!',
+                        text: 'Lütfen,urunleri kontrol edin.',
+                        type: 'warning',
+                        styling: 'bootstrap3'
+                    });
                 }
-                document.getElementById("Buttons").value = "Borc";
-                document.getElementById("urunler").value = "" + str;
-                document.getElementById("demo-form2").submit();
-                //}
             }
 
         </script>
@@ -171,7 +187,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input readonly="true" type="text" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input readonly="true" type="text" id="islemTutari" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <input type="hidden" id="urunler" name="urunler"/>
@@ -218,6 +234,7 @@
                                                     <td>${c.stokAdedi}</td>
                                                     <td>${c.satisFiyati}</td>
                                                     <td><a onclick="addUrun()" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-plus"></i></a></td>
+                                                    <td style="display: none;">${c.alisFiyati}</td>
                                                 </tr>
                                             </c:forEach>                                    
                                         </tbody>
@@ -262,6 +279,10 @@
         <script src="static/vendors/pdfmake/build/vfs_fonts.js"></script>
         <!-- jquery.inputmask -->
         <script src="static/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+        <!-- PNotify -->
+        <script src="static/vendors/pnotify/dist/pnotify.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
         <!-- Google Analytics -->

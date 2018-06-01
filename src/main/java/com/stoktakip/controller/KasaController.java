@@ -5,7 +5,6 @@
  */
 package com.stoktakip.controller;
 
-import static com.stoktakip.controller.StokController.nameSurname;
 import com.stoktakip.domain.Kasa;
 import com.stoktakip.domain.User;
 import com.stoktakip.service.KasaService;
@@ -112,6 +111,17 @@ public class KasaController {
             return "redirect:/Kasa";
         } else {
             return "redirect:/";
+        }
+    }
+
+    public boolean nameSurname(Model m, HttpSession session) {
+        User u = (User) session.getAttribute("user");
+        if (u == null) {
+            return false;
+        } else {
+            m.addAttribute("name", u.getName() + " ");
+            m.addAttribute("surname", u.getSurname());
+            return true;
         }
     }
 }

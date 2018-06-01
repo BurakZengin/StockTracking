@@ -19,6 +19,8 @@ public interface StokService {
     public void update(Stok s);
     
     public void delete(Stok s);
+    
+    public List<Stok> findAll();
 
     public List<Stok> findByProperty(String propName, Object propValue);
 }

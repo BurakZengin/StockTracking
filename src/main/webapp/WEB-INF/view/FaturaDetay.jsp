@@ -36,22 +36,16 @@
                 kdvToplam += Math.round(toplam * kdvCarpan - toplam);
                 iskontoToplam += iskonto;
 
-
                 araToplam += toplam - iskonto;
-
                 document.getElementById("datatable-buttons").rows[i].cells[4].innerHTML = toplam;
                 document.getElementById("datatable-buttons").rows[i].cells[5].innerHTML = "";
                 document.getElementById("datatable-buttons").rows[i].cells[6].innerHTML = "";
-
-
                 genelToplam += (toplam * kdvCarpan) - iskonto;
             }
-
             document.getElementById("kdv").innerHTML = kdvToplam;
             document.getElementById("iskontoToplam").innerHTML = iskontoToplam;
             document.getElementById("araToplam").innerHTML = araToplam;
             document.getElementById("genelToplam").innerHTML = genelToplam;
-
         }
         $(document).ready(function () {
             myFunction();

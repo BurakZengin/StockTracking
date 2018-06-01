@@ -33,6 +33,10 @@ public class StokServiceImpl implements StokService {
         return stokDAO.findByProperty(propName, propValue);
     }
 
+    public List<Stok> findAll() {
+        return stokDAO.findAll();
+    }
+
     public void delete(Stok s) {
         stokDAO.delete(s);
     }
