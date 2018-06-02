@@ -33,24 +33,29 @@
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
         <script>
-            var i = 0, k = 1, counter = 0;
+            var i = 0, k = 1, counter = 0, counterKar = 0, kar = 0;
             var arr = new Array();
+            var arrKar = new Array();
             var urunler = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
             function addUrun() {
                 i++;
                 urunler[i] = "" + i;
-                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input readonly="true" style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" name="miktar' + i + '" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" readonly="true" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
+                $('<div class="form-group" id="urun' + i + '" ><div class="col-md-1 col-sm-6 col-xs-12"><a onclick="removeUrun(' + i + ')" class="btn btn-danger btn-large"><i class="glyphicon glyphicon-minus"></i></a></div> <div class="col-md-3 col-sm-6 col-xs-12"><input readonly="true" style="text-align: center;" id="urunAdi' + i + '" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" name="miktar' + i + '" id="miktar' + i + '" value="1" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="birimFiyati' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="kdv' + i + '" value="8" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-1 col-sm-6 col-xs-12"><input onkeyup="OnButtonClick(' + i + ')" onkeypress="return sadeceSayi(event)" id="iskonto' + i + '" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><div class="col-md-2 col-sm-6 col-xs-12"><input id="toplam' + i + '" readonly="true" value="0" style="text-align: center;" type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12"></div><input style="display: none;" id="alisFiyat' + i + '" readonly="true" value="0" style="text-align: center;" type="text"  required="required" class="form-control col-md-7 col-xs-12"></div></div>').appendTo("#urunlist");
                 $("#datatable-buttons tr").click(function () {
                     var index = this.rowIndex;
                     $("#urunAdi" + i).val(document.getElementById("datatable-buttons").rows[index].cells[1].innerHTML);
                     $('#birimFiyati' + i).val(document.getElementById("datatable-buttons").rows[index].cells[4].innerHTML);
+                    $('#alisFiyat' + i).val(document.getElementById("datatable-buttons").rows[index].cells[6].innerHTML);
                     var miktar1 = document.getElementById("miktar" + i).value;
                     var birimFiyat1 = document.getElementById("birimFiyati" + i).value;
                     var kdv1 = document.getElementById("kdv" + i).value;
                     var kdvCarpan1 = 1 + kdv1 / 100;
                     var iskonto1 = document.getElementById("iskonto" + i).value;
                     document.getElementById("toplam" + i).value = Math.round(((miktar1 * birimFiyat1 * kdvCarpan1) - iskonto1) * 100) / 100;
+                    //alert(document.getElementById("datatable-buttons").rows[index].cells[6].innerHTML);
 
+                    //alert(kar);
+                    arrKar[i] = (birimFiyat1 * miktar1 - iskonto1) - miktar1 * parseFloat(document.getElementById("alisFiyat" + (i)).value);//birim*miktar-iskonto- alis fiyat
                     arr[i] = parseFloat(document.getElementById("toplam" + i).value);
                     hesapla();
                 });
@@ -59,9 +64,10 @@
             function removeUrun(id) {
                 urunler[id] = 0;
                 arr[id] = 0;
+                arrKar[id] = 0;
                 $("#urun" + id).remove();
+                hesapla();
             }
-
             function OnButtonClick(l) {
                 var miktar = document.getElementById("miktar" + (l)).value;
                 var birimFiyat = document.getElementById("birimFiyati" + (l)).value;
@@ -69,6 +75,9 @@
                 var kdvCarpan = 1 + kdv / 100;
                 var iskonto = document.getElementById("iskonto" + (l)).value;
                 document.getElementById("toplam" + l).value = Math.round(((miktar * birimFiyat * kdvCarpan) - iskonto) * 100) / 100;
+
+                arrKar[l] = ((birimFiyat * miktar) - iskonto) - miktar * parseFloat(document.getElementById("alisFiyat" + (l)).value);
+                // alert(arrKar.toString());
 
                 arr[l] = parseFloat(document.getElementById("toplam" + l).value);
                 hesapla();
@@ -78,10 +87,13 @@
                 for (j = 1; j < arr.length; j++) {
                     if (arr[j] !== null) {
                         counter += arr[j];
+                        counterKar += arrKar[j];
                         document.getElementsByName("islemTutari")[0].value = counter;
+                        document.getElementsByName("aciklama")[0].value = counterKar;
                     }
                 }
                 counter = 0;
+                counterKar = 0;
             }
 
             function sadeceSayi(evt) {
@@ -177,7 +189,7 @@
                                             <div class="form-group">
                                                 <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <textarea type="text" name="aciklama" required="required" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                    <textarea type="text" id="aciklama" name="aciklama" required="required" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
