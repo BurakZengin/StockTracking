@@ -44,9 +44,18 @@
             var err = "${err}";
             if (err == "ex") {
                 new PNotify({
-                    title: 'Giris Sorunu!',
-                    text: 'Kullanici Adi veya Sifre Yanlis!',
+                    title: 'Giriş Sorunu !',
+                    text: 'Kullanıcı Adı veya Şifre Hatalı !',
                     type: 'error',
+                    styling: 'bootstrap3'
+                });
+            }
+            var kayit = "${kayit}";
+            if (kayit == "2") {
+                new PNotify({
+                    title: 'Kayıt Ol',
+                    text: 'Kullanıcı Başarıyla Kaydedildi',
+                    type: 'success',
                     styling: 'bootstrap3'
                 });
             }

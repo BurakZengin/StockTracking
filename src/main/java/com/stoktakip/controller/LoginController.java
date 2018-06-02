@@ -30,7 +30,7 @@ public class LoginController {
     private MailService mailService;
 
     @RequestMapping(value = "/")
-    public String Login(Model m) {
+    public String Login() {
         return "Login";
     }
 
@@ -135,6 +135,7 @@ public class LoginController {
                 u.setUsername(username);
                 u.setMail(mail);
                 userService.save(u);
+                m.addAttribute("kayit", "2");
             } else {
                 m.addAttribute("err", "2");
                 return "Kayit";

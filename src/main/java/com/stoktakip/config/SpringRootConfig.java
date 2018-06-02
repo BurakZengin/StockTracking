@@ -26,8 +26,8 @@ public class SpringRootConfig {
         //Using Gmail SMTP configuration.
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
-        mailSender.setUsername("brakzengin@gmail.com");
-        mailSender.setPassword("123,+456");
+        mailSender.setUsername("mihracecoffee@gmail.com");
+        mailSender.setPassword("2116asd2116");
 
         Properties javaMailProperties = new Properties();
         javaMailProperties.put("mail.smtp.starttls.enable", "true");

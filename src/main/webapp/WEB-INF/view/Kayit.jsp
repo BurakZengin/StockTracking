@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Welcome to X R&D</title>
+        <title>Kayıt Ol |</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->	
@@ -81,7 +81,7 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Kayit Ol ${err}
+                            Kayit Ol
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adınızı Giriniz">
