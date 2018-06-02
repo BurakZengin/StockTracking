@@ -30,6 +30,7 @@ public class SpringRootConfig {
         mailSender.setPassword("123,+456");
 
         Properties javaMailProperties = new Properties();
+        javaMailProperties.put("mail.imap.ssl.enable", "true"); // required for Gmail
         javaMailProperties.put("mail.smtp.starttls.enable", "true");
         javaMailProperties.put("mail.smtp.auth", "true");
         javaMailProperties.put("mail.transport.protocol", "smtp");
