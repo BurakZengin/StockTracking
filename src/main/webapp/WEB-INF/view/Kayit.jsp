@@ -47,22 +47,22 @@
             var err = ${err};
             if (err == "1") {
                 new PNotify({
-                    title: 'Kayit Sorunu!',
-                    text: 'Kullanici Adi Kullaniliyor!',
+                    title: 'Kayıt Sorunu !',
+                    text: 'Kullanıcı Adı Kullanılıyor !',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
             } else if (err == "2") {
                 new PNotify({
-                    title: 'Kayit Sorunu!',
-                    text: 'Admin Parolasi Yanlis!',
+                    title: 'Kayıt Sorunu !',
+                    text: 'Admin Parolası Yanlış !',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
             } else if (err == "3") {
                 new PNotify({
-                    title: 'Kayit Sorunu!',
-                    text: 'Parolalar Uyusmuyor!',
+                    title: 'Kayıt Sorunu !',
+                    text: 'Parolalar Uyuşmuyor !',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
@@ -75,7 +75,7 @@
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
 
-                    <form class="login100-form validate-form" id="loginForm" action="Forgot" method="POST">
+                    <form class="login100-form validate-form" id="loginForm" action="Kayit" method="POST">
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>
@@ -84,17 +84,21 @@
                             Kayit Ol ${err}
                         </span>
 
-                        <div class="wrap-input100 validate-input" data-validate = "Kullanici Adinizi Giriniz">
-                            <input class="input100" type="text" name="username" placeholder="Kullanici Adi"/>
+                        <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adınızı Giriniz">
+                            <input class="input100" type="text" name="username" placeholder="Kullanıcı Adı"/>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate = "Isim Giriniz">
-                            <input class="input100" type="text" name="name" placeholder="Isim"/>
+                            <input class="input100" type="text" name="name" placeholder="İsim"/>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate = "Soyad Giriniz">
                             <input class="input100" type="text" name="surname" placeholder="Soyad"/>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Mail Giriniz">
+                            <input class="input100" type="text" name="mail" placeholder="E-Mail"/>
+                            <span class="focus-input100" data-placeholder="&#x2709;"></span>
                         </div>
                         <div class="wrap-input100 validate-input" data-validate = "Parola Giriniz">
                             <input class="input100" type="password" name="password" placeholder="Parola"/>
@@ -104,8 +108,8 @@
                             <input class="input100" type="password" name="rePassword" placeholder="Parola Tekrar"/>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
-                        <div class="wrap-input100 validate-input" data-validate = "Admin Parolasini Giriniz">
-                            <input class="input100" type="password" name="adminPassword" placeholder="Admin Parolasi"/>
+                        <div class="wrap-input100 validate-input" data-validate = "Admin Parolasını Giriniz">
+                            <input class="input100" type="password" name="adminPassword" placeholder="Admin Parolası"/>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
                         <div class="wrap-input100">
@@ -118,7 +122,7 @@
                         </div>
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit">
-                                Kayit Ol
+                                Kayıt Ol
                             </button>
                         </div>
                     </form>

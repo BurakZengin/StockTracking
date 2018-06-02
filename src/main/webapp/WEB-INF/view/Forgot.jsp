@@ -32,12 +32,30 @@
         <!--===============================================================================================-->	
         <link rel="stylesheet" type="text/css" href="static/vendors/daterangepicker/daterangepicker.css">
         <!--===============================================================================================-->
+        <!-- PNotify -->
+        <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="static/css/util.css">
         <link rel="stylesheet" type="text/css" href="static/css/main.css">
         <!--===============================================================================================-->
     </head>
-    <body>
 
+    <script>
+        function myFunction() {
+            var err = ${err};
+            if (err == "1") {
+                new PNotify({
+                    title: 'Gönderme Sorunu!',
+                    text: 'Kullanıcı Adı Bulunamadı !',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            }
+        }
+    </script>
+
+    <body onload="myFunction()">
         <div class="limiter">
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
@@ -48,14 +66,13 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Şifreni Bul
+                            Şifremi Unuttum
                         </span>
 
-                        <div class="wrap-input100 validate-input" data-validate = "Enter Your E-mail">
-                            <input class="input100" type="text" name="username" placeholder="E-Mailini Gir"/>
-                            <span class="focus-input100" data-placeholder="&#x2709;"></span>
+                        <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adı Bos Olamaz">
+                            <input class="input100" type="text" name="username" placeholder="Kullanıcı Adı"/>
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
-
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit">
                                 Mail Gönder
@@ -84,6 +101,10 @@
         <!--===============================================================================================-->
         <script src="static/vendors/countdowntime/countdowntime.js"></script>
         <!--===============================================================================================-->
+        <!-- PNotify -->
+        <script src="static/vendors/pnotify/dist/pnotify.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
         <script src="static/js/main.js"></script>
 
     </body>

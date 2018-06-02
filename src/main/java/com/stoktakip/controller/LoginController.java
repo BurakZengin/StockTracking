@@ -6,6 +6,7 @@
 package com.stoktakip.controller;
 
 import com.stoktakip.domain.User;
+import com.stoktakip.service.MailService;
 import com.stoktakip.service.UserService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -25,6 +26,8 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private MailService mailService;
 
     @RequestMapping(value = "/")
     public String Login(Model m) {
@@ -72,8 +75,23 @@ public class LoginController {
     }
 
     @RequestMapping(value = {"/Forgot"}, method = RequestMethod.POST)
-    public String ForgotSubmit(Model m, HttpSession session) {
-        return "redirect:/";
+    public String ForgotSubmit(Model m, HttpSession session,
+            @RequestParam("username") String username) {
+        List<User> u = userService.findByProperty("username", username);
+        if (u.size() <= 0) {
+            m.addAttribute("err", "1");
+            return "Forgot";
+        } else {
+            int randomPIN = (int) (Math.random() * 9000) + 1000;
+            for (User user : u) {
+                user.setPassword("" + randomPIN);
+                userService.update(user);
+                mailService.sendEmail(user, randomPIN);
+                m.addAttribute("mail", "basarili");
+                break;
+            }
+            return "redirect:/";
+        }
     }
 
     @RequestMapping(value = {"/Kayit"})
@@ -89,6 +107,7 @@ public class LoginController {
             @RequestParam("password") String password,
             @RequestParam("rePassword") String rePassword,
             @RequestParam("adminPassword") String adminPassword,
+            @RequestParam("mail") String mail,
             @RequestParam("role") String role) {
 
         List<User> userList = userService.findAll();
@@ -114,6 +133,7 @@ public class LoginController {
                 }
                 u.setSurname(surname);
                 u.setUsername(username);
+                u.setMail(mail);
                 userService.save(u);
             } else {
                 m.addAttribute("err", "2");

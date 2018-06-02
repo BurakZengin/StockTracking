@@ -49,6 +49,15 @@
                     styling: 'bootstrap3'
                 });
             }
+            var mail = ${mail};
+            if (mail == "basarili") {
+                new PNotify({
+                    title: 'Şifremi Unuttum!',
+                    text: 'Şifreniz Başarıyla Gönderildi',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            }
         }
     </script>
 
@@ -100,9 +109,6 @@
                 </div>
             </div>
         </div>
-
-
-        <div id="dropDownSelect1"></div>
 
         <!--===============================================================================================-->
         <script src="static/vendors/jquery/jquery-3.2.1.min.js"></script>
