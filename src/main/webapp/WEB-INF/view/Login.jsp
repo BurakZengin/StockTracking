@@ -41,7 +41,8 @@
 
     <script>
         function myFunction() {
-            if (${err!=null}) {
+            var err = "${err}";
+            if (err == "ex") {
                 new PNotify({
                     title: 'Giris Sorunu!',
                     text: 'Kullanici Adi veya Sifre Yanlis!',
@@ -49,7 +50,7 @@
                     styling: 'bootstrap3'
                 });
             }
-            var mail = ${mail};
+            var mail = "${mail}";
             if (mail == "basarili") {
                 new PNotify({
                     title: 'Şifremi Unuttum!',
@@ -65,7 +66,7 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form" id="loginForm" action="Login" method="post">
+                    <form class="login100-form validate-form" id="loginForm" action="Login" method="POST">
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>

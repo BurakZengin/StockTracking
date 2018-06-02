@@ -44,7 +44,7 @@
 
     <script>
         function myFunction() {
-            var err = ${err};
+            var err = "${err}";
             if (err == "1") {
                 new PNotify({
                     title: 'Kayıt Sorunu !',
