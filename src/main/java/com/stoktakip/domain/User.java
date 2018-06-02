@@ -8,6 +8,8 @@ package com.stoktakip.domain;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -22,6 +24,7 @@ import javax.persistence.UniqueConstraint;
 public class User implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false, length = 11)
     private int id;
 
@@ -30,12 +33,23 @@ public class User implements Serializable {
 
     @Column(name = "password", nullable = false, length = 45)
     private String password;
-    
-     @Column(name = "name", nullable = false, length = 45)
+
+    @Column(name = "name", nullable = false, length = 45)
     private String name;
 
     @Column(name = "surname", nullable = false, length = 45)
     private String surname;
+
+    @Column(name = "roles", nullable = false, length = 45)
+    private String roles;
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 
     public String getName() {
         return name;

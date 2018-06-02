@@ -35,7 +35,11 @@ public class HomeController {
 
     @RequestMapping(value = "/Anasayfa")
     public String Anasayfa(Model m, HttpSession session) {
-        try {
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
+        } else {
+
             if (nameSurname(m, session)) {
                 List<Cari> cari = cariService.findAll();
                 m.addAttribute("musteriSayisi", cari.size());
@@ -65,8 +69,6 @@ public class HomeController {
             } else {
                 return "redirect:/";
             }
-        } catch (NumberFormatException e) {
-            return "Anasayfa";
         }
     }
 
@@ -75,6 +77,7 @@ public class HomeController {
         if (u == null) {
             return false;
         } else {
+            m.addAttribute("role", u.getRoles());
             m.addAttribute("name", u.getName() + " ");
             m.addAttribute("surname", u.getSurname());
             return true;

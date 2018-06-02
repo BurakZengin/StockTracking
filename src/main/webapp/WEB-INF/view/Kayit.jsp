@@ -10,15 +10,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Stok Takip Sistemine Hosgeldiniz</title>
+        <title>Welcome to X R&D</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->	
         <link rel="icon" type="image/png" href="static/images/icons/favicon.ico"/>
         <!--===============================================================================================-->
-        <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="static/vendors/bootstrap/css/bootstrap.min.css">
         <!--===============================================================================================-->
-        <link href="static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="static/fonts/iconic/css/material-design-iconic-font.min.css">
         <!--===============================================================================================-->
@@ -29,22 +29,40 @@
         <link rel="stylesheet" type="text/css" href="static/vendors/animsition/css/animsition.min.css">
         <!--===============================================================================================-->
         <link rel="stylesheet" type="text/css" href="static/vendors/select2/select2.min.css">
-        <!--===============================================================================================-->
-        <link rel="stylesheet" type="text/css" href="static/css/util.css">
-        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <!--===============================================================================================-->	
+        <link rel="stylesheet" type="text/css" href="static/vendors/daterangepicker/daterangepicker.css">
         <!--===============================================================================================-->
         <!-- PNotify -->
         <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="static/css/util.css">
+        <link rel="stylesheet" type="text/css" href="static/css/main.css">
+        <!--===============================================================================================-->
     </head>
 
     <script>
         function myFunction() {
-            if (${err!=null}) {
+            var err = ${err};
+            if (err == "1") {
                 new PNotify({
-                    title: 'Giris Sorunu!',
-                    text: 'Kullanici Adi veya Sifre Yanlis!',
+                    title: 'Kayit Sorunu!',
+                    text: 'Kullanici Adi Kullaniliyor!',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            } else if (err == "2") {
+                new PNotify({
+                    title: 'Kayit Sorunu!',
+                    text: 'Admin Parolasi Yanlis!',
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            } else if (err == "3") {
+                new PNotify({
+                    title: 'Kayit Sorunu!',
+                    text: 'Parolalar Uyusmuyor!',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
@@ -56,66 +74,72 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
-                    <form class="login100-form validate-form" id="loginForm" action="Login" method="post">
+
+                    <form class="login100-form validate-form" id="loginForm" action="Forgot" method="POST">
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Stok Takip Sistemi
+                            Kayit Ol ${err}
                         </span>
-                        <div class="wrap-input100 validate-input" data-validate = "Kullanici Adiniz Bos Olamaz">
-                            <input class="input100" type="text" path="username" name="username" placeholder="Kullanıcı Adı"/>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Kullanici Adinizi Giriniz">
+                            <input class="input100" type="text" name="username" placeholder="Kullanici Adi"/>
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
                         </div>
-
-                        <div class="wrap-input100 validate-input" data-validate="Sifreniz Bos Olamaz">
-                            <input class="input100" type="password" path="password" name="password" placeholder="Parola"/>
+                        <div class="wrap-input100 validate-input" data-validate = "Isim Giriniz">
+                            <input class="input100" type="text" name="name" placeholder="Isim"/>
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Soyad Giriniz">
+                            <input class="input100" type="text" name="surname" placeholder="Soyad"/>
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate = "Parola Giriniz">
+                            <input class="input100" type="password" name="password" placeholder="Parola"/>
                             <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
-
-                        <div class="contact100-form-checkbox">
-                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                            <label class="label-checkbox100" for="ckb1">
-                                Beni Hatırla
-                            </label>
+                        <div class="wrap-input100 validate-input" data-validate = "Parola Giriniz">
+                            <input class="input100" type="password" name="rePassword" placeholder="Parola Tekrar"/>
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
                         </div>
-
+                        <div class="wrap-input100 validate-input" data-validate = "Admin Parolasini Giriniz">
+                            <input class="input100" type="password" name="adminPassword" placeholder="Admin Parolasi"/>
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
+                        <div class="wrap-input100">
+                            <input class="input100" type="text"  placeholder="Rol"/>
+                            <span class="focus-input100" data-placeholder="&#x2709;"></span>
+                            <select id="heard" class="form-control" name="role">
+                                <option value="Kullanici">Kullanici</option>
+                                <option value="Admin">Admin</option>
+                            </select>
+                        </div>
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn" type="submit">
-                                Giriş Yap
-                            </button>
-                        </div>
-
-                        <div class="text-center p-t-90">
-                            <a class="txt1" href="/Forgot">
-                                Şifrenizi Mi Unuttunuz?
-                            </a>
-                            <br>
-                            <a class="txt1" href="/Kayit">
                                 Kayit Ol
-                            </a>
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-
-        <div id="dropDownSelect1"></div>
-
+        <!-- iCheck -->
+        <script src="static/vendors/iCheck/icheck.min.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/jquery/jquery-3.2.1.min.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/animsition/js/animsition.min.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/bootstrap/js/popper.js"></script>
-        <!-- Bootstrap -->
-        <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="static/vendors/bootstrap/js/bootstrap.min.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/select2/select2.min.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/daterangepicker/moment.min.js"></script>
+        <script src="static/vendors/daterangepicker/daterangepicker.js"></script>
         <!--===============================================================================================-->
         <script src="static/vendors/countdowntime/countdowntime.js"></script>
         <!--===============================================================================================-->

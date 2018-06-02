@@ -42,7 +42,7 @@
             <div class="container-login100" style="background-image: url('static/images/bg-01.jpg');">
                 <div class="wrap-login100">
 
-                    <f:form class="login100-form validate-form" id="loginForm" action="/Management/Login" modelAttribute="command" method="post">
+                    <form class="login100-form validate-form" id="loginForm" action="Forgot" method="post">
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>
@@ -52,16 +52,8 @@
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Enter Your E-mail">
-                            <input class="input100" type="text" path="email" name="username" placeholder="E-Mailini Gir"/>
+                            <input class="input100" type="text" name="username" placeholder="E-Mailini Gir"/>
                             <span class="focus-input100" data-placeholder="&#x2709;"></span>
-                        </div>
-
-                        <div class="contact100-form-checkbox">   
-                            <c:if test="${err!=null}">
-                                <div class="validate-input" data-validate="Login Failed! Enter valid credentials.">
-                                    <p style="color: #990000; margin-top: 10px;">${err}</p>
-                                </div>
-                            </c:if>
                         </div>
 
                         <div class="container-login100-form-btn">
@@ -69,7 +61,7 @@
                                 Mail Gönder
                             </button>
                         </div>
-                    </f:form>
+                    </form>
                 </div>
             </div>
         </div>

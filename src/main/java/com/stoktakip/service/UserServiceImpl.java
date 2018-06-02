@@ -59,4 +59,8 @@ public class UserServiceImpl implements UserService {
         return userDAO.findByProperty(propName, propValue);
     }
 
+    public void save(User u) {
+        userDAO.save(u);
+    }
+
 }

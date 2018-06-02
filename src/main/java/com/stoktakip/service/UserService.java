@@ -15,6 +15,8 @@ import java.util.List;
 public interface UserService {
 
     public User login(String username, String password);
+    
+    public void save(User u);
 
     public void update(User u);
 

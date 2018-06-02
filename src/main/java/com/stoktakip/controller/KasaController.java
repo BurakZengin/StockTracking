@@ -32,33 +32,43 @@ public class KasaController {
 
     @RequestMapping(value = "/Kasa", method = RequestMethod.GET)
     public String KasaTakip(Model m, HttpSession session) {
-        if (nameSurname(m, session)) {
-            List<Kasa> k = kasaService.findAll();
-            int butce = 0;
-            for (Kasa kasa : k) {
-                if (kasa.getTip().equals("Giris")) {
-                    butce += Float.parseFloat(kasa.getTutar());
-                } else {
-                    butce -= Float.parseFloat(kasa.getTutar());
-                }
-            }
-            m.addAttribute("butce", butce);
-            m.addAttribute("kasaList", k);
-            return "Kasa";
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
         } else {
-            return "redirect:/";
+            if (nameSurname(m, session)) {
+                List<Kasa> k = kasaService.findAll();
+                int butce = 0;
+                for (Kasa kasa : k) {
+                    if (kasa.getTip().equals("Giris")) {
+                        butce += Float.parseFloat(kasa.getTutar());
+                    } else {
+                        butce -= Float.parseFloat(kasa.getTutar());
+                    }
+                }
+                m.addAttribute("butce", butce);
+                m.addAttribute("kasaList", k);
+                return "Kasa";
+            } else {
+                return "redirect:/";
+            }
         }
     }
 
     @RequestMapping(value = "/KasaGiris", method = RequestMethod.GET)
     public String KasaGiris(Model m, HttpSession session) {
-        if (nameSurname(m, session)) {
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = new Date();
-            m.addAttribute("tarih", dateFormat.format(date));
-            return "KasaGiris";
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
         } else {
-            return "redirect:/";
+            if (nameSurname(m, session)) {
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                m.addAttribute("tarih", dateFormat.format(date));
+                return "KasaGiris";
+            } else {
+                return "redirect:/";
+            }
         }
     }
 
@@ -67,30 +77,40 @@ public class KasaController {
             @RequestParam("tarih") String tarih,
             @RequestParam("aciklama") String aciklama,
             @RequestParam("tutar") String tutar) {
-        if (nameSurname(m, session)) {
-            User user = (User) session.getAttribute("user");
-            Kasa u = new Kasa();
-            u.setTarih(tarih);
-            u.setTip("Giris");
-            u.setAciklama(aciklama);
-            u.setTutar(tutar);
-            u.setYetkili(user.getName() + " " + user.getSurname());
-            kasaService.save(u);
-            return "redirect:/Kasa";
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
         } else {
-            return "redirect:/";
+            if (nameSurname(m, session)) {
+                User user = (User) session.getAttribute("user");
+                Kasa kasa = new Kasa();
+                kasa.setTarih(tarih);
+                kasa.setTip("Giris");
+                kasa.setAciklama(aciklama);
+                kasa.setTutar(tutar);
+                kasa.setYetkili(user.getName() + " " + user.getSurname());
+                kasaService.save(kasa);
+                return "redirect:/Kasa";
+            } else {
+                return "redirect:/";
+            }
         }
     }
 
     @RequestMapping(value = "/KasaCikis", method = RequestMethod.GET)
     public String KasaCikis(Model m, HttpSession session) {
-        if (nameSurname(m, session)) {
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date date = new Date();
-            m.addAttribute("tarih", dateFormat.format(date));
-            return "KasaCikis";
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
         } else {
-            return "redirect:/";
+            if (nameSurname(m, session)) {
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                m.addAttribute("tarih", dateFormat.format(date));
+                return "KasaCikis";
+            } else {
+                return "redirect:/";
+            }
         }
     }
 
@@ -99,18 +119,23 @@ public class KasaController {
             @RequestParam("tarih") String tarih,
             @RequestParam("aciklama") String aciklama,
             @RequestParam("tutar") String tutar) {
-        if (nameSurname(m, session)) {
-            User user = (User) session.getAttribute("user");
-            Kasa u = new Kasa();
-            u.setTarih(tarih);
-            u.setTip("Cikis");
-            u.setAciklama(aciklama);
-            u.setTutar(tutar);
-            u.setYetkili(user.getName() + " " + user.getSurname());
-            kasaService.save(u);
-            return "redirect:/Kasa";
+        User u = (User) session.getAttribute("user");
+        if (u.getRoles().equals("0")) {
+            return "redirect:StokTakp";
         } else {
-            return "redirect:/";
+            if (nameSurname(m, session)) {
+                User user = (User) session.getAttribute("user");
+                Kasa kasa = new Kasa();
+                kasa.setTarih(tarih);
+                kasa.setTip("Cikis");
+                kasa.setAciklama(aciklama);
+                kasa.setTutar(tutar);
+                kasa.setYetkili(user.getName() + " " + user.getSurname());
+                kasaService.save(kasa);
+                return "redirect:/Kasa";
+            } else {
+                return "redirect:/";
+            }
         }
     }
 

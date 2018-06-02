@@ -3,7 +3,7 @@
     Created on : Mar 3, 2018, 6:27:56 PM
     Author     : Elidor
 --%>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
@@ -31,7 +31,7 @@
             <div class="menu_section">
                 <h3>Genel</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/Anasayfa"><i class="fa fa-home"></i> Ana Sayfa</a></li>
+                    <li><a href="/Anasayfa"><i class="fa fa-home"></i> Ana Sayfa</a></li> 
                     <li><a><i class="fa fa-line-chart"></i> Stok <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="/StokTakp">Stok Takip</a></li>
@@ -44,7 +44,7 @@
                             <li><a href="/CariTakip">Cari Takip</a></li>
                             <li><a href="/CariEkle">Cari Ekleme / Silme</a></li>
                         </ul>
-                    </li>
+                    </li> 
                     <li><a href="/Kasa"><i class="fa fa-money"></i> Kasa</a></li>
                     <li><a href="/Fatura"><i class="fa fa-credit-card"></i> Fatura</a></li>
                 </ul>

@@ -13,7 +13,7 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.current_session_context_class">thread</property>-->
         
-        <property name="hibernate.connection.url">jdbc:mysql://vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com/deed2auv4cn33pxa</property>
+        <property name="hibernate.connection.url">jdbc:mysql://ivru08f50uyfxuub:lcjkvisaerjx81ro@vlvlnl1grfzh34vj.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/deed2auv4cn33pxa</property>
         <property name="hibernate.connection.username">ivru08f50uyfxuub</property>
         <property name="hibernate.connection.password">lcjkvisaerjx81ro</property>
         <property name="hibernate.connection.pool_size">30</property>

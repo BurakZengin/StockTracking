@@ -24,14 +24,14 @@
         <link href="static/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
         <link href="static/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
         <link href="static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-        <!-- Custom Theme Style -->
-        <link href="static/css/custom.min.css" rel="stylesheet">
         <script src="static/vendors/jquery/dist/jquery.min.js"></script>
         <!-- jQuery -->
         <script src="static/vendors/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap -->
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
+        <!-- Custom Theme Style -->
+        <link href="static/css/custom.min.css" rel="stylesheet">
     </head>
     <body class="nav-md">
         <div class="container body">
@@ -90,9 +90,11 @@
             </div>
         </div>
 
-        <script src="static/porto/jquery.js"></script>
-        <!-- jQuery -->
-        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="static/porto/jquery.js"></script>   
+        <script src="static/porto/plugins.js"></script>
+
+        <!-- Theme Initializer -->
+        <script src="static/porto/theme.js"></script>
         <!-- Bootstrap -->
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- FastClick -->

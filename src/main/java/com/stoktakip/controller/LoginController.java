@@ -5,16 +5,16 @@
  */
 package com.stoktakip.controller;
 
-import com.stoktakip.command.LoginCommand;
 import com.stoktakip.domain.User;
 import com.stoktakip.service.UserService;
+import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -28,13 +28,14 @@ public class LoginController {
 
     @RequestMapping(value = "/")
     public String Login(Model m) {
-        m.addAttribute("command", new LoginCommand());
         return "Login";
     }
 
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
-    public String LoginHandle(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
-        User loggedInUser = userService.login(cmd.getUsername(), cmd.getPassword());
+    public String LoginHandle(Model m, HttpSession session,
+            @RequestParam("username") String username,
+            @RequestParam("password") String password) {
+        User loggedInUser = userService.login(username, password);
         if (loggedInUser == null) {
             //FAILED
             m.addAttribute("err", "ex");
@@ -42,13 +43,16 @@ public class LoginController {
         } else {
             //SUCCESS
             addUserInSession(loggedInUser, session);
-            return "redirect:Anasayfa";
+            if (loggedInUser.getRoles().equals("1")) {
+                return "redirect:Anasayfa";
+            } else {
+                return "redirect:StokTakp";
+            }
         }
     }
 
     @RequestMapping(value = "/Login", method = RequestMethod.GET)
-    public String GetLogin(@ModelAttribute("command") LoginCommand cmd, Model m, HttpSession session) {
-        m.addAttribute("command", new LoginCommand());
+    public String GetLogin(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             return "redirect:Anasayfa";
         } else {
@@ -62,9 +66,64 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = {"/Forgot"})
+    @RequestMapping(value = {"/Forgot"}, method = RequestMethod.GET)
     public String Forgot(Model m, HttpSession session) {
         return "Forgot";
+    }
+
+    @RequestMapping(value = {"/Forgot"}, method = RequestMethod.POST)
+    public String ForgotSubmit(Model m, HttpSession session) {
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = {"/Kayit"})
+    public String Kayit(Model m, HttpSession session) {
+        return "Kayit";
+    }
+
+    @RequestMapping(value = {"/Kayit"}, method = RequestMethod.POST)
+    public String KayitSubmit(Model m, HttpSession session,
+            @RequestParam("username") String username,
+            @RequestParam("name") String name,
+            @RequestParam("surname") String surname,
+            @RequestParam("password") String password,
+            @RequestParam("rePassword") String rePassword,
+            @RequestParam("adminPassword") String adminPassword,
+            @RequestParam("role") String role) {
+
+        List<User> userList = userService.findAll();
+        boolean bool = false;
+        if (password.equals(rePassword)) {
+            for (User user : userList) {
+                if (user.getUsername().equals(username)) {
+                    m.addAttribute("err", "1");
+                    return "Kayit";
+                }
+                if (user.getRoles().equals("1") && user.getPassword().equals(adminPassword)) {
+                    bool = true;
+                }
+            }
+            if (bool) {
+                User u = new User();
+                u.setName(name);
+                u.setPassword(password);
+                if (role.equals("Admin")) {
+                    u.setRoles("1");
+                } else {
+                    u.setRoles("0");
+                }
+                u.setSurname(surname);
+                u.setUsername(username);
+                userService.save(u);
+            } else {
+                m.addAttribute("err", "2");
+                return "Kayit";
+            }
+        } else {
+            m.addAttribute("err", "3");
+            return "Kayit";
+        }
+        return "redirect:/";
     }
 
     private void addUserInSession(User u, HttpSession session) {
@@ -77,6 +136,7 @@ public class LoginController {
         if (u == null) {
             return false;
         } else {
+            m.addAttribute("role", u.getRoles());
             m.addAttribute("name", u.getName() + " ");
             m.addAttribute("surname", u.getSurname());
             return true;
