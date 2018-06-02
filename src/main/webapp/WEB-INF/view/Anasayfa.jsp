@@ -30,8 +30,6 @@
         <link href="static/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
         <!-- JQVMap -->
         <link href="static/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-        <!-- bootstrap-daterangepicker -->
-        <link href="static/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
         <!-- PNotify -->
         <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">

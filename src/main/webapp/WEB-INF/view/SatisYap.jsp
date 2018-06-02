@@ -25,8 +25,6 @@
         <link href="static/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
-        <!-- jQuery -->
-        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
         <!-- PNotify -->
         <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
@@ -84,7 +82,6 @@
                     }
                 }
                 counter = 0;
-
             }
 
             function sadeceSayi(evt) {
