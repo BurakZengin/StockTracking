@@ -43,7 +43,7 @@ public class MailServiceImpl implements MailService {
 
             @Override
             public void prepare(MimeMessage mimeMessage) throws Exception {
-                mimeMessage.setFrom("brakzengin@gmail.com");
+                mimeMessage.setFrom("burakzago96@hotmail.com");
                 mimeMessage.setRecipient(Message.RecipientType.TO,
                         new InternetAddress(user.getMail()));
                 mimeMessage.setText("Sevgili " + Character.toUpperCase(user.getName().charAt(0)) + user.getName().substring(1) + " "

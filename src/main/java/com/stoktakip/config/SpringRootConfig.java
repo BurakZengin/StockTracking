@@ -24,13 +24,13 @@ public class SpringRootConfig {
     public JavaMailSender getMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         //Using Gmail SMTP configuration.
-        mailSender.setHost("smtp.gmail.com");
+        mailSender.setHost("smtp.live.com");
         mailSender.setPort(587);
-        mailSender.setUsername("brakzengin@gmail.com");
-        mailSender.setPassword("123,+456");
+        mailSender.setUsername("burakzago96@hotmail.com");
+        mailSender.setPassword("123,+789");
 
         Properties javaMailProperties = new Properties();
-        javaMailProperties.put("mail.imap.ssl.enable", "true"); // required for Gmail
+        //javaMailProperties.put("mail.imap.ssl.enable", "true"); // required for Gmail
         javaMailProperties.put("mail.smtp.starttls.enable", "true");
         javaMailProperties.put("mail.smtp.auth", "true");
         javaMailProperties.put("mail.transport.protocol", "smtp");
