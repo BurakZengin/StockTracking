@@ -15,6 +15,9 @@ import com.stoktakip.service.UrunService;
 import com.stoktakip.util.HibernateUtil;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -59,7 +62,7 @@ public class HomeController {
                     }
                 }
                 m.addAttribute("toplamVade", toplamVadeliBorc);
-                // --- Stogu Biten Urunler --- //
+                // --- Stogu Biten Urunler && Stok Degeri --- //
                 int stokBitenUrun = 0;
                 int stokDegeri = 0;
                 List<Urun> urun = urunService.findAll();
@@ -72,6 +75,7 @@ public class HomeController {
                 }
                 m.addAttribute("stokBitenUrunler", stokBitenUrun);
                 m.addAttribute("stokDegeri", stokDegeri);
+
                 // --- Gunluk Kar --- //
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = new Date();
@@ -89,14 +93,58 @@ public class HomeController {
                 DateFormat dateFormats = new SimpleDateFormat("MM/yyyy");
                 Date dates = new Date();
                 Session sessions = HibernateUtil.getSessionFactory().openSession();
-                Query query = sessions.createSQLQuery(
-                        "select * from deed2auv4cn33pxa.carihareketleri s where s.unq = '1' and s.islemTarihi like '%" + dateFormat.format(dates) + "%'")
-                        .addEntity(CariHareketleri.class);
-                List<CariHareketleri> result = query.list();
-                for (CariHareketleri object : result) {
-                    aylikKar += Float.parseFloat(object.getKar());
+                try {
+                    Query query = sessions.createSQLQuery(
+                            "select * from deed2auv4cn33pxa.carihareketleri s where s.unq = '1' and s.islemTuru = 'Satis' and s.islemTarihi like '%" + dateFormats.format(dates) + "%'")
+                            .addEntity(CariHareketleri.class);
+                    List<CariHareketleri> result = query.list();
+                    for (CariHareketleri object : result) {
+                        aylikKar += Float.parseFloat(object.getKar());
+                    }
+                    System.out.println(aylikKar);
+                    m.addAttribute("aylikKar", aylikKar);
+                } finally {
+                    sessions.close();
                 }
-                m.addAttribute("aylikKar", aylikKar);
+                // --- Grafikler --- //
+                // --- Haftalik Satis Dagilimi --- //
+                List<Float> aylikSatisGrafik = new ArrayList<Float>();
+                List<Float> aylikGiderGrafik = new ArrayList<Float>();
+                DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
+                Session session2 = HibernateUtil.getSessionFactory().openSession();
+                try {
+                    for (int i = 1; i < 8; i++) {
+                        float toplam = 0;
+                        float toplamGider = 0;
+                        Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, -i);
+                        Query query = session2.createSQLQuery(
+                                "select * from deed2auv4cn33pxa.carihareketleri s where s.unq = '1' and s.islemTarihi = '" + dateFormat2.format(cal.getTime()) + "'")
+                                .addEntity(CariHareketleri.class);
+                        List<CariHareketleri> result = query.list();
+                        if (result.size() >= 0) {
+                            for (CariHareketleri cariHareketleri : result) {
+                                if (cariHareketleri.getIslemTuru().equals("Satis")) {
+                                    toplam += Float.parseFloat(cariHareketleri.getIslemTutari());
+                                } else if (cariHareketleri.getIslemTuru().equals("Alis")) {
+                                    toplamGider += Float.parseFloat(cariHareketleri.getIslemTutari());
+                                }
+                            }
+                            aylikGiderGrafik.add(toplamGider);
+                            aylikSatisGrafik.add(toplam);
+                        } else {
+                            aylikGiderGrafik.add(toplamGider);
+                            aylikSatisGrafik.add(toplam);
+                        }
+                    }
+                } finally {
+                    session2.close();
+                }
+                for (Float float1 : aylikSatisGrafik) {
+                    System.out.println(float1.toString());
+                }
+                m.addAttribute("haftalikGider", aylikGiderGrafik);
+                m.addAttribute("aylikSatisGrafik", aylikSatisGrafik);
                 return "Anasayfa";
             } else {
                 return "redirect:/";
