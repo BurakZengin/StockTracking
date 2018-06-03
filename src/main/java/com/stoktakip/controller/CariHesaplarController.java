@@ -155,6 +155,7 @@ public class CariHesaplarController {
             @RequestParam("islemTarihi") String islemTarihi,
             @RequestParam("islemTutari") String islemTutari,
             @RequestParam("Buttons") String Button,
+            @RequestParam("karUrun") String kar,
             @RequestParam("urunler") String urunler) {
         if (nameSurname(m, session)) {
             User user = (User) session.getAttribute("user");
@@ -172,6 +173,7 @@ public class CariHesaplarController {
                 c.setIslemTutari(islemTutari);
                 String urunAdi = tanim[i];
                 c.setUrunAdi(urunAdi);
+                c.setKar(kar);
 
                 String miktar = tanim[++i].trim();
                 List<Urun> u = urunService.findByProperty("urunAdi", urunAdi);
@@ -317,6 +319,7 @@ public class CariHesaplarController {
                 c.setIslemTuru(button);
                 c.setUnq("1");
                 c.setTeam("" + random);
+                c.setKar("0");
                 cariHareketleriService.save(c);
                 break;
             }

@@ -12,8 +12,14 @@ import com.stoktakip.domain.User;
 import com.stoktakip.service.CariHareketleriService;
 import com.stoktakip.service.CariService;
 import com.stoktakip.service.UrunService;
+import com.stoktakip.util.HibernateUtil;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,9 +47,10 @@ public class HomeController {
         } else {
 
             if (nameSurname(m, session)) {
+                // --- Musteri Sayisi --- //
                 List<Cari> cari = cariService.findAll();
                 m.addAttribute("musteriSayisi", cari.size());
-
+                // --- Toplam Vade --- //
                 List<CariHareketleri> cariHareketleriBorc = cariHareketleriService.findByProperty("islemTuru", "Borc");
                 int toplamVadeliBorc = 0;
                 for (CariHareketleri cariHareketleri : cariHareketleriBorc) {
@@ -52,7 +59,7 @@ public class HomeController {
                     }
                 }
                 m.addAttribute("toplamVade", toplamVadeliBorc);
-
+                // --- Stogu Biten Urunler --- //
                 int stokBitenUrun = 0;
                 int stokDegeri = 0;
                 List<Urun> urun = urunService.findAll();
@@ -65,6 +72,31 @@ public class HomeController {
                 }
                 m.addAttribute("stokBitenUrunler", stokBitenUrun);
                 m.addAttribute("stokDegeri", stokDegeri);
+                // --- Gunluk Kar --- //
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                float gunlukKar = 0;
+                List<CariHareketleri> kar = cariHareketleriService.findByProperty("islemTarihi", dateFormat.format(date));
+                for (CariHareketleri cariHareketleri : kar) {
+                    if (cariHareketleri.getIslemTuru().equals("Satis") && cariHareketleri.getUnq().equals("1")) {
+                        gunlukKar += Float.parseFloat(cariHareketleri.getKar());
+                    }
+                }
+                m.addAttribute("gunlukKar", gunlukKar);
+
+                // --- Aylik Kar --- //
+                float aylikKar = 0;
+                DateFormat dateFormats = new SimpleDateFormat("MM/yyyy");
+                Date dates = new Date();
+                Session sessions = HibernateUtil.getSessionFactory().openSession();
+                Query query = sessions.createSQLQuery(
+                        "select * from deed2auv4cn33pxa.carihareketleri s where s.unq = '1' and s.islemTarihi like '%" + dateFormat.format(dates) + "%'")
+                        .addEntity(CariHareketleri.class);
+                List<CariHareketleri> result = query.list();
+                for (CariHareketleri object : result) {
+                    aylikKar += Float.parseFloat(object.getKar());
+                }
+                m.addAttribute("aylikKar", aylikKar);
                 return "Anasayfa";
             } else {
                 return "redirect:/";

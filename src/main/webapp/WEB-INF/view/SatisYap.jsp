@@ -89,7 +89,7 @@
                         counter += arr[j];
                         counterKar += arrKar[j];
                         document.getElementsByName("islemTutari")[0].value = counter;
-                        document.getElementsByName("aciklama")[0].value = counterKar;
+                        document.getElementsByName("karUrun")[0].value = counterKar;
                     }
                 }
                 counter = 0;
@@ -201,6 +201,7 @@
                                             </div>
                                             <input type="hidden" id="urunler" name="urunler"/>
                                             <input type="hidden" id="Buttons" name="Buttons"/>
+                                            <input type="hidden" id="karUrun" name="karUrun"/>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

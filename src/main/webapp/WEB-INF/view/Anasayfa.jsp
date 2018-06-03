@@ -54,7 +54,7 @@
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-dollar"></i> Aylik Kar</span>
-                            <div class="count green">123.50 $</div>
+                            <div class="count green">${aylikKar} $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Gun Sonu Kar</span>
-                            <div class="count">7,325 $</div>
+                            <div class="count">${gunlukKar} $</div>
                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                     </div>
