@@ -107,15 +107,17 @@ public class HomeController {
                     sessions.close();
                 }
                 // --- Grafikler --- //
-                // --- Haftalik Satis Dagilimi --- //
+                // --- Haftalik Satis && Gider && Ciro Dagilimi --- //
                 List<Float> aylikSatisGrafik = new ArrayList<Float>();
                 List<Float> aylikGiderGrafik = new ArrayList<Float>();
+                List<Float> aylikCiroGrafik = new ArrayList<Float>();
                 DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
                 Session session2 = HibernateUtil.getSessionFactory().openSession();
                 try {
                     for (int i = 1; i < 8; i++) {
                         float toplam = 0;
                         float toplamGider = 0;
+                        float toplamCiro = 0;
                         Calendar cal = Calendar.getInstance();
                         cal.add(Calendar.DATE, -i);
                         Query query = session2.createSQLQuery(
@@ -126,13 +128,17 @@ public class HomeController {
                             for (CariHareketleri cariHareketleri : result) {
                                 if (cariHareketleri.getIslemTuru().equals("Satis")) {
                                     toplam += Float.parseFloat(cariHareketleri.getIslemTutari());
+                                    toplamCiro += Float.parseFloat(cariHareketleri.getKar());
                                 } else if (cariHareketleri.getIslemTuru().equals("Alis")) {
+                                    toplamCiro += Float.parseFloat(cariHareketleri.getKar());
                                     toplamGider += Float.parseFloat(cariHareketleri.getIslemTutari());
                                 }
                             }
+                            aylikCiroGrafik.add(toplamCiro);
                             aylikGiderGrafik.add(toplamGider);
                             aylikSatisGrafik.add(toplam);
                         } else {
+                            aylikCiroGrafik.add(toplamCiro);
                             aylikGiderGrafik.add(toplamGider);
                             aylikSatisGrafik.add(toplam);
                         }
@@ -140,9 +146,7 @@ public class HomeController {
                 } finally {
                     session2.close();
                 }
-                for (Float float1 : aylikSatisGrafik) {
-                    System.out.println(float1.toString());
-                }
+                m.addAttribute("toplamCiro", aylikCiroGrafik);
                 m.addAttribute("haftalikGider", aylikGiderGrafik);
                 m.addAttribute("aylikSatisGrafik", aylikSatisGrafik);
                 return "Anasayfa";

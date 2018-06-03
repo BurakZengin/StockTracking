@@ -81,6 +81,7 @@
                     <!-- /top tiles -->
                     <input type="hidden" id="aylikSatisGrafik" value="${aylikSatisGrafik}">
                     <input type="hidden" id="aylikGiderGrafik" value="${haftalikGider}">
+                    <input type="hidden" id="aylikCiroGrafik" value="${toplamCiro}">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="dashboard_graph">
