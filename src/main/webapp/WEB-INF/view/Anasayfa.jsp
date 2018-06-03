@@ -50,32 +50,26 @@
                             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                                 <span class="count_top"><i class="fa fa-users"></i> Musteriler</span>
                                 <div class="count">${musteriSayisi}</div>
-                            <span class="count_bottom"><i class="green">4% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-dollar"></i> Aylik Kar</span>
                             <div class="count green">${aylikKar} $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Toplam Vade</span>
                             <div class="count dark">${toplamVade} $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-battery-half"></i> Stogu Biten Urunler</span>
-                            <div class="count red">${stokBitenUrunler}</div>
-                            <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> Gecen Haftadan</span>
+                            <div class="count red">${stokBitenUrunler}</div>                            
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-line-chart"></i> Toplam Stok Degeri</span>
                             <div class="count">${stokDegeri} $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Gun Sonu Kar</span>
-                            <div class="count">${gunlukKar} $</div>
-                            <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> Gecen Haftadan</span>
+                            <div class="count">${gunlukKar} $</div>                            
                         </div>
                     </div>
                     <!-- /top tiles -->
