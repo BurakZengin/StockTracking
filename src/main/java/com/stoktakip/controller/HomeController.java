@@ -45,11 +45,10 @@ public class HomeController {
     @RequestMapping(value = "/Anasayfa")
     public String Anasayfa(Model m, HttpSession session) {
         User u = (User) session.getAttribute("user");
-        if (u.getRoles().equals("0")) {
-            return "redirect:StokTakp";
+        if (!nameSurname(m, session)) {
+            return "redirect:/";
         } else {
-
-            if (nameSurname(m, session)) {
+            if (!u.getRoles().equals("0")) {
                 // --- Musteri Sayisi --- //
                 List<Cari> cari = cariService.findAll();
                 m.addAttribute("musteriSayisi", cari.size());
@@ -151,7 +150,7 @@ public class HomeController {
                 m.addAttribute("aylikSatisGrafik", aylikSatisGrafik);
                 return "Anasayfa";
             } else {
-                return "redirect:/";
+                return "redirect:StokTakp";
             }
         }
     }
