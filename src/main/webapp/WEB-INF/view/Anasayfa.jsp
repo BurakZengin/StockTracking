@@ -4,10 +4,10 @@
     Author     : rds
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -48,28 +48,28 @@
                         <!-- top tiles -->
                         <div class="row tile_count text-center">
                             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                                <span class="count_top"><i class="fa fa-users"></i> Musteriler</span>
+                                <span class="count_top"><i class="fa fa-users"></i> Müşteriler</span>
                                 <div class="count">${musteriSayisi}</div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-dollar"></i> Aylik Kar</span>
-                            <div class="count green">${aylikKar} $</div>
+                            <span class="count_top"><i class="fa fa-dollar"></i> Aylık Kar</span>
+                            <div class="count green">${aylikKar} ₺</div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                             <span class="count_top"><i class="fa fa-money"></i> Toplam Vade</span>
-                            <div class="count dark">${toplamVade} $</div>
+                            <div class="count dark">${toplamVade} ₺</div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-battery-half"></i> Stogu Biten Urunler</span>
+                            <span class="count_top"><i class="fa fa-battery-half"></i> Stoğu Biten Ürünler</span>
                             <div class="count red">${stokBitenUrunler}</div>                            
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-line-chart"></i> Toplam Stok Degeri</span>
-                            <div class="count">${stokDegeri} $</div>
+                            <span class="count_top"><i class="fa fa-line-chart"></i> Toplam Stok Değeri</span>
+                            <div class="count">${stokDegeri} ₺</div>
                         </div>
                         <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-                            <span class="count_top"><i class="fa fa-money"></i> Gun Sonu Kar</span>
-                            <div class="count">${gunlukKar} $</div>                            
+                            <span class="count_top"><i class="fa fa-money"></i> Gün Sonu Kar</span>
+                            <div class="count">${gunlukKar} ₺</div>                            
                         </div>
                     </div>
                     <!-- /top tiles -->
@@ -82,7 +82,7 @@
 
                                 <div class="row x_title">
                                     <div class="col-md-6">
-                                        <h3>Haftalik Ciro Dagilimi</h3>
+                                        <h3>Haftalık Ciro Dağılımı</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -97,7 +97,7 @@
                         <div class="col-md-6">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Haftalik Satis Dagilimi</h2>
+                                    <h2>Haftalık Satış Dağılımı</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -110,30 +110,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="demo-container" style="height:280px">
                                             <div id="chart_plot_02" class="demo-placeholder"></div>
-                                        </div>
-                                        <div class="tiles">
-                                            <div class="col-md-4 tile">
-                                                <span>Total Sessions</span>
-                                                <h2>231,809</h2>
-                                                <span class="sparkline11 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-4 tile">
-                                                <span>Total Revenue</span>
-                                                <h2>$231,809</h2>
-                                                <span class="sparkline22 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-4 tile">
-                                                <span>Total Sessions</span>
-                                                <h2>231,809</h2>
-                                                <span class="sparkline11 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +118,7 @@
                         <div class="col-md-6">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Haftalik Gider Dagilimi</h2>
+                                    <h2>Haftalık Gider Dağılımı</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -154,30 +131,7 @@
                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                         <div class="demo-container" style="height:280px">
                                             <div id="chart_plot_021" class="demo-placeholder"></div>
-                                        </div>
-                                        <div class="tiles">
-                                            <div class="col-md-4 tile">
-                                                <span>Total Sessions</span>
-                                                <h2>231,809</h2>
-                                                <span class="sparkline11 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-4 tile">
-                                                <span>Total Revenue</span>
-                                                <h2>$231,809</h2>
-                                                <span class="sparkline22 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                            <div class="col-md-4 tile">
-                                                <span>Total Sessions</span>
-                                                <h2>231,809</h2>
-                                                <span class="sparkline11 graph" style="height: 160px;">
-                                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                                </span>
-                                            </div>
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
@@ -242,40 +196,5 @@
 
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
-
-        <script>
-            //Chart.defaults.global.legend = {enabled: false};
-            /*
-             var ctx = document.getElementById("chart_plot_01");
-             var lineChart = new Chart(ctx, {
-             type: 'line',
-             data: {
-             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange", "Pink"],
-             datasets: [{
-             label: 'Omer',
-             backgroundColor: "rgba(38,185,154,0.31)",
-             borderColor: "rgba(38,185,154,0.7)",
-             pointBorderColor: "rgba(38,185,154,0.7)",
-             pointBackGroundColor: "rgba(38,185,154,0.7)",
-             pointHoverBackroundColor: "#fff",
-             pointHoverBorderColor: "rgba(220,220,220,1)",
-             pointBorderWindth: 1,
-             data: [31, 74, 6, 39, 20, 85, 7]}
-             , {
-             label: 'Omer2',
-             backgroundColor: "rgba(38,185,154,0.31)",
-             borderColor: "rgba(38,185,154,0.7)",
-             pointBorderColor: "rgba(38,185,154,0.7)",
-             pointBackGroundColor: "rgba(38,185,154,0.7)",
-             pointHoverBackroundColor: "#fff",
-             pointHoverBorderColor: "rgba(220,220,220,1)",
-             pointBorderWindth: 1,
-             data: [99, 14, 77, 19, 70, 85, 7]
-             }]
-             },
-             });
-             */
-        </script>
-
     </body>
 </html>

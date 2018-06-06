@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,7 +35,7 @@
                 }
             }
             function myFunction2() {
-                var a = confirm('Kategorideki bütün ürünler silinicek,emin misin?', 'Son');
+                var a = confirm('Kategorideki bÃ¼tÃ¼n Ã¼rÃ¼nler silinicek,emin misin?', 'Son');
                 if (a === true) {
                     $("#sil").attr('type', 'submit');
                     new PNotify({
@@ -68,7 +69,7 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>Kategori Adi</th>
+                                                            <th>Kategori AdÄ±</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -93,7 +94,7 @@
                                         <div class="x_content">
                                             <form action='/KategoriEkle' method="POST">
                                                 <div class="col-md-8 col-sm-6 col-xs-12 form-group has-feedback">
-                                                    <input type="text" class="form-control has-feedback-left" name='kategori' id="inputSuccess2" placeholder="Kategori Adi" required="required">
+                                                    <input type="text" class="form-control has-feedback-left" name='kategori' id="inputSuccess2" placeholder="Kategori AdÄ±" required="required">
                                                     <span class="fa fa-shopping-cart form-control-feedback left" aria-hidden="true"></span>
                                                 </div>
                                                 <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">

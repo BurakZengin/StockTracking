@@ -1,13 +1,14 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="static/images/icons/favicon.ico" type="image/ico" />
 
         <title>Stok Takip | </title>
 
@@ -51,11 +52,11 @@
                                                         <thead>
                                                             <tr>
                                                                 <th style="width: 5%">Detay</th>
-                                                                <th>Kategori</th>
-                                                                <th>Urun Adi</th>
-                                                                <th style="width: 10%">Stok Sayisi</th>
-                                                                <th style="width: 10%">Toplam Stok Fiyati</th>
-                                                                <th style="width: 10%">Satis Birim Fiyati</th>
+                                                                <th style="width: 25%">Kategori</th>
+                                                                <th style="width: 25%">Ürün Adı</th>
+                                                                <th style="width: 15%">Stok Sayısı</th>
+                                                                <th style="width: 15%">Toplam Stok Fiyatı</th>
+                                                                <th style="width: 15%">Satış Birim Fiyatı</th>
                                                             </tr>
                                                         </thead>
 

@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,7 +81,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                                             <div class="form-group">
-                                                                <label class="col-md-4 col-sm-3 col-xs-3">Unvan :</label>
+                                                                <label class="col-md-4 col-sm-3 col-xs-3">Ünvan :</label>
                                                                 <label class="col-md-7 col-sm-3 col-xs-3">${cariBilgileri.unvan}</label>
                                                         </div>
                                                     </div>
@@ -134,7 +135,7 @@
                                 <div class="x_content">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Fatura Ozeti</h2>                                                  
+                                            <h2>Fatura Özeti</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -142,7 +143,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <div class="form-group">
-                                                            <label class="col-md-4 col-sm-3 col-xs-3" >Iskonto (TL) :</label>
+                                                            <label class="col-md-4 col-sm-3 col-xs-3" >İskonto (₺) :</label>
                                                             <label class="col-md-7 col-sm-3 col-xs-3" id="iskontoToplam"></label>
                                                         </div>
                                                     </div>
@@ -182,7 +183,7 @@
                                 <div class="x_content">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Faturadaki Urun Bilgileri</h2>
+                                            <h2>Faturadaki Ürün Bilgileri</h2>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -190,9 +191,9 @@
                                                 <thead>
                                                     <tr>
                                                         <th style="width: 5%">#</th>
-                                                        <th style="width: 50%">Urun Adi</th>
+                                                        <th style="width: 50%">Ürün Adı</th>
                                                         <th style="width: 15%">Miktar</th>
-                                                        <th style="width: 15%">Birim Fiyati</th>
+                                                        <th style="width: 15%">Birim Fiyatı</th>
                                                         <th style="width: 15%">Toplam</th>
                                                     </tr>
                                                 </thead>

@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Stok Takip Sistemine Hosgeldiniz</title>
+        <title>Stok Takip Sistemine Hoşgeldiniz</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--===============================================================================================-->	
@@ -112,7 +112,7 @@
                             </a>
                             <br>
                             <a class="txt1" href="/Kayit">
-                                Kayit Ol
+                                Kayıt Ol
                             </a>
                         </div>
                     </form>

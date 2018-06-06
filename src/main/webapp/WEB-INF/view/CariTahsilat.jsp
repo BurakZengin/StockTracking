@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -83,20 +84,20 @@
                                         <div class="x_content">                                                        
                                             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/CariTahsilat=${idCari}" method="POST">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>                                                
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <textarea type="text" id="" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Borc Miktari
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Borç Miktarı
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input readonly="true" type="text" id="borc" name="borcMiktari" value="0" required="required" class="form-control col-md-7 col-xs-12">
@@ -121,7 +122,7 @@
                                 <div class="col-md-12 col-sm-12 col-xs-12">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Cari Borc Dokumu</h2>                                                  
+                                            <h2>Cari Borç Dökümü</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -130,10 +131,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;">Tarih</th>
-                                                            <th>Aciklama</th>
-                                                            <th style="width: 10%">Islem Turu</th>
-                                                            <th style="width: 15%">Islem Tutari</th>
-                                                            <th style="width: 10%">Ekle / Cikar</th>
+                                                            <th>Açıklama</th>
+                                                            <th style="width: 10%">İşlem Türü</th>
+                                                            <th style="width: 15%">İşlem Tutarı</th>
+                                                            <th style="width: 10%">Ekle / Cıkar</th>
                                                         </tr>
                                                     </thead>
 

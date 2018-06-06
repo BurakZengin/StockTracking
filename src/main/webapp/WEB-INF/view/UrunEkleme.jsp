@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Urun Ekleme | </title>
+        <title>Ürün Ekleme | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +30,7 @@
             function myFunction4() {
                 new PNotify({
                     title: 'Urun siliniyor!',
-                    text: 'L�tfen,urunler listesini kontrol edin.',
+                    text: 'Lütfen,urunler listesini kontrol edin.',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
@@ -40,7 +41,7 @@
                 if (document.getElementById(search)) {
                     new PNotify({
                         title: 'Bu urun mevcut!',
-                        text: 'L�tfen,baska bir urun ismi deneyin.',
+                        text: 'Lütfen,baska bir urun ismi deneyin.',
                         type: 'error',
                         styling: 'bootstrap3'
                     });
@@ -54,7 +55,7 @@
                         $("#ekle").attr('type', 'submit');
                         new PNotify({
                             title: 'Urun ekleniyor!',
-                            text: 'L�tfen,urunleri kontrol edin.',
+                            text: 'Lütfen,urunleri kontrol edin.',
                             type: 'success',
                             styling: 'bootstrap3'
                         });
@@ -82,7 +83,7 @@
                                     <div class="col-md-12 col-sm-6 col-xs-12">
                                         <div class="x_panel">
                                             <div class="x_title">
-                                                <h2>Urun Ekleme</h2>                                                  
+                                                <h2>Ürün Ekleme</h2>                                                  
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="x_content">
@@ -99,7 +100,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Urun Adi</label>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ürün Adı</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" id="urun" name="urunAdi" required="required" class="form-control col-md-7 col-xs-12">
                                                     </div>
@@ -120,22 +121,22 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Alis Fiyati</label>
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Alış Fiyatı</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="number" id="2" name="alisFiyati" required="required">
                                                     </div>
-                                                    <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Satis Fiyati</label>
+                                                    <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Satış Fiyatı</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="number" id="3" name="satisFiyati" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group form-group has-feedback">
-                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12" >Kdv Orani</label>
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12" >Kdv Oranı</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12 form-group has-feedback">
                                                         <input type="number" class="form-control has-feedback-left" name='kdvOrani' id="4" value="8" required="required">
                                                         <span class="fa fa-percent form-control-feedback left" aria-hidden="true"></span>
                                                     </div>                                                    
-                                                    <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayisi</label>
+                                                    <label for="middle-name" class="control-label col-md-2 col-sm-3 col-xs-12">Stok Sayısı</label>
                                                     <div class="col-md-2 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" id="5" type="number" name="stokSayisi" required="required">
                                                     </div>
@@ -159,14 +160,14 @@
                                 <div class="col-md-12 col-sm-6 col-xs-12">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Urun Silme</h2>                                                  
+                                            <h2>Ürün Silme</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
                                             <br />
                                             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action='/UrunSilSubmit' method="POST">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Adi</label>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Adı</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <select id="heard" class="form-control" name="urunAdi">
                                                             <c:forEach var="c" items="${urunList}">                                                               

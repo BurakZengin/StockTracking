@@ -15,7 +15,6 @@ import com.stoktakip.service.UrunService;
 import com.stoktakip.util.HibernateUtil;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -66,7 +65,7 @@ public class HomeController {
                 int stokDegeri = 0;
                 List<Urun> urun = urunService.findAll();
                 for (Urun urun1 : urun) {
-                    if (Integer.parseInt(urun1.getStokAdedi()) < 0) {
+                    if (Integer.parseInt(urun1.getStokAdedi()) <= 0) {
                         stokBitenUrun++;
                     } else {
                         stokDegeri += Integer.parseInt(urun1.getSatisFiyati()) * Integer.parseInt(urun1.getStokAdedi());

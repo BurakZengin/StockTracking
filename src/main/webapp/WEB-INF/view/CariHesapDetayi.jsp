@@ -1,7 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -9,7 +10,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cari Hesap Detayi | </title>
+        <title>Cari Hesap Detayı | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +38,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Cari Hesap Detayi</h2>
+                                    <h2>Cari Hesap Detayı</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -51,7 +52,7 @@
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                             <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Firma Bilgileri</a>
                                             </li>
-                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Iletisim Bilgileri</a>
+                                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">İletişim Bilgileri</a>
                                             </li>
                                             <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Banka Bilgileri</a>
                                             </li>
@@ -61,7 +62,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                         <div class="form-group">
-                                                            <label class="col-md-4 col-sm-3 col-xs-3">Unvan :</label>
+                                                            <label class="col-md-4 col-sm-3 col-xs-3">Ünvan :</label>
                                                             <label class="col-md-8 col-sm-3 col-xs-3">${cariBilgileri.unvan}</label>
                                                     </div>   
                                                 </div>
@@ -137,7 +138,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Banka Adi :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Banka Adı :</label>
                                                         <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.bankaAdi}</label>
                                                     </div>   
                                                 </div>
@@ -145,7 +146,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Sube :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Şube :</label>
                                                         <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.sube}</label>
                                                     </div>   
                                                 </div>
@@ -153,7 +154,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12 col-xs-12">                                                   
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Sube No :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Şube No :</label>
                                                         <label class="col-md-9 col-sm-3 col-xs-3">${cariBilgileri.subeNo}</label>
                                                     </div>   
                                                 </div>
@@ -183,7 +184,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Islemler</h2>
+                                <h2>İşlemler</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -194,10 +195,10 @@
                             </div>
                             <div class="x_content">
                                 <div class="col-md-12 col-sm-6 col-xs-12" >
-                                    <a href="/SatisYap=${cariBilgileri.idCari}" class="btn btn-info">Satis Yap</a>
-                                    <a href="/AlisYap=${cariBilgileri.idCari}" class="btn btn-warning">Alis Yap</a>
+                                    <a href="/SatisYap=${cariBilgileri.idCari}" class="btn btn-info">Satış Yap</a>
+                                    <a href="/AlisYap=${cariBilgileri.idCari}" class="btn btn-warning">Alış Yap</a>
                                     <a href="/CariTahsilat=${cariBilgileri.idCari}" class="btn btn-primary">Tahsilat</a>
-                                    <a href="/CariOdeme=${cariBilgileri.idCari}" class="btn btn-dark">Odeme</a>                                    
+                                    <a href="/CariOdeme=${cariBilgileri.idCari}" class="btn btn-dark">Ödeme</a>                                    
                                 </div>
                             </div>
                         </div>
@@ -205,7 +206,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div class="x_panel">
                             <div class="x_title">
-                                <h2>Hesap Duzenleme</h2>
+                                <h2>Hesap Düzenleme</h2>
                                 <ul class="nav navbar-right panel_toolbox">
                                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                     </li>
@@ -216,7 +217,7 @@
                             </div>
                             <div class="x_content">
                                 <div class="col-md-12 col-sm-6 col-xs-12" >
-                                    <a href="/CariDuzenle=${cariBilgileri.idCari}" class="btn btn-danger">Cari Hesap Duzenle</a>
+                                    <a href="/CariDuzenle=${cariBilgileri.idCari}" class="btn btn-danger">Cari Hesap Düzenle</a>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +228,7 @@
                                 <div class="col-md-12 col-sm-6 col-xs-12">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Cari Hareket Dokumu</h2>                                                  
+                                            <h2>Cari Hareket Dökümü</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -236,9 +237,9 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;">Tarih</th>
-                                                            <th>Aciklama</th>
-                                                            <th style="width: 15%">Islem Turu</th>
-                                                            <th style="width: 15%">Islem Tutari</th>
+                                                            <th>Açıklama</th>
+                                                            <th style="width: 15%">İşlem Türü</th>
+                                                            <th style="width: 15%">İşlem Tutarı</th>
                                                         </tr>
                                                     </thead>
 
@@ -262,43 +263,43 @@
                         </div>
                     </div>
                 </div>
-            <!-- /page content -->
+                <!-- /page content -->
 
-            <!-- footer content -->
-            <footer>
-            </footer>
-            <!-- /footer content -->
+                <!-- footer content -->
+                <footer>
+                </footer>
+                <!-- /footer content -->
+            </div>
         </div>
-    </div>
 
-    <!-- jQuery -->
-    <script src="static/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="static/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="static/vendors/nprogress/nprogress.js"></script>
+        <!-- jQuery -->
+        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="static/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="static/vendors/nprogress/nprogress.js"></script>
 
-    <!-- bootstrap-datetimepicker -->    
-    <script src="static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="static/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="static/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="static/vendors/pdfmake/build/vfs_fonts.js"></script>
-    <!-- Custom Theme Scripts -->
-    <script src="static/js/custom.min.js"></script>
-    <!-- Google Analytics -->
-</body>
+        <!-- bootstrap-datetimepicker -->    
+        <script src="static/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="static/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="static/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="static/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="static/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="static/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="static/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="static/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="static/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="static/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="static/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="static/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="static/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="static/vendors/jszip/dist/jszip.min.js"></script>
+        <script src="static/vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="static/vendors/pdfmake/build/vfs_fonts.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="static/js/custom.min.js"></script>
+        <!-- Google Analytics -->
+    </body>
 </html>

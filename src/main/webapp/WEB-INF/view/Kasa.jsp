@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -58,7 +59,7 @@
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Islemler</h2>
+                                    <h2>İşlemler</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -68,8 +69,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <a href="/KasaGiris" class="btn btn-success">Giris Yap (+)</a>
-                                    <a href="/KasaCikis" class="btn btn-danger">Cikis Yap (-)</a>
+                                    <a href="/KasaGiris" class="btn btn-success">Giriş Yap (+)</a>
+                                    <a href="/KasaCikis" class="btn btn-danger">Çıkış Yap (-)</a>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +95,7 @@
                                                 <th style="width: 10%">Tarih</th>
                                                 <th style="width: 10%">Tip</th>
                                                 <th style="width: 10%">Tutar</th>
-                                                <th style="width: 50%">Aciklama</th>
+                                                <th style="width: 50%">Açıklama</th>
                                                 <th style="width: 20%">Yetkili</th>
                                             </tr>
                                         </thead>

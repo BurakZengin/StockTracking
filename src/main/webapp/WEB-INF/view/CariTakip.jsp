@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -44,8 +45,8 @@
                                         <table id="datatable-buttons" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>                                                                    
-                                                    <th style="width:5%">Islem</th>
-                                                    <th>Cari Adi</th>
+                                                    <th style="width:5%">İşlem</th>
+                                                    <th>Cari Adı</th>
                                                     <th style="width:15%">Cep</th>
                                                     <th style="width:15%">Bakiye</th>  
                                                 </tr>

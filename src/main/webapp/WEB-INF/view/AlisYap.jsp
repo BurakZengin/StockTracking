@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -8,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Alis Yap | </title>
+        <title>Alış Yap | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,14 +30,14 @@
                         <div class="col-md-12 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Alis Yapma</h2>                                                  
+                                    <h2>Alış Yap</h2>                                                  
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <div class="x_content">                                                        
                                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/AlisYap=${idCari}" method="POST">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Listesi</label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Listesi</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <select id="heard" class="form-control" name="urunListesi">
                                                     <c:forEach var="c" items="${urunList}">                                                               
@@ -46,35 +47,35 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tarihi
                                             </label>
                                             <div class="col-md-2 col-sm-6 col-xs-12">
                                                 <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                             </div>
-                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="first-name">Alinan Miktar
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="first-name">Alınan Miktar
                                             </label>
                                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" name="alinanMiktar" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="number" name="alinanMiktar" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>                                        
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <textarea type="text" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tutarı
                                             </label>
                                             <div class="col-md-2 col-sm-6 col-xs-12">
-                                                <input type="text" id="first-name" name="islemTutari" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="number" id="first-name" name="islemTutari" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" name="Button" value="Alis" class="btn btn-success">Alis Yap</button>
-                                                <button type="submit" name="Button" value="Alacakli" class="btn btn-warning">Alacaklandir</button>
+                                                <button type="submit" name="Button" value="Alis" class="btn btn-success">Alış Yap</button>
+                                                <button type="submit" name="Button" value="Alacakli" class="btn btn-warning">Alacaklandır</button>
                                             </div>
                                         </div>
 

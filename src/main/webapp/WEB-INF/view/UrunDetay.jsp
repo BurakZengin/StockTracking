@@ -1,7 +1,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,7 +43,7 @@
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="x_panel">
                                             <div class="x_title">
-                                                <h2>Urun Bilgileri</h2>                                                  
+                                                <h2>Ürün Bilgileri</h2>                                                  
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="x_content">
@@ -55,15 +56,15 @@
                                                             <label class="col-md-5 col-sm-3 col-xs-3">${urunBilgileri.kategori}</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Urun Adi :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Ürün Adi :</label>
                                                         <label class="col-md-5 col-sm-3 col-xs-3">${urunBilgileri.urunAdi}</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Alis Fiyati :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Alış Fiyatı :</label>
                                                         <label class="col-md-4 col-sm-3 col-xs-3">${urunBilgileri.alisFiyati} / ${urunBilgileri.birim}</label>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="col-md-3 col-sm-3 col-xs-3">Satis Fiyati :</label>
+                                                        <label class="col-md-3 col-sm-3 col-xs-3">Satış Fiyatı :</label>
                                                         <label class="col-md-4 col-sm-3 col-xs-3">${urunBilgileri.satisFiyati} / ${urunBilgileri.birim}</label>
                                                     </div>
                                                     <div class="form-group">
@@ -80,7 +81,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Stok Giris / Cikis</h2>                                                  
+                                            <h2>Stok Giriş / Cıkış</h2>                                                  
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -106,13 +107,13 @@
                                                         <div class="col-md-2 col-sm-6 col-xs-12">
                                                             <div class="controls">
                                                                 <div class="input-prepend input-group">
-                                                                    <input type="text" name="miktar" class="form-control col-md-7 col-xs-12" required="required"/>
+                                                                    <input type="number" name="miktar" class="form-control col-md-7 col-xs-12" required="required"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Aciklama :
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Açıklama :
                                                         </label>
                                                         <div class="col-md-8 col-sm-6 col-xs-12">
                                                             <div class="controls">
@@ -123,7 +124,7 @@
                                                     <div class="ln_solid"></div>                                                                  
                                                     <div class="col-md-8">
                                                         <button type="submit" name="Button" value="Giris" class="btn btn-success btn-md col-md-5"/><i class="glyphicon glyphicon-plus"></i> Stok Ekle</a>
-                                                        <button type="submit" name="Button" value="Cikis" class="btn btn-danger btn-md col-md-5"/><i class="glyphicon glyphicon-minus"></i> Stok Cikar</a>
+                                                        <button type="submit" name="Button" value="Cikis" class="btn btn-danger btn-md col-md-5"/><i class="glyphicon glyphicon-minus"></i> Stok Çıkar</a>
                                                     </div>  
                                                 </form>
                                             </div>
@@ -143,9 +144,9 @@
                                                     <thead>
                                                         <tr>                                                                    
                                                             <th style="width: 10%">Tarih</th>
-                                                            <th style="width: 10%">Islem Turu</th>
+                                                            <th style="width: 10%">İşlem Türü</th>
                                                             <th style="width: 10%">Miktar</th>
-                                                            <th>Aciklama</th>
+                                                            <th>Açıklama</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>

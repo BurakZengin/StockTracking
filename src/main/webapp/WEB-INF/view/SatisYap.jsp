@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -8,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Satis Yap | </title>
+        <title>Satış Yap | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -117,7 +118,7 @@
                     document.getElementById("demo-form2").submit();
                     new PNotify({
                         title: 'Satis islemi gerceklesiyor!',
-                        text: 'L�tfen,urunleri kontrol edin.',
+                        text: 'Lütfen,urunleri kontrol edin.',
                         type: 'success',
                         styling: 'bootstrap3'
                     });
@@ -141,7 +142,7 @@
                     document.getElementById("demo-form2").submit();
                     new PNotify({
                         title: 'Borclandirma islemi gerceklesiyor!',
-                        text: 'L�tfen,urunleri kontrol edin.',
+                        text: 'Lütfen,urunleri kontrol edin.',
                         type: 'warning',
                         styling: 'bootstrap3'
                     });
@@ -161,7 +162,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Satis Yap</h2>                                                  
+                                        <h2>Satış Yap</h2>                                                  
                                         <div class="clearfix"></div>
                                     </div>
                                     <div class="x_content">
@@ -169,31 +170,31 @@
                                             <form id="demo-form2" name="formss" data-parsley-validate class="form-horizontal form-label-left" action="/SatisYap=${idCari}" method="POST">
                                             <div class="form-group" style="text-align: center;">
                                                 <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name"></label>
-                                                <label class=" col-md-3 col-sm-3 col-xs-12" for="first-name">Urun Adi</label>
+                                                <label class=" col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Adı</label>
                                                 <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name">Miktar</label>
-                                                <label class=" col-md-2 col-sm-3 col-xs-12" for="first-name">Birim Fiyati</label>
+                                                <label class=" col-md-2 col-sm-3 col-xs-12" for="first-name">Birim Fiyatı</label>
                                                 <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name">KDV</label>
-                                                <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name">Iskonto(TL)</label>      
+                                                <label class=" col-md-1 col-sm-3 col-xs-12" for="first-name">İskonto(TL)</label>      
                                                 <label class=" col-md-2 col-sm-3 col-xs-12" for="first-name">Genel Toplam</label>
                                             </div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group" id='urunlist'></div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tarihi
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aciklama</label>
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <textarea type="text" id="aciklama" name="aciklama" required="required" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Islem Tutari
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tutarı
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input readonly="true" type="text" id="islemTutari" name="islemTutari" value="0" required="required" class="form-control col-md-7 col-xs-12">
@@ -205,8 +206,8 @@
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                    <button type="button" onclick="urun()" class="btn btn-success"/>Satis Yap
-                                                    <button type="button" onclick="urun2()" class="btn btn-warning"/>Borclandir
+                                                    <button type="button" onclick="urun()" class="btn btn-success"/>Satış Yap
+                                                    <button type="button" onclick="urun2()" class="btn btn-warning"/>Borçlandır
                                                 </div>
                                             </div>
                                         </form>
@@ -219,7 +220,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Urunler</h2>                                                  
+                                    <h2>Ürünler</h2>                                                  
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">                                                        
@@ -227,10 +228,10 @@
                                         <thead>
                                             <tr>                                                        
                                                 <th>Kategori</th>
-                                                <th>Urun Adi</th>
-                                                <th style="width: 10%">Stok Sayisi</th>
+                                                <th>Ürün Adı</th>
+                                                <th style="width: 10%">Stok Sayısı</th>
                                                 <th style="width: 10%">Toplam Stok Fiyati</th>
-                                                <th style="width: 10%">Birim Fiyati</th>
+                                                <th style="width: 10%">Birim Fiyatı</th>
                                                 <th style="width: 5%">Ekle</th>
                                             </tr>
                                         </thead>

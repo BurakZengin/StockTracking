@@ -81,7 +81,7 @@
                         </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
-                            Kayit Ol
+                            Kayıt Ol
                         </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Kullanıcı Adınızı Giriniz">
@@ -116,7 +116,7 @@
                             <input class="input100" type="text"  placeholder="Rol"/>
                             <span class="focus-input100" data-placeholder="&#x2709;"></span>
                             <select id="heard" class="form-control" name="role">
-                                <option value="Kullanici">Kullanici</option>
+                                <option value="Kullanici">Kullanıcı</option>
                                 <option value="Admin">Admin</option>
                             </select>
                         </div>

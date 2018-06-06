@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Cari Duzenle | </title>
+        <title>Cari Düzenle | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Cari Duzenle</h2>
+                                    <h2>Cari Düzenle</h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -55,7 +55,7 @@
                                                 <a href="#step-2">
                                                     <span class="step_no">2</span>
                                                     <span class="step_descr">
-                                                        Iletisim Bilgileri<br />
+                                                        İletişim Bilgileri<br />
                                                     </span>
                                                 </a>
                                             </li>
@@ -71,7 +71,7 @@
                                         <form class="form-horizontal form-label-left" action='/CariDuzenle=${cariBilgileri.idCari}' method="POST">
                                         <div id="step-1">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Unvan
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ünvan
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <input type="text" name="unvan" value="${cariBilgileri.unvan}" class="form-control col-md-7 col-xs-12">
@@ -135,21 +135,21 @@
                                         <div id="step-3">
 
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Banka Adi
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Banka Adı
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <input type="text" id="first-name" class="form-control  col-md-7 col-xs-12" name="bankaAdi" value="${cariBilgileri.bankaAdi}">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Sube
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Şube
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <input type="text" id="last-name" name="sube" value="${cariBilgileri.sube}" class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sube No</label>
+                                                <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Şube No</label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <input id="middle-name" class="form-control col-md-7 col-xs-12" value="${cariBilgileri.subeNo}" type="text" name="subeNo">
                                                 </div>
@@ -169,7 +169,7 @@
                                             <div class="actionBar" style="display: flex;
                                                  align-items: center;
                                                  justify-content: center;">
-                                                <button type="submit" class="btn btn-success">Duzenle</button>
+                                                <button type="submit" class="btn btn-success">Düzenle</button>
                                             </div>
                                         </div>
                                     </form>
