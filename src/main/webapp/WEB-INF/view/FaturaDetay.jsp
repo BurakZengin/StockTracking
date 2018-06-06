@@ -159,7 +159,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-xs-12">
                                                         <div class="form-group">
-                                                            <label class="col-md-4 col-sm-3 col-xs-3">Kdv (%) :</label>
+                                                            <label class="col-md-4 col-sm-3 col-xs-3">Kdv (₺) :</label>
                                                             <label class="col-md-7 col-sm-3 col-xs-3" id="kdv"></label>
                                                         </div>
                                                     </div>

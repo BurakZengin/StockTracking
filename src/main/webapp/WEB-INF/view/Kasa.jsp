@@ -51,7 +51,7 @@
                                     <div class="x_content">
                                         <div class="form-group">
                                             <label class="col-md-3 col-sm-3 col-xs-3">Kasa Bakiyesi :</label>
-                                            <label class="col-md-5 col-sm-3 col-xs-3">${butce} $</label>
+                                            <label class="col-md-5 col-sm-3 col-xs-3">${butce} ₺</label>
                                     </div>
                                 </div>
                             </div>
