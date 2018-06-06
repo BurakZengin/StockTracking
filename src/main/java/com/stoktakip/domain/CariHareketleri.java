@@ -34,14 +34,6 @@ public class CariHareketleri implements Serializable {
     @Column(name = "aciklama", nullable = false, length = 300)
     private String aciklama;
 
-    public String getKar() {
-        return kar;
-    }
-
-    public void setKar(String kar) {
-        this.kar = kar;
-    }
-
     @Column(name = "islemTutari", nullable = false, length = 45)
     private String islemTutari;
 
@@ -71,6 +63,14 @@ public class CariHareketleri implements Serializable {
 
     @Column(name = "kar", nullable = false, length = 45)
     private String kar;
+
+    public String getKar() {
+        return kar;
+    }
+
+    public void setKar(String kar) {
+        this.kar = kar;
+    }
 
     public String getBirimFiyati() {
         return birimFiyati;
