@@ -69,7 +69,7 @@
                                                                 <td><a href="/UrunDetay=${c.idUrun}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                                 <td>${c.kategori}</td>
                                                                 <td>${c.urunAdi}</td>
-                                                                <td>${c.stokFiyati}</td>
+                                                                <td>${c.satisFiyati}</td>
                                                                 <td>${c.stokAdedi} &#8378;</td>
                                                                 <td>${c.satisFiyati} &#8378;</td>
                                                             </tr>
