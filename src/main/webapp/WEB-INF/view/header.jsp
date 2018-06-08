@@ -4,14 +4,20 @@
     Author     : Elidor
 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<style>
+    img {
+
+        margin-left: 170px;
+
+        margin-top: 2px;
+    }
+</style>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="/Anasayfa" class="site_title"><i class="fa fa-paw"></i> <span> Stok Takip</span></a>
         </div>
-
         <div class="clearfix"></div>
-
         <!-- menu profile quick info -->
         <div class="profile clearfix">
             <div class="profile_pic">
@@ -62,11 +68,15 @@
 <div class="top_nav">
     <div class="nav_menu">
         <nav>
+
+
             <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
-
             <ul class="nav navbar-nav navbar-right">
+                <li style="float:left">
+                    <img src="static/images/logo2.png"  style="width:120px;height:50x;" style="width:50%;">
+                </li>
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" style="text-transform: capitalize;" data-toggle="dropdown" aria-expanded="false">
                         <img src="static/images/img.jpg" alt="">${name}

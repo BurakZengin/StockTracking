@@ -86,7 +86,7 @@
                         <span >
                             <i></i>
                         </span>
-                        <img src="static/images/logo.png"  style="width:380px;height:200x;" style="width:50%;">
+                        <img src="static/images/logo2.png"  style="width:380px;height:200x;" style="width:50%;">
                         <span class="login100-form-title p-b-34 p-t-27">
                            
                         </span>

@@ -16,11 +16,31 @@
         <link href="static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- NProgress -->
         <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
-
+        <!-- PNotify -->
+        <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+        <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
     </head>
+    <script>
+        function myFunction() {
 
+            var txt = document.getElementById('unvan');
+            var txt1 = document.getElementById('yetkili');
+
+            if (txt.value === "" || txt1.value === "")
+            {
+                new PNotify({
+                    title: 'Lütfen (*) yerleri doldurun!',
+
+                    type: 'error',
+                    styling: 'bootstrap3'
+                });
+            }
+
+        }
+    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
@@ -71,17 +91,16 @@
                                         <form class="form-horizontal form-label-left" action='/CariEkle' method="POST">
                                             <div id="step-1">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ünvan
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ünvan*
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <input type="text" name="unvan" class="form-control col-md-7 col-xs-12">
+                                                        <input id="unvan" type="text" name="unvan" class="form-control col-md-7 col-xs-12" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Yetkili
-                                                    </label>
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Yetkili*                                                    </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <input type="text" name="yetkili" class="form-control col-md-7 col-xs-12">
+                                                        <input id="yetkili" type="text" name="yetkili" class="form-control col-md-7 col-xs-12" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
@@ -163,13 +182,13 @@
                                                 <div class="form-group">
                                                     <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">IBAN</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="iban">
+                                                        <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="iban" required="required">
                                                     </div>
                                                 </div>
                                                 <div class="actionBar" style="display: flex;
                                                      align-items: center;
                                                      justify-content: center;">
-                                                    <button type="submit" class="btn btn-success">Kaydet</button>
+                                                    <button type="submit" class="btn btn-success" onclick="myFunction()">Kaydet</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -237,6 +256,11 @@
         <script src="static/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
+        <!-- PNotify -->
+        <script src="static/vendors/pnotify/dist/pnotify.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.buttons.js"></script>
+        <script src="static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
         <!-- Google Analytics -->
+
     </body>
 </html>
