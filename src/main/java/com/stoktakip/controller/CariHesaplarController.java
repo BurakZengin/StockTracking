@@ -64,9 +64,9 @@ public class CariHesaplarController {
                     }
                 }
                 if (borc <= alacak) {
-                    cari.setMail("" + (alacak - borc));
+                    cari.setMail("+" + (alacak - borc));
                 } else {
-                    cari.setMail("" + (borc - alacak));
+                    cari.setMail("-" + (borc - alacak));
                 }
             }
             m.addAttribute("cariList", list);
