@@ -12,7 +12,6 @@ import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -32,8 +31,8 @@ public class KategorilerDAOImpl implements KategorilerDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -47,8 +46,8 @@ public class KategorilerDAOImpl implements KategorilerDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -69,8 +68,8 @@ public class KategorilerDAOImpl implements KategorilerDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return kategoriList;
     }

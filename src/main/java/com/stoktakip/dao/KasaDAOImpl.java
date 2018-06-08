@@ -15,7 +15,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -36,7 +35,7 @@ public class KasaDAOImpl implements KasaDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -51,7 +50,7 @@ public class KasaDAOImpl implements KasaDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -66,7 +65,7 @@ public class KasaDAOImpl implements KasaDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -82,7 +81,7 @@ public class KasaDAOImpl implements KasaDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
         return user;
@@ -101,7 +100,7 @@ public class KasaDAOImpl implements KasaDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
         return userList;
@@ -126,7 +125,7 @@ public class KasaDAOImpl implements KasaDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
         return userList;

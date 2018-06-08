@@ -111,7 +111,7 @@
                                         <div class="demo-container" style="height:280px">
                                             <div id="chart_plot_02" class="demo-placeholder"></div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@
                                         <div class="demo-container" style="height:280px">
                                             <div id="chart_plot_021" class="demo-placeholder"></div>
                                         </div>
-                                       
+
                                     </div>
                                 </div>
                             </div>

@@ -1,4 +1,5 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="tr">
     <head>
@@ -8,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Kasa C&#305;k&#305;&#351; | </title>
+        <title>Alış Yap | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,29 +19,8 @@
         <link href="static/vendors/nprogress/nprogress.css" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
-        <!-- PNotify -->
-        <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-        <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-        <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
     </head>
-    <script>
-        function myFunction() {
 
-            var txt = document.getElementById('aciklama');
-            var txt1 = document.getElementById('tutar');
-
-            if (txt.value != "" && txt1.value != "")
-            {
-                new PNotify({
-                    title: 'Kasadan cikis yapiliyor!',
-                    text: 'L�tfen,kasayi kontrol edin.',
-                    type: 'error',
-                    styling: 'bootstrap3'
-                });
-            }
-
-        }
-    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
@@ -50,38 +30,55 @@
                         <div class="col-md-12 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Kasadan �&#305;k&#305;&#351; Yap</h2>                                                  
+                                    <h2>Alış Yap</h2>                                                  
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <div class="x_content">                                                        
-                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/KasaCikis" method="POST">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">&#304;&#351;lem Tarihi
-                                                </label>
-                                                <div class="col-md-2 col-sm-6 col-xs-12">
-                                                    <input type="text" name="tarih" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
+                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/AlisYap=${idCari}" method="POST">
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">A�&#305;klama</label>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ürün Listesi</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="aciklama" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <select id="heard" class="form-control" name="urunListesi">
+                                                    <c:forEach var="c" items="${urunList}">                                                               
+                                                        <option value="${c.urunAdi}">${c.urunAdi}</option>
+                                                    </c:forEach>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar (&#8378;)
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tarihi
                                             </label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="tutar" id="tutar" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="text" name="islemTarihi" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                            <label class="control-label col-md-2 col-sm-3 col-xs-12" for="first-name">Alınan Miktar
+                                            </label>
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="number" name="alinanMiktar" required="required" class="form-control col-md-7 col-xs-12">
+                                            </div>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <textarea type="text" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tutarı
+                                            </label>
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="number" id="first-name" name="islemTutari" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-danger" onclick="myFunction()">�&#305;k&#305;&#351; Yap</button>
+                                                <button type="submit" name="Button" value="Alis" class="btn btn-success">Alış Yap</button>
+                                                <button type="submit" name="Button" value="Alacakli" class="btn btn-warning">Alacaklandır</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -105,13 +102,9 @@
         <script src="static/vendors/fastclick/lib/fastclick.js"></script>
         <!-- NProgress -->
         <script src="static/vendors/nprogress/nprogress.js"></script>
-        <!-- PNotify -->
-        <script src="static/vendors/pnotify/dist/pnotify.js"></script>
-        <script src="static/vendors/pnotify/dist/pnotify.buttons.js"></script>
-        <script src="static/vendors/pnotify/dist/pnotify.nonblock.js"></script>
+
         <!-- Custom Theme Scripts -->
         <script src="static/js/custom.min.js"></script>
-
         <!-- Google Analytics -->
     </body>
 </html>

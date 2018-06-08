@@ -37,8 +37,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -54,8 +54,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -71,8 +71,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -89,8 +89,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return user;
     }
@@ -110,8 +110,8 @@ public class UserDAOImpl implements UserDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return userList;
     }
@@ -137,8 +137,8 @@ public class UserDAOImpl implements UserDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return userList;
     }

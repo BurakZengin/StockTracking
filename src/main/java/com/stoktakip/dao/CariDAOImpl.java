@@ -35,7 +35,7 @@ public class CariDAOImpl implements CariDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -50,7 +50,7 @@ public class CariDAOImpl implements CariDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -65,7 +65,7 @@ public class CariDAOImpl implements CariDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
     }
@@ -81,7 +81,8 @@ public class CariDAOImpl implements CariDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
             //HibernateUtil.getSessionFactory().close();
         }
         return user;
@@ -100,7 +101,7 @@ public class CariDAOImpl implements CariDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
         return userList;
@@ -125,7 +126,7 @@ public class CariDAOImpl implements CariDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
+            //session.close();
             //HibernateUtil.getSessionFactory().close();
         }
         return userList;

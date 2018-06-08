@@ -1,7 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -45,8 +44,8 @@
                                         <table id="datatable-buttons" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>                                                                    
-                                                    <th style="width:5%">İşlem</th>
-                                                    <th>Cari Adı</th>
+                                                    <th style="width:5%">&#304;&#351;lem</th>
+                                                    <th>Cari Ad&#305;</th>
                                                     <th style="width:15%">Cep</th>
                                                     <th style="width:15%">Bakiye</th>  
                                                 </tr>
@@ -58,7 +57,7 @@
                                                     <td><a href="/CariHesapDetayi=${c.idCari}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                     <td>${c.yetkili}</td>
                                                     <td>${c.telefon}</td>
-                                                    <td>5.000 $</td>
+                                                    <td>${c.mail} &#8378;</td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

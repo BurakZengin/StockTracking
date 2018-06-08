@@ -1,6 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
@@ -55,7 +56,7 @@
                                                 <a href="#step-2">
                                                     <span class="step_no">2</span>
                                                     <span class="step_descr">
-                                                        &#304;leti&#351;im Bilgileri<br />
+                                                        İletişim Bilgileri<br />
                                                     </span>
                                                 </a>
                                             </li>
@@ -71,7 +72,7 @@
                                         <form class="form-horizontal form-label-left" action='/CariEkle' method="POST">
                                             <div id="step-1">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">�nvan
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ünvan
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" name="unvan" class="form-control col-md-7 col-xs-12">
@@ -135,21 +136,21 @@
                                             <div id="step-3">
 
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Banka Ad&#305;
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Banka Adı
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" id="first-name" class="form-control col-md-7 col-xs-12" name="bankaAdi">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">&#350;ube
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Şube
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" id="last-name" name="sube" class="form-control col-md-7 col-xs-12">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">&#350;ube No</label>
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Şube No</label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="subeNo">
                                                     </div>

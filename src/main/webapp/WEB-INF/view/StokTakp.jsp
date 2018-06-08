@@ -1,14 +1,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
+
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="static/images/icons/favicon.ico" type="image/ico" />
 
         <title>Stok Takip | </title>
 
@@ -28,9 +27,13 @@
         <!-- Bootstrap -->
         <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="static/js/ion.rangeSlider.js"></script>
+        <script src="static/porto/jquery.js"></script>   
         <!-- Custom Theme Style -->
         <link href="static/css/custom.min.css" rel="stylesheet">
     </head>
+    <script>
+
+    </script>
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
@@ -48,15 +51,15 @@
                                             </div>
                                             <div class="x_content">
                                                 <div class="x_content">                                                        
-                                                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                                                    <table id="Product" class="table table-striped table-bordered">
                                                         <thead>
                                                             <tr>
                                                                 <th style="width: 5%">Detay</th>
-                                                                <th style="width: 25%">Kategori</th>
-                                                                <th style="width: 25%">Ürün Adı</th>
-                                                                <th style="width: 15%">Stok Sayısı</th>
-                                                                <th style="width: 15%">Toplam Stok Fiyatı</th>
-                                                                <th style="width: 15%">Satış Birim Fiyatı</th>
+                                                                <th>Kategori</th>
+                                                                <th>�r�n Ad&#305;</th>
+                                                                <th style="width: 10%">Stok Say&#305;s&#305;</th>
+                                                                <th style="width: 10%">Toplam Stok Fiyat&#305;</th>
+                                                                <th style="width: 10%">Sat&#305;&#351; Birim Fiyat&#305;</th>
                                                             </tr>
                                                         </thead>
 
@@ -66,9 +69,9 @@
                                                                 <td><a href="/UrunDetay=${c.idUrun}" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-search"></i></a></td>
                                                                 <td>${c.kategori}</td>
                                                                 <td>${c.urunAdi}</td>
-                                                                <td>${c.stokAdedi}</td>
-                                                                <td>${c.stokAdedi}</td>
-                                                                <td>${c.satisFiyati}</td>
+                                                                <td>${c.stokFiyati}</td>
+                                                                <td>${c.stokAdedi} &#8378;</td>
+                                                                <td>${c.satisFiyati} &#8378;</td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>

@@ -1,5 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -50,10 +50,10 @@
                                                         <thead>
                                                             <tr>
                                                                 <th style="width: 5%">Detay</th>
-                                                                <th style="width: 30%">Ünvan</th>
+                                                                <th style="width: 30%">Ãœnvan</th>
                                                                 <th style="width: 15%">Yetkili</th>
                                                                 <th style="width: 10%">Tarih</th>
-                                                                <th style="width: 10%">Tür</th>
+                                                                <th style="width: 10%">TÃ¼r</th>
                                                                 <th style="width: 10%">Genel Toplam</th>
                                                             </tr>
                                                         </thead>
@@ -65,8 +65,8 @@
                                                                 <td>${c.iskonto}</td>
                                                                 <td>${c.kdv}</td>
                                                                 <td>${c.islemTarihi}</td>
-                                                                <td>${c.islemTuru} Faturas&#305; </td>
-                                                                <td>${c.islemTutari} &#8378;</td>
+                                                                <td>${c.islemTuru} FaturasÄ±</td>
+                                                                <td>${c.islemTutari}</td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>

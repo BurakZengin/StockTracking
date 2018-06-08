@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="tr">
     <head>
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Kasa C&#305;k&#305;&#351; | </title>
+        <title>Kasa Çıkış | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
             {
                 new PNotify({
                     title: 'Kasadan cikis yapiliyor!',
-                    text: 'L�tfen,kasayi kontrol edin.',
+                    text: 'Lütfen,kasayi kontrol edin.',
                     type: 'error',
                     styling: 'bootstrap3'
                 });
@@ -50,36 +50,36 @@
                         <div class="col-md-12 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Kasadan �&#305;k&#305;&#351; Yap</h2>                                                  
+                                    <h2>Kasadan Çıkış Yap</h2>                                                  
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <div class="x_content">                                                        
                                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/KasaCikis" method="POST">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">&#304;&#351;lem Tarihi
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İşlem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input type="text" name="tarih" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">A�&#305;klama</label>
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Açıklama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <textarea type="text" id="aciklama" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar (&#8378;)
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar
                                             </label>
                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="tutar" id="tutar" required="required" class="form-control col-md-7 col-xs-12">
+                                                <input type="number" name="tutar" id="tutar" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-danger" onclick="myFunction()">�&#305;k&#305;&#351; Yap</button>
+                                                <button type="submit" class="btn btn-danger" onclick="myFunction()">Çıkış Yap</button>
                                             </div>
                                         </div>
                                     </form>

@@ -1,4 +1,4 @@
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="tr">
     <head>
@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Kasa C&#305;k&#305;&#351; | </title>
+        <title>Kasa Giris | </title>
 
         <!-- Bootstrap -->
         <link href="static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,11 @@
         <link href="static/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
         <link href="static/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="static/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="static/js/ion.rangeSlider.js"></script>
     </head>
     <script>
         function myFunction() {
@@ -32,15 +37,16 @@
             if (txt.value != "" && txt1.value != "")
             {
                 new PNotify({
-                    title: 'Kasadan cikis yapiliyor!',
-                    text: 'Lütfen,kasayi kontrol edin.',
-                    type: 'error',
+                    title: 'Kasaya giris yapiliyor!',
+                    text: 'LÃ¼tfen,kasayi kontrol edin.',
+                    type: 'success',
                     styling: 'bootstrap3'
                 });
             }
 
         }
     </script>
+
     <body class="nav-md">
         <div class="container body">
             <div class="main_container">
@@ -50,38 +56,40 @@
                         <div class="col-md-12 col-sm-6 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Kasadan Ç&#305;k&#305;&#351; Yap</h2>                                                  
+                                    <h2>Kasaya GiriÅŸ Yap</h2>                                                  
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <div class="x_content">                                                        
-                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/KasaCikis" method="POST">
+                                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="/KasaGiris" method="POST">
+
                                             <div class="form-group">
-                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">&#304;&#351;lem Tarihi
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Ä°ÅŸlem Tarihi
                                                 </label>
                                                 <div class="col-md-2 col-sm-6 col-xs-12">
                                                     <input type="text" name="tarih" value="${tarih}" required="required" data-inputmask="'mask': '99/99/9999'" class="form-control col-md-7 col-xs-12">
                                             </div>
-                                        </div>
+                                        </div>                                        
                                         <div class="form-group">
-                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Aç&#305;klama</label>
+                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">AÃ§Ä±klama</label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea type="text" id="aciklama" name="aciklama" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
+                                                <textarea type="text" id="aciklama" name="aciklama" required="required" rows="3" style="resize: vertical;" class="form-control col-md-7 col-xs-12" ></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar (&#8378;)
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tutar
                                             </label>
-                                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                                <input type="text" name="tutar" id="tutar" required="required" class="form-control col-md-7 col-xs-12">
+                                            <div class="col-md-2 col-sm-6 col-xs-12">
+                                                <input type="number" id="tutar" name="tutar" required="required" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <button type="submit" class="btn btn-danger" onclick="myFunction()">Ç&#305;k&#305;&#351; Yap</button>
+                                                <button type="submit" class="btn btn-success" onclick="myFunction()">GiriÅŸ Yap</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
@@ -97,6 +105,7 @@
             </div>
         </div>
 
+        <script src="static/porto/jquery.js"></script>
         <!-- jQuery -->
         <script src="static/vendors/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap -->

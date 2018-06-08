@@ -38,8 +38,8 @@ public class UrunDAOImpl implements UrunDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -53,8 +53,8 @@ public class UrunDAOImpl implements UrunDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -68,8 +68,8 @@ public class UrunDAOImpl implements UrunDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -84,8 +84,8 @@ public class UrunDAOImpl implements UrunDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return urun;
     }
@@ -103,8 +103,8 @@ public class UrunDAOImpl implements UrunDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return urunList;
     }
@@ -129,8 +129,8 @@ public class UrunDAOImpl implements UrunDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return stokList;
     }

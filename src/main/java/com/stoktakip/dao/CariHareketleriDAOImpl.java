@@ -15,7 +15,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
@@ -36,8 +35,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -51,8 +50,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -66,8 +65,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -82,7 +81,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
             //sessionFactory.close();
         }
         return cariHareketleri;
@@ -101,8 +101,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return userList;
     }
@@ -126,8 +126,8 @@ public class CariHareketleriDAOImpl implements CariHareketleriDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return cariHareketleriList;
     }

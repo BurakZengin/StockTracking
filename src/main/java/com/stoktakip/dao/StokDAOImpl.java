@@ -36,8 +36,8 @@ public class StokDAOImpl implements StokDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -51,8 +51,8 @@ public class StokDAOImpl implements StokDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -75,8 +75,8 @@ public class StokDAOImpl implements StokDAO {
                 transaction.rollback();
             }
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return stokList;
     }
@@ -91,8 +91,8 @@ public class StokDAOImpl implements StokDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
     }
 
@@ -109,8 +109,8 @@ public class StokDAOImpl implements StokDAO {
         } catch (HibernateException e) {
             session.getTransaction().rollback();
         } finally {
-            session.close();
-            //sessionFactory.close();
+            //session.close();
+            //HibernateUtil.getSessionFactory().close();
         }
         return urunList;
     }

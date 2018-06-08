@@ -53,6 +53,22 @@ public class CariHesaplarController {
     public String CariTakip(Model m, HttpSession session) {
         if (nameSurname(m, session)) {
             List<Cari> list = cariService.findAll();
+            for (Cari cari : list) {
+                List<CariHareketleri> cariHareketleri = cariHareketleriService.findByProperty("idCari", cari.getIdCari());
+                float borc = 0, alacak = 0;
+                for (CariHareketleri cariHareketleri1 : cariHareketleri) {
+                    if (cariHareketleri1.getIslemTuru().equals("Borc")) {
+                        borc += Float.parseFloat(cariHareketleri1.getIslemTutari());
+                    } else if (cariHareketleri1.getIslemTuru().equals("Alacak")) {
+                        alacak += Float.parseFloat(cariHareketleri1.getIslemTutari());
+                    }
+                }
+                if (borc <= alacak) {
+                    cari.setMail("" + (alacak - borc));
+                } else {
+                    cari.setMail("" + (borc - alacak));
+                }
+            }
             m.addAttribute("cariList", list);
             return "CariTakip";
         } else {
