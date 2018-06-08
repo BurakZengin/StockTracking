@@ -32,7 +32,15 @@
         <link href="static/css/custom.min.css" rel="stylesheet">
     </head>
     <script>
-
+        function myFunction() {
+            for (var i = 1; i < document.getElementById("Product").rows.length; i++) {
+                document.getElementById("Product").rows[i].cells[4].innerHTML = document.getElementById("Product").rows[i].cells[5].innerHTML * document.getElementById("Product").rows[i].cells[3].innerHTML + "&#8378;";
+                document.getElementById("Product").rows[i].cells[5].innerHTML += "&#8378;";
+            }
+        }
+        $(document).ready(function () {
+            myFunction();
+        });
     </script>
     <body class="nav-md">
         <div class="container body">
@@ -70,8 +78,8 @@
                                                                 <td>${c.kategori}</td>
                                                                 <td>${c.urunAdi}</td>
                                                                 <td>${c.satisFiyati}</td>
-                                                                <td>${c.stokAdedi} &#8378;</td>
-                                                                <td>${c.satisFiyati} &#8378;</td>
+                                                                <td>${c.stokAdedi}</td>
+                                                                <td>${c.satisFiyati}</td>
                                                             </tr>
                                                         </c:forEach>
                                                     </tbody>
